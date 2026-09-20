@@ -1,0 +1,166 @@
+# Docker Compose configuration for the example stack.
+# The BIND service name is "bind" on the compose network.
+#
+# Full option reference: config.example.yaml
+#   dnssec-auditor serve --config config.yaml
+
+# Shared secrets for AXFR/IXFR, SOA probes, and optional NOTIFY auth.
+# Other sections reference these entries by name.
+tsig_keys:
+  - name: xfr-key
+    # Base64 secret; must match BIND key "xfr-key" in bind/named.conf.
+    secret: K8vC2mP9nQ4rT6wX1yB3fG5hJ7kL0mN2pR4sU6vW8xY=
+    # hmac-sha256 (default), hmac-sha1, hmac-sha384, hmac-sha512
+    algorithm: hmac-sha256
+
+# Named primaries. Zones and catalogs list these by name, not by address.
+servers:
+  - name: bind
+    # Compose DNS name of the BIND service.
+    address: bind
+    # Defaults to 53 if omitted.
+    port: 53
+    # Used for SOA probes and transfers unless a zone sets tsig_key.
+    tsig_key: xfr-key
+
+# Explicit zones to transfer and verify. These win over catalog members of
+# the same name. Zone names are canonicalised to end with a trailing dot.
+zones:
+  # BIND dnssec-policy (live signatures)
+  - { name: example.com., servers: [bind] }
+  - { name: nsec.example., servers: [bind] }
+  - { name: unsigned.example., servers: [bind] }
+  - { name: broken.example., servers: [bind] }
+  # Static pre-signed defect / algorithm / denial pack
+  - { name: rrsig-missing.example., servers: [bind] }
+  - { name: rrsig-expired.example., servers: [bind] }
+  - { name: rrsig-future.example., servers: [bind] }
+  - { name: rrsig-unknown.example., servers: [bind] }
+  - { name: rrsig-labels.example., servers: [bind] }
+  - { name: rrsig-ttl.example., servers: [bind] }
+  - { name: rrsig-expiring.example., servers: [bind] }
+  - { name: dnskey-zskonly.example., servers: [bind] }
+  - { name: dnskey-unused.example., servers: [bind] }
+  - { name: alg-rsasha1.example., servers: [bind] }
+  - { name: alg-rsasha1nsec3.example., servers: [bind] }
+  - { name: alg-rsasha256.example., servers: [bind] }
+  - { name: alg-ed25519.example., servers: [bind] }
+  - { name: nsec3-missing.example., servers: [bind] }
+  - { name: nsec3-chain.example., servers: [bind] }
+  - { name: nsec3-bitmap.example., servers: [bind] }
+  - { name: nsec3-param.example., servers: [bind] }
+  - { name: nsec3-iters.example., servers: [bind] }
+  - { name: nsec3-salt.example., servers: [bind] }
+  - { name: nsec3-strict.example., servers: [bind] }
+  - { name: nsec-missing.example., servers: [bind] }
+  - { name: nsec-chain.example., servers: [bind] }
+  - { name: mixed-nsec-nsec3.example., servers: [bind] }
+  - { name: mixed-nsec3-plus-nsec.example., servers: [bind] }
+  - { name: zonemd-bad.example., servers: [bind] }
+  - { name: zonemd-good.example., servers: [bind] }
+  - { name: wildcard.example., servers: [bind] }
+
+# RFC 9432 catalog. The catalog zone is transferred; PTR members are added
+# as monitored zones (member.example. is catalog-only in this stack).
+catalogs:
+  - name: catalog.example.
+    # Where to transfer the catalog zone from.
+    servers: [bind]
+    tsig_key: xfr-key
+    # Servers / TSIG used for members discovered from this catalog.
+    member_servers: [bind]
+    member_tsig_key: xfr-key
+
+# SOA poll + AXFR/IXFR. Next wait is clamp(SOA REFRESH, min, max) × jitter
+# after success, or clamp(SOA RETRY, retry_min, retry_max) × jitter after failure.
+refresh:
+  # Floor for the SOA REFRESH-based poll interval (compose uses a short floor).
+  min_interval: 30s
+  # Ceiling for the SOA REFRESH-based poll interval.
+  max_interval: 1h
+  # Floor for the retry interval after a failed transfer.
+  retry_min: 15s
+  # Ceiling for the retry interval after a failed transfer.
+  retry_max: 5m
+  # Fraction of the interval that may be randomly dropped (0–1).
+  jitter: 0.1
+  # Try IXFR when the local serial is known; fall back to AXFR on failure.
+  prefer_ixfr: true
+  # Maximum number of zones transferring or verifying at once.
+  concurrent_transfers: 16
+  # Probe every server and transfer from the highest serial; also enables
+  # serial-skew detection. False = stop at the first reachable server.
+  probe_all_servers: true
+  # Raise SERIAL_SKEW if reachable serials differ by more than this for
+  # longer than serial_skew_grace (needs two or more servers).
+  serial_skew_warning: 2
+  serial_skew_grace: 10m
+
+# RFC 1996 NOTIFY listener. BIND also-notify is pointed here by the compose
+# entrypoint once dnssec-auditor is resolvable.
+notify:
+  enabled: true
+  bind_address: 0.0.0.0
+  udp_port: 5354
+  tcp_port: 5354
+  # When true, unsigned NOTIFY is discarded (set tsig_key as well).
+  require_tsig: false
+
+# Post-transfer DNSSEC checks. AXFR is always a full pass; IXFR is incremental
+# unless DNSKEY/NSEC3PARAM changes. unsigned is never invalid. Only error
+# findings flip validity; warnings do not.
+verification:
+  # Parallelism for the full verifier. 0 means GOMAXPROCS.
+  workers: 0
+  # RRSIG inception/expiration slack.
+  clock_skew: 1h
+  # Warn RRSIG_EXPIRING_SOON when a signature expires within this window.
+  expiry_warning: 72h
+  # Re-check loaded signatures for expiry without waiting for a transfer.
+  expiry_check_interval: 5m
+  # Re-verify invalid zones with a full pass on the next cycle.
+  full_reverify_when_invalid: true
+  # auto = check ZONEMD if present; on = require it; off = ignore.
+  # Digests run on full verifies only; optional zonemd_max_age forces a recheck.
+  zonemd: auto
+  # zonemd_max_age: 24h
+  hygiene:
+    # Extra warnings (iterations, salt, deprecated algorithms, unused keys).
+    enabled: true
+    # Warn when NSEC3 iterations exceed this (RFC 9276 recommends 0).
+    nsec3_max_iterations: 0
+    # Warn when an NSEC3 salt is present (RFC 9276 recommends empty).
+    warn_nsec3_salt: true
+
+# Optional parent-DS vs DNSKEY check. Off here; in-zone verification is enough.
+chain_of_trust:
+  enabled: false
+
+# HTTP POST of bus events. See config.example.yaml for targets and event names.
+webhooks:
+  enabled: false
+
+# In-memory zone cache. file persists last-known state/findings across restarts.
+state:
+  file: ""
+
+# JSON API, SSE, /metrics, /health, /ui/config. No authentication.
+api:
+  listen: ":8080"
+
+logging:
+  # json or text
+  format: json
+  # debug | info | warn | error
+  level: info
+  # Fraction of successful GET API requests to log (0–1). Errors and slow
+  # requests are always logged. 1.0 logs every request (useful in compose).
+  sample_rate: 1.0
+  slow_threshold_ms: 500
+
+# Served to the Alpine UI at GET /ui/config.
+theme:
+  app_name: DNSSEC Auditor
+  # dark or light (localStorage overrides if the user has toggled).
+  default_mode: dark
+  allow_mode_toggle: true

@@ -1,0 +1,52 @@
+broken.example.	3600	IN	NS	ns1.broken.example.
+broken.example.	3600	IN	NS	ns2.broken.example.
+broken.example.	3600	IN	SOA	ns1.broken.example. hostmaster.broken.example. 1 3600 600 86400 300
+broken.example.	3600	IN	RRSIG	DNSKEY 13 2 3600 20380119031407 19700101000001 28416 broken.example. 1xbgh5MgoHACC7NW6Mcgepea8j08oibYxLsa9M3IYez6n6F3o+NQIv3F/Bkbc9X+gxUvVRWoPU0u72eK/JzOwQ==
+broken.example.	3600	IN	RRSIG	NS 13 2 3600 20380119031407 19700101000001 3452 broken.example. 2VSBUNZrH9ZbWokNAFki6mX731abtfcAbi7zOh4e+YQD9S7uWyTv54e/pBeO2U+3wlHuemKfGwYp81j3pKZfUw==
+broken.example.	3600	IN	RRSIG	NSEC3PARAM 13 2 0 20380119031407 19700101000001 3452 broken.example. kE8naSSH6mh7XVg1O8spyb+pCvJCQlZj1ekpiFs0YCwn4ijsUF/sT7K1UrWMkdcf0wwJeK/d1tJJyCJJ54j7zA==
+broken.example.	3600	IN	RRSIG	SOA 13 2 3600 20380119031407 19700101000001 3452 broken.example. A99LwpTWjqwj3Lw/wzejcApk7JiHh/YfJsttEyiKQ1PM1+5sAYJNzOV4fWHhgGeDsPBvX/RfE83wWmKH+cJ/eg==
+broken.example.	3600	IN	DNSKEY	256 3 13 XDZQzKN6rMCxkdPEoYzysxdCGE4qcfeaykmgkH9SvXDlTSvH1RixzHqaPxJnOX4tRAmFz2PjfVYofwH7fuZt3g==
+broken.example.	3600	IN	DNSKEY	257 3 13 LekztaKqZ539qePDvck9GdsFyYC1V7RZrH9EJNo9kYL3bq/EQU7vPVA/BKNV176EXf5Fv4JEgstFqbZH8THhLw==
+broken.example.	0	IN	NSEC3PARAM	1 0 0 -
+5o4d3ouf6e1jg230de1d9k3162tl9noq.broken.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 3452 broken.example. x4CAMs33wtgTihy3HTOkuLOlbF1M+Ojdy2C+ELL9TD7w2Z0NIhdu4gUeu10/zPRMyYegChdPT9Gg5nDqepAxGA==
+5o4d3ouf6e1jg230de1d9k3162tl9noq.broken.example.	3600	IN	NSEC3	1 1 0 - K8DS51ALK9E2RPMSUNQH77GPDIAED42F A RRSIG
+d00000.broken.example.	3600	IN	NS	ns1.d00000.broken.example.
+d00000.broken.example.	3600	IN	NS	ns2.d00000.broken.example.
+d00000.broken.example.	3600	IN	NS	ns3.d00000.broken.example.
+d00000.broken.example.	3600	IN	NS	ns4.d00000.broken.example.
+ns1.d00000.broken.example.	3600	IN	A	192.0.2.2
+ns2.d00000.broken.example.	3600	IN	A	192.0.2.3
+ns3.d00000.broken.example.	3600	IN	A	192.0.2.4
+ns4.d00000.broken.example.	3600	IN	A	192.0.2.5
+d00001.broken.example.	3600	IN	NS	ns1.d00001.broken.example.
+d00001.broken.example.	3600	IN	NS	ns2.d00001.broken.example.
+d00001.broken.example.	3600	IN	NS	ns3.d00001.broken.example.
+d00001.broken.example.	3600	IN	NS	ns4.d00001.broken.example.
+ns1.d00001.broken.example.	3600	IN	A	192.0.2.3
+ns2.d00001.broken.example.	3600	IN	A	192.0.2.4
+ns3.d00001.broken.example.	3600	IN	A	192.0.2.5
+ns4.d00001.broken.example.	3600	IN	A	192.0.2.6
+d00002.broken.example.	3600	IN	NS	ns1.d00002.broken.example.
+d00002.broken.example.	3600	IN	NS	ns2.d00002.broken.example.
+d00002.broken.example.	3600	IN	NS	ns3.d00002.broken.example.
+d00002.broken.example.	3600	IN	NS	ns4.d00002.broken.example.
+ns1.d00002.broken.example.	3600	IN	A	192.0.2.4
+ns2.d00002.broken.example.	3600	IN	A	192.0.2.5
+ns3.d00002.broken.example.	3600	IN	A	192.0.2.6
+ns4.d00002.broken.example.	3600	IN	A	192.0.2.7
+d00003.broken.example.	3600	IN	NS	ns1.d00003.broken.example.
+d00003.broken.example.	3600	IN	NS	ns2.d00003.broken.example.
+d00003.broken.example.	3600	IN	NS	ns3.d00003.broken.example.
+d00003.broken.example.	3600	IN	NS	ns4.d00003.broken.example.
+ns1.d00003.broken.example.	3600	IN	A	192.0.2.5
+ns2.d00003.broken.example.	3600	IN	A	192.0.2.6
+ns3.d00003.broken.example.	3600	IN	A	192.0.2.7
+ns4.d00003.broken.example.	3600	IN	A	192.0.2.8
+k8ds51alk9e2rpmsunqh77gpdiaed42f.broken.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 3452 broken.example. FKilzKLqMOGQbsHHLRyfSD6CDytn/QQIA5IAwIVWpxFGDWjo51cFcJSTXkbOgz4U4PYAiaxrhB3XRBtf0yu4Zg==
+k8ds51alk9e2rpmsunqh77gpdiaed42f.broken.example.	3600	IN	NSEC3	1 1 0 - NJGCA1IKPFJEQQT0K7JRDKQAF0OV1VME A RRSIG
+njgca1ikpfjeqqt0k7jrdkqaf0ov1vme.broken.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 3452 broken.example. wet5jE5DC2X2nQ6L4hzZprZznePDbHUq3CPMZvgSepbILArQsLOdkdcodp895XjZVrvYXYCHo/rJUbDKaWlbcg==
+njgca1ikpfjeqqt0k7jrdkqaf0ov1vme.broken.example.	3600	IN	NSEC3	1 1 0 - 5O4D3OUF6E1JG230DE1D9K3162TL9NOQ NS SOA RRSIG DNSKEY NSEC3PARAM
+ns1.broken.example.	3600	IN	A	192.0.2.1
+ns1.broken.example.	3600	IN	RRSIG	A 13 3 3600 20380119031407 19700101000001 3452 broken.example. 1vF2X+tppN2Q275FzCQj6bKWphKdgzsjJZ7v37mrTsojUFCgwz0RrfT9/YjE6pBdXblMSYn5MmDA9SBu2Ho1Ig==
+ns2.broken.example.	3600	IN	A	192.0.2.2
+ns2.broken.example.	3600	IN	RRSIG	A 13 3 3600 20380119031407 19700101000001 3452 broken.example. klLucqOOMxnontW23ZQI4RhFp6A71a/VNu4O/j6t9ZYscrPzfxTqzHUMQNy57MbEGlV8+b+YcCyRK85xIlcGHg==

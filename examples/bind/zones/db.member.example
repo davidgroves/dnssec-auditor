@@ -1,0 +1,18 @@
+$TTL 3600
+$ORIGIN member.example.
+
+@       IN      SOA     ns1.member.example. hostmaster.member.example. (
+                        1
+                        3600
+                        600
+                        86400
+                        300
+                        )
+
+@       IN      NS      ns1.member.example.
+ns1     IN      A       192.0.2.41
+www     IN      A       192.0.2.42
+
+; Insecure delegation so NSEC3 opt-out is not empty
+insecure        IN      NS      ns1.insecure.member.example.
+ns1.insecure    IN      A       192.0.2.43

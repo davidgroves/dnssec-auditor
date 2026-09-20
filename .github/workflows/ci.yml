@@ -1,0 +1,75 @@
+# Unit tests on every pull request and every commit to main.
+# Release workflow also calls this before publishing images.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_call:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 3 * * *'
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  go-unit:
+    name: Go unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.25'
+      - name: Vet and test
+        run: go vet ./... && go test ./...
+
+  frontend-unit:
+    name: Frontend unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+
+  go-e2e:
+    name: E2E scenario suites
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.25'
+      - name: Run e2e defects
+        run: go test -tags e2e ./tests/e2e -run 'TestDefects|TestDDNS|TestCatalog|TestOracle' -count=1 -timeout 10m
+
+  go-e2e-large:
+    name: E2E large / incremental
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.25'
+      - name: Run large-zone suites
+        env:
+          E2E_LARGE_RECORDS: '200000'
+        run: go test -tags e2e ./tests/e2e -run 'TestLarge|TestIncremental' -count=1 -timeout 45m
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: e2e-large-results
+          path: tests/e2e/results
+          if-no-files-found: ignore

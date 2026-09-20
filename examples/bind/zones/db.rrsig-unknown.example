@@ -1,0 +1,60 @@
+rrsig-unknown.example.	3600	IN	NS	ns1.rrsig-unknown.example.
+rrsig-unknown.example.	3600	IN	NS	ns2.rrsig-unknown.example.
+rrsig-unknown.example.	3600	IN	SOA	ns1.rrsig-unknown.example. hostmaster.rrsig-unknown.example. 1 3600 600 86400 300
+rrsig-unknown.example.	3600	IN	RRSIG	DNSKEY 13 2 3600 20380119031407 19700101000001 20796 rrsig-unknown.example. bl2t3DFWuXNno3bariEoHWlbW9yGjL92JEPUWd9VWVhFeFdWRZOR4DQX/+Tv0jUuEUfKOrmQ/jg5US41k+YjBA==
+rrsig-unknown.example.	3600	IN	RRSIG	NS 13 2 3600 20380119031407 19700101000001 32809 rrsig-unknown.example. VlGAeNEaxgKYT7okIFEHbmyVABydP5EfcI+nb8NOXNQrWxnxhC82CTdybqlHyiyQjQZOJidzv9JCT0/SQqx5GQ==
+rrsig-unknown.example.	3600	IN	RRSIG	NSEC3PARAM 13 2 0 20380119031407 19700101000001 32809 rrsig-unknown.example. YQ9uaqCFGxzBxrGcybJMZgs6JO3ionFflQHaEYfpczd8ACUH+jYGdVgl3we2H8+dcRLg4lntTfTsiWW/jnAUTg==
+rrsig-unknown.example.	3600	IN	RRSIG	SOA 13 2 3600 20380119031407 19700101000001 5534 rrsig-unknown.example. lZMOjB7NDBzgbSEBT5/opWMYKpK7HmAkX3S2B1hCT4cPU8+I1AEV4U5ZYfZOzuMzo6Nl4KCgPPCazSpVsgAM5Q==
+rrsig-unknown.example.	3600	IN	DNSKEY	256 3 13 +Tp1FrUIc1LOlmZD6ZjPeSvxtwBPFKo74t4G8CeB06P9TrNT1kgUr6+hUsZ+h4BNsx8TReyM3Cv1dkEoZMhu8A==
+rrsig-unknown.example.	3600	IN	DNSKEY	257 3 13 h4ql57A3G8xCRTx0StHRGhpIdo3Z5S8/w9yT/xHjttEd5epL/dteqCGZcn1F4J342ross8PRtE80CDHrVlHmDQ==
+rrsig-unknown.example.	0	IN	NSEC3PARAM	1 0 0 -
+a2uibh41agsoe5u9hc4rtr4ldmss8geb.rrsig-unknown.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 32809 rrsig-unknown.example. LH0dpjGYkFDnCxLiPAjFI7j5gI14nv/9j0uehkMKmkcAWvxrP/cX+LkNROlyEdHATL1EGO6DTW0tQ5mdacyxQA==
+a2uibh41agsoe5u9hc4rtr4ldmss8geb.rrsig-unknown.example.	3600	IN	NSEC3	1 1 0 - B4C8DPU6SL7O03S8FNMU400J0MLQIOLI A RRSIG
+b4c8dpu6sl7o03s8fnmu400j0mlqioli.rrsig-unknown.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 32809 rrsig-unknown.example. pAttM+nfQLE4eZLxARUdn5CO/ZOSqEadIx4fUfjIvNt890ri0sPIozkdIL8d8oL2w5Y+LBEFDf1OPN8YV2jn6Q==
+b4c8dpu6sl7o03s8fnmu400j0mlqioli.rrsig-unknown.example.	3600	IN	NSEC3	1 1 0 - KELIQA1HNOOGIC21IAKO0CL5I0PL8NV1 NS DS RRSIG
+d00000.rrsig-unknown.example.	3600	IN	NS	ns1.d00000.rrsig-unknown.example.
+d00000.rrsig-unknown.example.	3600	IN	NS	ns2.d00000.rrsig-unknown.example.
+d00000.rrsig-unknown.example.	3600	IN	NS	ns3.d00000.rrsig-unknown.example.
+d00000.rrsig-unknown.example.	3600	IN	NS	ns4.d00000.rrsig-unknown.example.
+ns1.d00000.rrsig-unknown.example.	3600	IN	A	192.0.2.2
+ns2.d00000.rrsig-unknown.example.	3600	IN	A	192.0.2.3
+ns3.d00000.rrsig-unknown.example.	3600	IN	A	192.0.2.4
+ns4.d00000.rrsig-unknown.example.	3600	IN	A	192.0.2.5
+d00001.rrsig-unknown.example.	3600	IN	NS	ns1.d00001.rrsig-unknown.example.
+d00001.rrsig-unknown.example.	3600	IN	NS	ns2.d00001.rrsig-unknown.example.
+d00001.rrsig-unknown.example.	3600	IN	NS	ns3.d00001.rrsig-unknown.example.
+d00001.rrsig-unknown.example.	3600	IN	NS	ns4.d00001.rrsig-unknown.example.
+ns1.d00001.rrsig-unknown.example.	3600	IN	A	192.0.2.3
+ns2.d00001.rrsig-unknown.example.	3600	IN	A	192.0.2.4
+ns3.d00001.rrsig-unknown.example.	3600	IN	A	192.0.2.5
+ns4.d00001.rrsig-unknown.example.	3600	IN	A	192.0.2.6
+d00002.rrsig-unknown.example.	3600	IN	NS	ns1.d00002.rrsig-unknown.example.
+d00002.rrsig-unknown.example.	3600	IN	NS	ns2.d00002.rrsig-unknown.example.
+d00002.rrsig-unknown.example.	3600	IN	NS	ns3.d00002.rrsig-unknown.example.
+d00002.rrsig-unknown.example.	3600	IN	NS	ns4.d00002.rrsig-unknown.example.
+d00002.rrsig-unknown.example.	3600	IN	DS	51977 13 2 C42534E7665DB15FC2FBA80D9A96A9D6F0C28AF66A95FC00669168CAF09F1A2A
+d00002.rrsig-unknown.example.	3600	IN	RRSIG	DS 13 3 3600 20380119031407 19700101000001 32809 rrsig-unknown.example. soYyZQqhRKu6bCejvouiUHTxToFOPvahXutnnn9UzF/paY1kHYvN3LezJpjRNjtjyiqywd9a0S23mj5M26ioew==
+ns1.d00002.rrsig-unknown.example.	3600	IN	A	192.0.2.4
+ns2.d00002.rrsig-unknown.example.	3600	IN	A	192.0.2.5
+ns3.d00002.rrsig-unknown.example.	3600	IN	A	192.0.2.6
+ns4.d00002.rrsig-unknown.example.	3600	IN	A	192.0.2.7
+d00003.rrsig-unknown.example.	3600	IN	NS	ns1.d00003.rrsig-unknown.example.
+d00003.rrsig-unknown.example.	3600	IN	NS	ns2.d00003.rrsig-unknown.example.
+d00003.rrsig-unknown.example.	3600	IN	NS	ns3.d00003.rrsig-unknown.example.
+d00003.rrsig-unknown.example.	3600	IN	NS	ns4.d00003.rrsig-unknown.example.
+d00003.rrsig-unknown.example.	3600	IN	DS	60686 13 2 584CCBBD5C2157986C8D7C3350A4A56A4F684262C23EDF523F3532A848737072
+d00003.rrsig-unknown.example.	3600	IN	RRSIG	DS 13 3 3600 20380119031407 19700101000001 32809 rrsig-unknown.example. u0MCMd6ozMPlQczrRvn210uDb2u6ika/9XgkadZnL1jtJX59bmZDujYUWZK8Y7Vm93LwDAAbqezi99kHmJc+dA==
+ns1.d00003.rrsig-unknown.example.	3600	IN	A	192.0.2.5
+ns2.d00003.rrsig-unknown.example.	3600	IN	A	192.0.2.6
+ns3.d00003.rrsig-unknown.example.	3600	IN	A	192.0.2.7
+ns4.d00003.rrsig-unknown.example.	3600	IN	A	192.0.2.8
+keliqa1hnoogic21iako0cl5i0pl8nv1.rrsig-unknown.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 32809 rrsig-unknown.example. wFsQqAg3yfIOaUiztjL26rJz1IPgMd9Qsfj6XqPml6DBhQCGzZ/zXjok31MFT/HwESAnB6rMVWJG6eqKLyls1w==
+keliqa1hnoogic21iako0cl5i0pl8nv1.rrsig-unknown.example.	3600	IN	NSEC3	1 1 0 - OGCJH3R604N0MQGV2KBR3NUKAO4II6OM A RRSIG
+ns1.rrsig-unknown.example.	3600	IN	A	192.0.2.1
+ns1.rrsig-unknown.example.	3600	IN	RRSIG	A 13 3 3600 20380119031407 19700101000001 32809 rrsig-unknown.example. ChgHmv8AhJQXxGZodXRu/xO76eHKapb6RTjQ9UAeKIoW4kGsZ55lWkmsF2OEVgEKkBBpZlID9J5X3QkpM/5VKg==
+ns2.rrsig-unknown.example.	3600	IN	A	192.0.2.2
+ns2.rrsig-unknown.example.	3600	IN	RRSIG	A 13 3 3600 20380119031407 19700101000001 32809 rrsig-unknown.example. c+wRtXzGrKt3w5AWMSbt93KdmAoun1w3Yb220wJsiHZtETV1mUYsVyvvExqtj1dIw1OkQ2eyTtBZnCCcHM/3lQ==
+ogcjh3r604n0mqgv2kbr3nukao4ii6om.rrsig-unknown.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 32809 rrsig-unknown.example. x2JSZqv0Md3DkamXAzyGAnvHcOCT0XHCxbBs/dM3g/NSsJFGLy4QDCKIB7+wghjuKgxHSkUmzb61wQNPrLfU7w==
+ogcjh3r604n0mqgv2kbr3nukao4ii6om.rrsig-unknown.example.	3600	IN	NSEC3	1 1 0 - TJC74KRFGPMOPT6U0RA1RARV1H2J0UEN NS SOA RRSIG DNSKEY NSEC3PARAM
+tjc74krfgpmopt6u0ra1rarv1h2j0uen.rrsig-unknown.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 32809 rrsig-unknown.example. nWbPmzSqpCRxQXikzbCnRhvO1DByWqRzAINxv05pwligKlnwdpQOFW8mGUdODwaAhtMHqhlQI0F9CblgIM0rGw==
+tjc74krfgpmopt6u0ra1rarv1h2j0uen.rrsig-unknown.example.	3600	IN	NSEC3	1 1 0 - A2UIBH41AGSOE5U9HC4RTR4LDMSS8GEB NS DS RRSIG

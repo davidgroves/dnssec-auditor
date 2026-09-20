@@ -1,0 +1,24 @@
+{
+  "name": "DNSSEC Auditor",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "dev",
+  "workspaceFolder": "/workspace",
+  "shutdownAction": "stopCompose",
+  "postCreateCommand": "go version && npm install",
+  "forwardPorts": [5173, 8080, 5354],
+  "portsAttributes": {
+    "5173": { "label": "Vite Frontend", "onAutoForward": "silent" },
+    "8080": { "label": "Auditor API", "onAutoForward": "silent" },
+    "5354": { "label": "NOTIFY", "onAutoForward": "silent" }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "golang.go",
+        "biomejs.biome",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  },
+  "remoteUser": "vscode"
+}

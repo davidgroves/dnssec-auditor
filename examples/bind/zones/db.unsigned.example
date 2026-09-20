@@ -1,0 +1,14 @@
+$TTL 3600
+$ORIGIN unsigned.example.
+
+@       IN      SOA     ns1.unsigned.example. hostmaster.unsigned.example. (
+                        1
+                        3600
+                        600
+                        86400
+                        300
+                        )
+
+@       IN      NS      ns1.unsigned.example.
+ns1     IN      A       192.0.2.31
+www     IN      A       192.0.2.32

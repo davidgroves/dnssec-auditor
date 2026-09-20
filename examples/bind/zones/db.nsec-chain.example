@@ -1,0 +1,94 @@
+nsec-chain.example.	3600	IN	NS	ns1.nsec-chain.example.
+nsec-chain.example.	3600	IN	NS	ns2.nsec-chain.example.
+nsec-chain.example.	3600	IN	SOA	ns1.nsec-chain.example. hostmaster.nsec-chain.example. 1 3600 600 86400 300
+nsec-chain.example.	3600	IN	RRSIG	DNSKEY 13 2 3600 20380119031407 19700101000001 23420 nsec-chain.example. wtf16lve96C5jljlJ3TsFt4SSezLAL3AeIjvi/wvAIT+9RjaLdEU6g0Z02oiZT8Zn2HgnGAmrjD3aQk7FgptTg==
+nsec-chain.example.	3600	IN	RRSIG	NS 13 2 3600 20380119031407 19700101000001 30070 nsec-chain.example. FgLVQs9L0KvSJSfCnaKHILCelKCQ/wofjLHienbu02JyySzDQKuaBdgKG0TRF5u4yS7Ma/VfYGG91dU064QjeQ==
+nsec-chain.example.	3600	IN	RRSIG	NSEC 13 2 3600 20380119031407 19700101000001 30070 nsec-chain.example. HlbadVy5VyK62wyKNw1MloxqfY7QB9xeGoiwJ4TCvzGP2ZpvI2bMuDLRnDa9t3V8gGtuvm9cDgiiROQF+ZQkhA==
+nsec-chain.example.	3600	IN	RRSIG	SOA 13 2 3600 20380119031407 19700101000001 30070 nsec-chain.example. ZL6MfsGvHKg4kyh/W8KqveMfhmC2FRKXfcoYBGNdR8hV0aECtlHR3I/HDIdC4qsL20WERizevetRxSikfW1IiQ==
+nsec-chain.example.	3600	IN	NSEC	d00000.nsec-chain.example. NS SOA RRSIG NSEC DNSKEY
+nsec-chain.example.	3600	IN	DNSKEY	256 3 13 nVRXQpQv2L1RG88VCY9ukVnW8v2br0GnO6yPmPFcFuTXOueFtamQBRpHwzHkSsgB0temRZverjXtmh7DylZRxg==
+nsec-chain.example.	3600	IN	DNSKEY	257 3 13 ClGYyXIcRrgBOwdYo7hyZWgsdyckKepocJP0haXAcVza4sJDsI5buWEfbBuuOG7KBMweZnhG1RrRqONY+xm+VQ==
+d00000.nsec-chain.example.	3600	IN	NS	ns1.d00000.nsec-chain.example.
+d00000.nsec-chain.example.	3600	IN	NS	ns2.d00000.nsec-chain.example.
+d00000.nsec-chain.example.	3600	IN	NS	ns3.d00000.nsec-chain.example.
+d00000.nsec-chain.example.	3600	IN	NS	ns4.d00000.nsec-chain.example.
+d00000.nsec-chain.example.	3600	IN	RRSIG	NSEC 13 3 3600 20380119031407 19700101000001 30070 nsec-chain.example. tkDfkuovydg3yL58FZi9hPRbZzJ8K8pkmZYTYLWhMv5FmzvCDZdT1neVo1XyKOcTLYlEba5tL1fSioUCZufeyQ==
+d00000.nsec-chain.example.	3600	IN	NSEC	ns1.d00000.nsec-chain.example. NS RRSIG NSEC
+ns1.d00000.nsec-chain.example.	3600	IN	A	192.0.2.2
+ns1.d00000.nsec-chain.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 30070 nsec-chain.example. xIc82dUr/EwW/T6abz3avp/Nl7KdQzH+UycsBIiv0H3f5fka7Iag+2UR2ea7Anhj/GaZXkIbF72VfAnhkQKb2A==
+ns1.d00000.nsec-chain.example.	3600	IN	NSEC	zzz-broken.nsec-chain.example. A RRSIG NSEC
+ns2.d00000.nsec-chain.example.	3600	IN	A	192.0.2.3
+ns2.d00000.nsec-chain.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 30070 nsec-chain.example. 4PDBDVTd3xV4mvigHNy7YLlHzhrRLEbo8asXxy6Zg6nFg6KUJXMqVlshdTBsmAZWQbMfdu9x0xroKv+HryG4dw==
+ns2.d00000.nsec-chain.example.	3600	IN	NSEC	ns3.d00000.nsec-chain.example. A RRSIG NSEC
+ns3.d00000.nsec-chain.example.	3600	IN	A	192.0.2.4
+ns3.d00000.nsec-chain.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 30070 nsec-chain.example. Vk7HndEJrRRPcOOCiUpDT/qFsgFTJUrUnzm/GKlSuJLfDQebbsw7Zf4IcbW8RjzcJOY9wm4W85RMc4ddXM9vHg==
+ns3.d00000.nsec-chain.example.	3600	IN	NSEC	ns4.d00000.nsec-chain.example. A RRSIG NSEC
+ns4.d00000.nsec-chain.example.	3600	IN	A	192.0.2.5
+ns4.d00000.nsec-chain.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 30070 nsec-chain.example. 9ebJ1z1A1bfy3VhmsPTBbjdbhVq4PjtHttfHN+sbtY9N4qc08kf0rr9lMjWPGDmpQ2ZkSiAs9vgddwA0KW1xrA==
+ns4.d00000.nsec-chain.example.	3600	IN	NSEC	d00001.nsec-chain.example. A RRSIG NSEC
+d00001.nsec-chain.example.	3600	IN	NS	ns1.d00001.nsec-chain.example.
+d00001.nsec-chain.example.	3600	IN	NS	ns2.d00001.nsec-chain.example.
+d00001.nsec-chain.example.	3600	IN	NS	ns3.d00001.nsec-chain.example.
+d00001.nsec-chain.example.	3600	IN	NS	ns4.d00001.nsec-chain.example.
+d00001.nsec-chain.example.	3600	IN	RRSIG	NSEC 13 3 3600 20380119031407 19700101000001 30070 nsec-chain.example. +TYccOrAm/wO8m+8eX/GkG34pbgox8kUsxx/YmdF+Gesk/86QkYbLhDfU6+atcz3/VlaB+VXHB11FyVcTIyLiA==
+d00001.nsec-chain.example.	3600	IN	NSEC	ns1.d00001.nsec-chain.example. NS RRSIG NSEC
+ns1.d00001.nsec-chain.example.	3600	IN	A	192.0.2.3
+ns1.d00001.nsec-chain.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 30070 nsec-chain.example. fzSqpWlb+tBjd8n8ypiSHYwBGClNjTU+27lkEn52QTH8Z6WkGN1sklZ0Gn5Fz4WOpOn9dfJHhiH9yRsrkkNu8g==
+ns1.d00001.nsec-chain.example.	3600	IN	NSEC	ns2.d00001.nsec-chain.example. A RRSIG NSEC
+ns2.d00001.nsec-chain.example.	3600	IN	A	192.0.2.4
+ns2.d00001.nsec-chain.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 30070 nsec-chain.example. nRCnMBY+lbEQNsgrpoRkqjSpTVrHIPRogyNWUp+n0zn/AUK1ypd8pzC+vMpUXTfvSCjOmDJO1uagca+AdS7T3g==
+ns2.d00001.nsec-chain.example.	3600	IN	NSEC	ns3.d00001.nsec-chain.example. A RRSIG NSEC
+ns3.d00001.nsec-chain.example.	3600	IN	A	192.0.2.5
+ns3.d00001.nsec-chain.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 30070 nsec-chain.example. gqC+B0jmAoJMDh+3/KsACEyRd3G55ICTIhMe45AodnWGg9T9B8OVy6qV/2P5G03QN8xM4JxrzLYvuORfAHaP/w==
+ns3.d00001.nsec-chain.example.	3600	IN	NSEC	ns4.d00001.nsec-chain.example. A RRSIG NSEC
+ns4.d00001.nsec-chain.example.	3600	IN	A	192.0.2.6
+ns4.d00001.nsec-chain.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 30070 nsec-chain.example. RaUIQi7PnuMyOmdLnQ9KmXU0iI1fYRE8LU+BU6OKgpNZ3cw2GDPPKc1Jryx97SM5lI24czHMTNb+e9qRLT42cg==
+ns4.d00001.nsec-chain.example.	3600	IN	NSEC	d00002.nsec-chain.example. A RRSIG NSEC
+d00002.nsec-chain.example.	3600	IN	NS	ns1.d00002.nsec-chain.example.
+d00002.nsec-chain.example.	3600	IN	NS	ns2.d00002.nsec-chain.example.
+d00002.nsec-chain.example.	3600	IN	NS	ns3.d00002.nsec-chain.example.
+d00002.nsec-chain.example.	3600	IN	NS	ns4.d00002.nsec-chain.example.
+d00002.nsec-chain.example.	3600	IN	DS	64539 13 2 2F2C4B8E73E640DA9450092619DCB46A22B9AE4AE6DA9220A3A20771B361E620
+d00002.nsec-chain.example.	3600	IN	RRSIG	DS 13 3 3600 20380119031407 19700101000001 30070 nsec-chain.example. 1BwVgJNVcMJ/K/PiI97yOcPjK0d0Tv9X1IyxfYlMWdcZSpZ7wLrZQEEFiAnMe8AByOnZ8kwYGqHiA5HvjE7Spg==
+d00002.nsec-chain.example.	3600	IN	RRSIG	NSEC 13 3 3600 20380119031407 19700101000001 30070 nsec-chain.example. eEJKcJVQF6p8y/QAF5aQQDBpvu3zcQoNlMa9CrzHIqIG0lyHGXZm0E29IHlFC7tplSshaH/24YEKsSpOk5SW9Q==
+d00002.nsec-chain.example.	3600	IN	NSEC	ns1.d00002.nsec-chain.example. NS DS RRSIG NSEC
+ns1.d00002.nsec-chain.example.	3600	IN	A	192.0.2.4
+ns1.d00002.nsec-chain.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 30070 nsec-chain.example. Q5FbRp39YFn82fS24myzqyRXEHxz+TAJWs+ldEK33BFzkb6SJMT+2K0vVnFr6/TesTiC42Cl2Ujy0lT8clUCLQ==
+ns1.d00002.nsec-chain.example.	3600	IN	NSEC	ns2.d00002.nsec-chain.example. A RRSIG NSEC
+ns2.d00002.nsec-chain.example.	3600	IN	A	192.0.2.5
+ns2.d00002.nsec-chain.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 30070 nsec-chain.example. PWQcrzJjL5B/wkMKJu4A8U8uAz+P3CmtAyMS1qbdG8hzz1blW9M1kG+TzLcIIornGqZ5mb/Gvyy78K0Xecc+iw==
+ns2.d00002.nsec-chain.example.	3600	IN	NSEC	ns3.d00002.nsec-chain.example. A RRSIG NSEC
+ns3.d00002.nsec-chain.example.	3600	IN	A	192.0.2.6
+ns3.d00002.nsec-chain.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 30070 nsec-chain.example. qsMoHn8HPnoMhO5DMJXhLiXPTR7RdkaAEhfFLrSaosSylM/euSyDkXFSYz2Nh6BDyDEvo+3NkmxGIxKETor+/A==
+ns3.d00002.nsec-chain.example.	3600	IN	NSEC	ns4.d00002.nsec-chain.example. A RRSIG NSEC
+ns4.d00002.nsec-chain.example.	3600	IN	A	192.0.2.7
+ns4.d00002.nsec-chain.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 30070 nsec-chain.example. lv4fz32xDKe9yPAUR1U0uyznjr98sKhVWCwnh0hk28N50EhQWdX9d2ftwNxTvHUqez5cyKMnoLy5+1cSj0HnvA==
+ns4.d00002.nsec-chain.example.	3600	IN	NSEC	d00003.nsec-chain.example. A RRSIG NSEC
+d00003.nsec-chain.example.	3600	IN	NS	ns1.d00003.nsec-chain.example.
+d00003.nsec-chain.example.	3600	IN	NS	ns2.d00003.nsec-chain.example.
+d00003.nsec-chain.example.	3600	IN	NS	ns3.d00003.nsec-chain.example.
+d00003.nsec-chain.example.	3600	IN	NS	ns4.d00003.nsec-chain.example.
+d00003.nsec-chain.example.	3600	IN	DS	858 13 2 B3FF6F8995B6F2341EF99C28FB81389F71B5BAAD7FB44305022A0EF33B87C729
+d00003.nsec-chain.example.	3600	IN	RRSIG	DS 13 3 3600 20380119031407 19700101000001 30070 nsec-chain.example. z2ig98hlSJDg+PoDJTBa75Ws2D6nj3MMzHuAIgoQGIj4E+FsMAjbVZQGTAA6C3GVuy2SLp4bvpYumcwZT8iLxw==
+d00003.nsec-chain.example.	3600	IN	RRSIG	NSEC 13 3 3600 20380119031407 19700101000001 30070 nsec-chain.example. y633wdwvx6Q0IlEoI3o8wchP3V2ZafW5xCYZBxxxfcac4O/Ukq3csq4y3emjV6psK1apdb7K3tA35sN8iSjSZA==
+d00003.nsec-chain.example.	3600	IN	NSEC	ns1.d00003.nsec-chain.example. NS DS RRSIG NSEC
+ns1.d00003.nsec-chain.example.	3600	IN	A	192.0.2.5
+ns1.d00003.nsec-chain.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 30070 nsec-chain.example. 8Fwa9NKB/9ifHwV0GRGAUM21WcmkhhZh29yPwU7zTCXoimGTcvj4XvMkxR0xlNPjh/AzZJTHE9y9yEjpftkj1Q==
+ns1.d00003.nsec-chain.example.	3600	IN	NSEC	ns2.d00003.nsec-chain.example. A RRSIG NSEC
+ns2.d00003.nsec-chain.example.	3600	IN	A	192.0.2.6
+ns2.d00003.nsec-chain.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 30070 nsec-chain.example. UxF181odS/oEcBDU+38xvCH/KueXr4L9I3sGQjn5mSW14eRn+oMsg90L/lmzptXYhwK1RZXPpvPk8xVT01ygQw==
+ns2.d00003.nsec-chain.example.	3600	IN	NSEC	ns3.d00003.nsec-chain.example. A RRSIG NSEC
+ns3.d00003.nsec-chain.example.	3600	IN	A	192.0.2.7
+ns3.d00003.nsec-chain.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 30070 nsec-chain.example. wLJJmbVJaHL4ATMCMHhaO+0LHleUk9EFsv26xN+JwiJm9BU7OZtmFQMaR13SmR9oZ2JXyZ122/zDhmxvtnew/Q==
+ns3.d00003.nsec-chain.example.	3600	IN	NSEC	ns4.d00003.nsec-chain.example. A RRSIG NSEC
+ns4.d00003.nsec-chain.example.	3600	IN	A	192.0.2.8
+ns4.d00003.nsec-chain.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 30070 nsec-chain.example. yhyCOnmnOhK7LmorB51j2vcxPxH9VZphcY+kSQTo4P50qw9X7oJT2cO+eXYJiRVBpWH3YcudT7HI/LS0L0BENQ==
+ns4.d00003.nsec-chain.example.	3600	IN	NSEC	ns1.nsec-chain.example. A RRSIG NSEC
+ns1.nsec-chain.example.	3600	IN	A	192.0.2.1
+ns1.nsec-chain.example.	3600	IN	RRSIG	A 13 3 3600 20380119031407 19700101000001 30070 nsec-chain.example. ZJicgrpIadflVyMejSaX35GMEY56/9s/b/wrgeN/gKGW5kqcSBqCijZGEcSQY0dNvuFUJmlxxOuwSjqWtorynA==
+ns1.nsec-chain.example.	3600	IN	RRSIG	NSEC 13 3 3600 20380119031407 19700101000001 30070 nsec-chain.example. KOQ8npDaMD8yUEANS5BhL/fPFttnz6jwCNNVd+osq9srbiEJWnj9RbefV+cL4M9V0ts9IZ+DfbHe51s2mbKaVQ==
+ns1.nsec-chain.example.	3600	IN	NSEC	ns2.nsec-chain.example. A RRSIG NSEC
+ns2.nsec-chain.example.	3600	IN	A	192.0.2.2
+ns2.nsec-chain.example.	3600	IN	RRSIG	A 13 3 3600 20380119031407 19700101000001 30070 nsec-chain.example. rw6MYaJk3XuiHdjFx4IvlPcYolafP5fZIIjLPo8sfI13/zbogf67vyrYhX1Piaq/eXYI1Si4wtFmkMcoihoSFA==
+ns2.nsec-chain.example.	3600	IN	RRSIG	NSEC 13 3 3600 20380119031407 19700101000001 30070 nsec-chain.example. yxsxR77OkiGSEdZlwNarDmnGIuc9Ixr2/Q0D1Od9AO0x4s5C6BhZ4Dsq/CpT5v0YkSWiUgnUS/lD5swa7T6uvA==
+ns2.nsec-chain.example.	3600	IN	NSEC	nsec-chain.example. A RRSIG NSEC

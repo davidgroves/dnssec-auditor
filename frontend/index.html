@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DNSSEC Auditor</title>
+  <script>
+    (function () {
+      var m = localStorage.getItem('dnssec-auditor.themeMode');
+      if (m === 'light' || m === 'dark') document.documentElement.dataset.theme = m;
+    })();
+  </script>
+</head>
+<body x-data="app()" x-init="init()">
+  <header>
+    <div>
+      <strong x-text="config.app_name || 'DNSSEC Auditor'"></strong>
+      <span class="muted" style="margin-left:0.75rem">zone DNSSEC monitoring</span>
+    </div>
+    <nav>
+      <a href="/" @click.prevent="show('dashboard')">Dashboard</a>
+      <a href="/zones" @click.prevent="show('zones')">Zones</a>
+      <a href="/catalogs" @click.prevent="show('catalogs')">Catalogs</a>
+      <a @click="toggleThemeMode()">Theme</a>
+    </nav>
+  </header>
+  <main>
+    <section x-show="view === 'dashboard'">
+      <div class="cards">
+        <div class="card"><h3>Valid</h3><div class="n" x-text="stateRatio('valid')"></div></div>
+        <div class="card"><h3>Invalid</h3><div class="n" x-text="stateRatio('invalid')"></div></div>
+        <div class="card"><h3>Unsigned</h3><div class="n" x-text="stateRatio('unsigned')"></div></div>
+        <div class="card"><h3>Stale</h3><div class="n" x-text="stateRatio('stale')"></div></div>
+      </div>
+      <h2>Process</h2>
+      <div class="cards">
+        <div class="card"><h3>RSS</h3><div class="n" x-text="formatBytes(memory.rss_bytes)"></div></div>
+        <div class="card"><h3>Heap</h3><div class="n" x-text="formatBytes(memory.heap_alloc_bytes)"></div></div>
+        <div class="card"><h3>Virtual</h3><div class="n" x-text="formatBytes(memory.virtual_bytes)"></div></div>
+        <div class="card"><h3>Zone store</h3><div class="n" x-text="formatBytes(memory.zone_store_bytes)"></div></div>
+      </div>
+      <h2>Needs attention</h2>
+      <table>
+        <thead><tr><th>Zone</th><th>State</th><th>Serial</th><th>Errors</th><th>Warnings</th></tr></thead>
+        <tbody>
+          <template x-for="z in zones.filter(z => !z.valid)" :key="z.name">
+            <tr>
+              <td><a :href="'/zones/' + encodeURIComponent(z.name)" @click.prevent="openZone(z.name)" x-text="z.name"></a></td>
+              <td><span class="badge" :class="z.state" x-text="z.state"></span></td>
+              <td x-text="z.serial"></td>
+              <td x-text="z.error_count"></td>
+              <td x-text="z.warning_count"></td>
+            </tr>
+          </template>
+        </tbody>
+      </table>
+    </section>
+
+    <section x-show="view === 'zones'">
+      <div class="row">
+        <input type="search" placeholder="Filter zones" x-model="filter" />
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th class="sortable" :class="{ sorted: sortKey === 'name' }" @click="sortBy('name')">
+              Zone<span x-text="sortIndicator('name')"></span>
+            </th>
+            <th class="sortable" :class="{ sorted: sortKey === 'state' }" @click="sortBy('state')">
+              State<span x-text="sortIndicator('state')"></span>
+            </th>
+            <th class="sortable" :class="{ sorted: sortKey === 'serial' }" @click="sortBy('serial')">
+              Serial<span x-text="sortIndicator('serial')"></span>
+            </th>
+            <th class="sortable" :class="{ sorted: sortKey === 'last_valid_at' }" @click="sortBy('last_valid_at')">
+              Last validated<span x-text="sortIndicator('last_valid_at')"></span>
+            </th>
+            <th class="sortable" :class="{ sorted: sortKey === 'last_full_verified_at' }" @click="sortBy('last_full_verified_at')">
+              Last full verify<span x-text="sortIndicator('last_full_verified_at')"></span>
+            </th>
+            <th class="sortable" :class="{ sorted: sortKey === 'next_refresh' }" @click="sortBy('next_refresh')">
+              Next refresh<span x-text="sortIndicator('next_refresh')"></span>
+            </th>
+            <th class="sortable" :class="{ sorted: sortKey === 'errors' }" @click="sortBy('errors')">
+              Err / Warn<span x-text="sortIndicator('errors')"></span>
+            </th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <template x-for="z in filteredZones()" :key="z.name">
+            <tr>
+              <td><a :href="'/zones/' + encodeURIComponent(z.name)" @click.prevent="openZone(z.name)" x-text="z.name"></a></td>
+              <td><span class="badge" :class="z.state" x-text="z.state"></span></td>
+              <td x-text="z.serial"></td>
+              <td class="muted"
+                  :title="formatLastValidTitle(z.last_valid_at)"
+                  x-text="formatLastValid(z.last_valid_at)"></td>
+              <td class="muted"
+                  :title="formatLocalTime(z.last_full_verified_at)"
+                  x-text="formatRelativeTime(z.last_full_verified_at) || 'never'"></td>
+              <td class="muted"
+                  :title="formatLocalTime(z.next_refresh)"
+                  x-text="formatRelativeTime(z.next_refresh)"></td>
+              <td x-text="z.error_count + ' / ' + z.warning_count"></td>
+              <td>
+                <button class="btn secondary" @click="refreshZone(z.name)">Refresh</button>
+                <button class="btn secondary" @click="downloadZone(z.name)">Dump</button>
+              </td>
+            </tr>
+          </template>
+        </tbody>
+      </table>
+    </section>
+
+    <section x-show="view === 'detail' && selected">
+      <div class="row">
+        <button class="btn secondary" @click="show('zones')">Back</button>
+        <h2 x-text="selected && selected.name" style="margin:0"></h2>
+        <span class="badge" :class="selected && selected.state" x-text="selected && selected.state"></span>
+        <button class="btn" @click="refreshZone(selected.name)">Refresh</button>
+        <button class="btn secondary" @click="refreshZone(selected.name, true)">Full re-verify</button>
+        <button class="btn secondary" @click="downloadZone(selected.name)">Dump zone</button>
+      </div>
+      <div class="cards" x-show="selected">
+        <div class="card"><h3>Serial</h3><div class="n" x-text="selected && selected.serial"></div></div>
+        <div class="card"><h3>Records</h3><div class="n" x-text="selected && selected.records"></div></div>
+        <div class="card"><h3>RRSIGs</h3><div class="n" x-text="selected && selected.rrsigs"></div></div>
+        <div class="card"><h3>Signing</h3><div class="n" x-text="selected && formatSigning(selected.signing)"></div></div>
+        <div class="card" x-show="selected && typeof selected.zonemd_ok === 'boolean'">
+          <h3>ZONEMD</h3>
+          <div class="n" x-text="selected && (selected.zonemd_ok ? 'ok' : 'bad')"></div>
+          <p class="muted" style="margin:0.35rem 0 0;font-size:0.85rem"
+             :title="formatLocalTime(selected && selected.zonemd_checked_at)"
+             x-text="selected && ('checked ' + formatRelativeTime(selected.zonemd_checked_at) + (selected.zonemd_stale ? ' (stale)' : ''))"></p>
+        </div>
+      </div>
+      <h3>SOA</h3>
+      <pre class="card" x-text="selected && selected.soa && JSON.stringify(selected.soa, null, 2)"></pre>
+      <h3>Servers</h3>
+      <table>
+        <thead><tr><th>Name</th><th>Serial</th><th>Reachable</th></tr></thead>
+        <tbody>
+          <template x-for="s in (selected && selected.servers) || []" :key="s.name">
+            <tr>
+              <td x-text="s.name"></td>
+              <td x-text="s.serial"></td>
+              <td x-text="s.reachable ? 'yes' : 'no'"></td>
+            </tr>
+          </template>
+        </tbody>
+      </table>
+      <h3>Findings</h3>
+      <template x-for="f in (selected && selected.findings) || []" :key="f.code + f.owner + f.rrtype">
+        <p class="finding" :class="f.severity">
+          <strong x-text="f.code"></strong>
+          <span x-text="f.owner"></span>
+          <span x-text="f.rrtype_name"></span>
+          — <span x-text="f.message"></span>
+        </p>
+      </template>
+    </section>
+
+    <section x-show="view === 'catalogs'">
+      <p class="muted">Catalog zones and the member zones learned from them.</p>
+      <template x-for="c in catalogs" :key="c.name">
+        <div class="card" style="margin-bottom:1rem">
+          <h3 x-text="c.name"></h3>
+          <p class="muted" x-show="!c.members.length">No members yet.</p>
+          <ul>
+            <template x-for="m in c.members" :key="m">
+              <li><a :href="'/zones/' + encodeURIComponent(m)" @click.prevent="openZone(m)" x-text="m"></a></li>
+            </template>
+          </ul>
+        </div>
+      </template>
+      <table>
+        <thead><tr><th>Zone</th><th>Source</th></tr></thead>
+        <tbody>
+          <template x-for="z in zones.filter(z => (z.source || '').startsWith('catalog'))" :key="z.name">
+            <tr>
+              <td><a :href="'/zones/' + encodeURIComponent(z.name)" @click.prevent="openZone(z.name)" x-text="z.name"></a></td>
+              <td x-text="z.source"></td>
+            </tr>
+          </template>
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <div class="toast" x-show="toastMessage" :class="toastType" x-text="toastMessage"></div>
+  <script type="module" src="/main.ts"></script>
+  <script>
+    function app() { return window.createDnssecApp({}); }
+  </script>
+</body>
+</html>

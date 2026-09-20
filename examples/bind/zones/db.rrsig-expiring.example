@@ -1,0 +1,60 @@
+rrsig-expiring.example.	3600	IN	NS	ns1.rrsig-expiring.example.
+rrsig-expiring.example.	3600	IN	NS	ns2.rrsig-expiring.example.
+rrsig-expiring.example.	3600	IN	SOA	ns1.rrsig-expiring.example. hostmaster.rrsig-expiring.example. 1 3600 600 86400 300
+rrsig-expiring.example.	3600	IN	RRSIG	DNSKEY 13 2 3600 20380119031407 19700101000001 27996 rrsig-expiring.example. 4eD+jiVTAeEoa2KXaS2RFr5u3GOHi8trSA+B29qpOt8XFxox/7mJm2vHd+4VM2Q9ZL8Gy6xqUW6Wg1rPdcedYg==
+rrsig-expiring.example.	3600	IN	RRSIG	NS 13 2 3600 20380119031407 19700101000001 18468 rrsig-expiring.example. GIf3dqig+krATwAQQiFmjyNxJhbsqxMGtdeUIux3FpelaNGb2fHQKbZrn+vvJ5hCNeWxRpwcR4NK/Q7rWTK3Ng==
+rrsig-expiring.example.	3600	IN	RRSIG	NSEC3PARAM 13 2 0 20380119031407 19700101000001 18468 rrsig-expiring.example. sS0YKfG3smueCA1MkoG102OpdWmalCdaOkZ+AKz7kG6eelCS7lzuXZI0WQvo4x27/WwFzadiFfmgeyyLrjzGYQ==
+rrsig-expiring.example.	3600	IN	RRSIG	SOA 13 2 3600 20260919113024 20260917223024 18468 rrsig-expiring.example. TKtuB4UrjKceab7eX3m4FrGw7DjW/E6SGdBAoockRUFLEyDaSCbtxSBhp96F/Jn8noza+zpr6nI656favnp8LQ==
+rrsig-expiring.example.	3600	IN	DNSKEY	256 3 13 s923nEP6rf+kFxSl+Fdn7dKa8CYISKg6IdBZ4GCK4qwCgkEHZ018vMZJcUSq7WhQjRnKndmjdc5cR6ELh7782Q==
+rrsig-expiring.example.	3600	IN	DNSKEY	257 3 13 P2Hh0glrfiaYjxIFmmjrjlUuYC/fNL2DW0O/E/C5cUd3Avkbp0//LVXLUwvBWn3BxO0fTEUsEpZJRI0eSutltA==
+rrsig-expiring.example.	0	IN	NSEC3PARAM	1 0 0 -
+d00000.rrsig-expiring.example.	3600	IN	NS	ns1.d00000.rrsig-expiring.example.
+d00000.rrsig-expiring.example.	3600	IN	NS	ns2.d00000.rrsig-expiring.example.
+d00000.rrsig-expiring.example.	3600	IN	NS	ns3.d00000.rrsig-expiring.example.
+d00000.rrsig-expiring.example.	3600	IN	NS	ns4.d00000.rrsig-expiring.example.
+ns1.d00000.rrsig-expiring.example.	3600	IN	A	192.0.2.2
+ns2.d00000.rrsig-expiring.example.	3600	IN	A	192.0.2.3
+ns3.d00000.rrsig-expiring.example.	3600	IN	A	192.0.2.4
+ns4.d00000.rrsig-expiring.example.	3600	IN	A	192.0.2.5
+d00001.rrsig-expiring.example.	3600	IN	NS	ns1.d00001.rrsig-expiring.example.
+d00001.rrsig-expiring.example.	3600	IN	NS	ns2.d00001.rrsig-expiring.example.
+d00001.rrsig-expiring.example.	3600	IN	NS	ns3.d00001.rrsig-expiring.example.
+d00001.rrsig-expiring.example.	3600	IN	NS	ns4.d00001.rrsig-expiring.example.
+ns1.d00001.rrsig-expiring.example.	3600	IN	A	192.0.2.3
+ns2.d00001.rrsig-expiring.example.	3600	IN	A	192.0.2.4
+ns3.d00001.rrsig-expiring.example.	3600	IN	A	192.0.2.5
+ns4.d00001.rrsig-expiring.example.	3600	IN	A	192.0.2.6
+d00002.rrsig-expiring.example.	3600	IN	NS	ns1.d00002.rrsig-expiring.example.
+d00002.rrsig-expiring.example.	3600	IN	NS	ns2.d00002.rrsig-expiring.example.
+d00002.rrsig-expiring.example.	3600	IN	NS	ns3.d00002.rrsig-expiring.example.
+d00002.rrsig-expiring.example.	3600	IN	NS	ns4.d00002.rrsig-expiring.example.
+d00002.rrsig-expiring.example.	3600	IN	DS	49716 13 2 0EA99CA32AC35E111FA6F91AC5635F4DB78419F20C0C108F15499B06C9B6FE90
+d00002.rrsig-expiring.example.	3600	IN	RRSIG	DS 13 3 3600 20380119031407 19700101000001 18468 rrsig-expiring.example. gJ/0EvJIUJEcsV/oKkxzGTn0v0s21/oLF/Ptsn4VlHkOVoaZFt6b08TKlhXwf3Hy4/rlx3FjJzmFkLNGrI+Y5A==
+ns1.d00002.rrsig-expiring.example.	3600	IN	A	192.0.2.4
+ns2.d00002.rrsig-expiring.example.	3600	IN	A	192.0.2.5
+ns3.d00002.rrsig-expiring.example.	3600	IN	A	192.0.2.6
+ns4.d00002.rrsig-expiring.example.	3600	IN	A	192.0.2.7
+d00003.rrsig-expiring.example.	3600	IN	NS	ns1.d00003.rrsig-expiring.example.
+d00003.rrsig-expiring.example.	3600	IN	NS	ns2.d00003.rrsig-expiring.example.
+d00003.rrsig-expiring.example.	3600	IN	NS	ns3.d00003.rrsig-expiring.example.
+d00003.rrsig-expiring.example.	3600	IN	NS	ns4.d00003.rrsig-expiring.example.
+d00003.rrsig-expiring.example.	3600	IN	DS	22333 13 2 76B591E374687253802925F1424BD0950C7FADB770DFB8C6CEBA7D89902F387C
+d00003.rrsig-expiring.example.	3600	IN	RRSIG	DS 13 3 3600 20380119031407 19700101000001 18468 rrsig-expiring.example. DaIEun/GGR4RgDb0IlTcs9mVk5mft1nX8ViWUhzSI5jpn3LMbzBaKZQOCIk21T7b2aiod/oi49lVJdWkuu+Yug==
+ns1.d00003.rrsig-expiring.example.	3600	IN	A	192.0.2.5
+ns2.d00003.rrsig-expiring.example.	3600	IN	A	192.0.2.6
+ns3.d00003.rrsig-expiring.example.	3600	IN	A	192.0.2.7
+ns4.d00003.rrsig-expiring.example.	3600	IN	A	192.0.2.8
+dv7he8qtqd1am7vvigo7j1ioji1ql3p8.rrsig-expiring.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 18468 rrsig-expiring.example. XmuS77LcFoV0KuZSDrkKftfxvNlfbU+8MnfFVMSm6XCJxH9USJ2Pembk2xH0VhN93StvIaM+PDAfxLFhDpinlg==
+dv7he8qtqd1am7vvigo7j1ioji1ql3p8.rrsig-expiring.example.	3600	IN	NSEC3	1 1 0 - EQ9RF5P9M03AFR2KMA0OFQJ47TR6J8FQ NS DS RRSIG
+eq9rf5p9m03afr2kma0ofqj47tr6j8fq.rrsig-expiring.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 18468 rrsig-expiring.example. jv+UF4JJ/VXmpvGBopJIeBIqNyzd+mgKseL+2JsAQ+fyZVuYZM1i0/le97DeBygNRB0PE9/qVNm/AGLSeXDWEg==
+eq9rf5p9m03afr2kma0ofqj47tr6j8fq.rrsig-expiring.example.	3600	IN	NSEC3	1 1 0 - J6MPL48S1LS0E3MODLAQBS2FN5R1VPA8 NS DS RRSIG
+j6mpl48s1ls0e3modlaqbs2fn5r1vpa8.rrsig-expiring.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 18468 rrsig-expiring.example. VLGuOJQN1988vzKEgeoBX8hX5lKH4DQIn2Xl5zLBi4jNf4kxlTyBiixyGqEHCSm/yDDcpybP9FZ5ynUnj0H+1Q==
+j6mpl48s1ls0e3modlaqbs2fn5r1vpa8.rrsig-expiring.example.	3600	IN	NSEC3	1 1 0 - K8QMTII9TLKSU83TCT0T4A381BMNVFM8 A RRSIG
+k8qmtii9tlksu83tct0t4a381bmnvfm8.rrsig-expiring.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 18468 rrsig-expiring.example. we9jqLYZSTmcnmGSyrIp1y8l0P9RLap4/c7ATzNFyTrclLtjRLPZz0UHuvCN7RPUydJWS7TZm0o2s9m/ug5vVw==
+k8qmtii9tlksu83tct0t4a381bmnvfm8.rrsig-expiring.example.	3600	IN	NSEC3	1 1 0 - NRAAC77IVMR5V0U9FUJI5STB8B2QS2D1 NS SOA RRSIG DNSKEY NSEC3PARAM
+nraac77ivmr5v0u9fuji5stb8b2qs2d1.rrsig-expiring.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 18468 rrsig-expiring.example. OQLXNWsNstFSYbxJAiY4bu5ThbVKsp2V88QO2US1Uc6WTImKcr7DAkOILQLZj0WobeuMMWV220KZ4dCQeAUQ0g==
+nraac77ivmr5v0u9fuji5stb8b2qs2d1.rrsig-expiring.example.	3600	IN	NSEC3	1 1 0 - DV7HE8QTQD1AM7VVIGO7J1IOJI1QL3P8 A RRSIG
+ns1.rrsig-expiring.example.	3600	IN	A	192.0.2.1
+ns1.rrsig-expiring.example.	3600	IN	RRSIG	A 13 3 3600 20380119031407 19700101000001 18468 rrsig-expiring.example. KzGEXQK5VK567wS5kH5tBSa0Wv+p/XdwtmhLDSYFPz54n6WpL0oEULiRCPqTVf6Hb5h3/iZaagZLgBdDV8AN3A==
+ns2.rrsig-expiring.example.	3600	IN	A	192.0.2.2
+ns2.rrsig-expiring.example.	3600	IN	RRSIG	A 13 3 3600 20380119031407 19700101000001 18468 rrsig-expiring.example. t5+r4haMg4SAlKqFibbXNNmt3ICdhk2QAY1Pw80NhhCG4+eiwKyor5pkisVZHzY8rq+6Ti+Y1L4GuutxfihFoQ==

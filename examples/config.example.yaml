@@ -1,0 +1,280 @@
+# DNSSEC Auditor configuration
+# ============================
+# Copy this file to config.yaml and customize.
+#
+#   dnssec-auditor serve --config config.yaml
+#
+# Omitted keys keep the defaults shown here. Zone names are canonicalised to
+# end with a trailing dot. Named tsig_keys and servers are referenced by name
+# from zones, catalogs, and notify.
+#
+# There is no API authentication; put the listener behind a reverse proxy if
+# it is reachable from an untrusted network.
+
+# =============================================================================
+# TSIG keys
+# =============================================================================
+# Shared secrets used for AXFR/IXFR, SOA probes, and optional NOTIFY auth.
+# Other sections reference these entries by name.
+# Generate a key with: tsig-keygen -a hmac-sha256 xfr-key
+
+tsig_keys:
+  - name: xfr-key
+    # Base64-encoded secret (as produced by tsig-keygen / BIND key statements).
+    secret: dGVzdC1zZWNyZXQtdXNlLWEtdmFsaWQtYmFzZTY0==
+    # hmac-sha256 (default if omitted), hmac-sha1, hmac-sha384, hmac-sha512
+    algorithm: hmac-sha256
+
+# =============================================================================
+# Authoritative servers
+# =============================================================================
+# Named primaries (or any host that will answer SOA + AXFR/IXFR). Zones and
+# catalogs list these by the name field, not by address.
+
+servers:
+  - name: primary1
+    # Hostname or IP. A compose service name such as "bind" is fine.
+    address: 127.0.0.1
+    # Defaults to 53 if omitted.
+    port: 53
+    # TSIG key used for SOA probes and transfers unless a zone overrides it.
+    tsig_key: xfr-key
+
+# =============================================================================
+# Zones (explicit list)
+# =============================================================================
+# Each entry is transferred and verified. Config-declared zones win over
+# catalog members of the same name.
+
+zones:
+  - name: example.com.
+    # One or more servers.* name values. SOA is probed in this order.
+    servers: [primary1]
+    # Optional per-zone TSIG override. If omitted, the server's tsig_key is used.
+    # tsig_key: xfr-key
+
+# =============================================================================
+# Catalog zones (RFC 9432)
+# =============================================================================
+# The catalog itself is transferred like any other zone. Member PTR names are
+# then added as monitored zones. Config-declared zones of the same name win.
+
+# catalogs:
+#   - name: catalog.example.
+#     # Where to transfer the catalog zone from.
+#     servers: [primary1]
+#     tsig_key: xfr-key
+#     # Servers used for members discovered from this catalog.
+#     member_servers: [primary1]
+#     member_tsig_key: xfr-key
+#     # Reserved: catalog zones are already transferred and verified.
+
+# =============================================================================
+# Refresh (SOA poll + transfer)
+# =============================================================================
+# After a successful transfer the next poll is clamp(SOA REFRESH, min, max)
+# multiplied by a random factor in [1-jitter, 1]. Failed transfers use
+# clamp(SOA RETRY, retry_min, retry_max) with the same jitter. Incoming NOTIFY
+# triggers an immediate refresh.
+
+refresh:
+  # Floor for the SOA REFRESH-based poll interval.
+  min_interval: 60s
+  # Ceiling for the SOA REFRESH-based poll interval.
+  max_interval: 24h
+  # Floor for the retry interval after a failed transfer.
+  retry_min: 60s
+  # Ceiling for the retry interval after a failed transfer.
+  retry_max: 1h
+  # Fraction of the interval that may be randomly dropped (0–1). 0.1 means the
+  # wait is 90–100% of the clamped base. Spreads load when many zones refresh.
+  jitter: 0.1
+  # Try IXFR when the local serial is known; fall back to AXFR on failure.
+  prefer_ixfr: true
+  # Maximum number of zones transferring or verifying at once.
+  concurrent_transfers: 4
+  # When true (default), SOA-probe every configured server, transfer from the
+  # highest serial, and compare serials for skew. When false, stop at the first
+  # reachable server.
+  probe_all_servers: true
+  # If the highest and lowest reachable serials differ by more than this many
+  # counts for longer than serial_skew_grace, emit SERIAL_SKEW. Requires
+  # probe_all_servers and at least two reachable servers.
+  serial_skew_warning: 2
+  # How long serials may stay skewed before SERIAL_SKEW is raised.
+  serial_skew_grace: 10m
+  # Timeout for a single AXFR or IXFR.
+  axfr_timeout: 10m
+  # Timeout for a SOA query used to decide whether a transfer is needed.
+  soa_timeout: 5s
+
+# =============================================================================
+# NOTIFY listener
+# =============================================================================
+# Accepts RFC 1996 NOTIFY on UDP and TCP and queues a refresh for that zone.
+# The primary must be configured to notify this process (also-notify).
+
+notify:
+  enabled: true
+  # Address the UDP/TCP sockets bind to.
+  bind_address: 0.0.0.0
+  udp_port: 5354
+  tcp_port: 5354
+  # When true, unsigned NOTIFY is discarded. Requires tsig_key (or a key that
+  # matches the incoming TSIG name).
+  require_tsig: false
+  # TSIG key used to validate incoming NOTIFY (references tsig_keys).
+  # tsig_key: xfr-key
+  # Optional source allow-list: IPs or CIDRs. Empty means any source.
+  allowed_sources: []
+
+# =============================================================================
+# DNSSEC verification
+# =============================================================================
+# After each transfer the zone is verified. AXFR always does a full pass.
+# Successful IXFR is verified incrementally unless a DNSKEY/NSEC3PARAM change
+# escalates to a full pass. unsigned is a distinct state, never invalid.
+# Findings: severity error flips validity; warning does not.
+
+verification:
+  # Parallelism for the full verifier. 0 means GOMAXPROCS.
+  workers: 0
+  # RRSIG inception/expiration slack. A signature is not-yet-valid only if
+  # now+skew < inception, and expired only if now > expiration+skew.
+  clock_skew: 1h
+  # Warn RRSIG_EXPIRING_SOON when a signature expires within this window.
+  expiry_warning: 72h
+  # How often to re-check already-loaded signatures for expiry without a transfer.
+  expiry_check_interval: 5m
+  # When set, periodically force a full verify even if the serial is unchanged.
+  # full_reverify_interval: 24h
+  # When true, an invalid zone is re-verified with a full pass on the next cycle.
+  full_reverify_when_invalid: true
+  # ZONEMD (RFC 8976): auto = check if present; on = require a matching ZONEMD;
+  # off = ignore ZONEMD entirely. Digests cover the whole zone, so they run on
+  # full verifies (AXFR / escalate) only — not on every IXFR.
+  zonemd: auto
+  # When set, force a full verify (including ZONEMD) if the last digest check is
+  # older than this, even when the SOA serial is unchanged.
+  # zonemd_max_age: 24h
+  hygiene:
+    # Extra warnings that do not flip validity (iterations, salt, algorithms, …).
+    enabled: true
+    # Warn NSEC3_ITERATIONS_NONZERO when NSEC3PARAM iterations exceed this
+    # (RFC 9276 recommends 0).
+    nsec3_max_iterations: 0
+    # Warn NSEC3_SALT_PRESENT when a salt is configured (RFC 9276 recommends empty).
+    warn_nsec3_salt: true
+    # DNSKEY algorithms that produce DEPRECATED_ALGORITHM warnings.
+    deprecated_algorithms: [RSAMD5, DSA, RSASHA1, DSA-NSEC3-SHA1, RSASHA1-NSEC3-SHA1, ECC-GOST]
+    # Warn when RRSIG OrigTTL does not match the RRset TTL.
+    warn_rrsig_ttl_mismatch: true
+
+# =============================================================================
+# Chain of trust
+# =============================================================================
+# Optional extra check that zone DNSKEYs match a parent DS. Disabled by default;
+# in-zone DNSSEC verification does not need this.
+
+chain_of_trust:
+  enabled: false
+  # resolver = query resolvers for DS; authoritative = query the parent as an
+  # authoritative server.
+  mode: resolver
+  # Used when mode is resolver (host:port).
+  resolvers: ["127.0.0.1:53"]
+  # How often to re-check DS against the current DNSKEY set.
+  interval: 1h
+  # When true, a DS mismatch is an error and flips the zone invalid.
+  # When false, it is a warning only.
+  require_match: true
+
+# =============================================================================
+# Webhooks
+# =============================================================================
+# HTTP POST of bus events as JSON. An empty events/zones list means “all”.
+# Event types: zone_state_changed, zone_valid, zone_invalid, zone_stale,
+# zone_expiring_soon, transfer_completed, transfer_failed,
+# verification_completed, notify_received, serial_skew, chain_of_trust_failed,
+# catalog_member_added, catalog_member_removed.
+
+webhooks:
+  enabled: false
+  # Per-request HTTP timeout.
+  timeout: 10s
+  # Extra attempts after the first failure.
+  max_retries: 3
+  # Sleep between retries.
+  retry_backoff: 2s
+  # In-process queue; events are dropped when full.
+  queue_size: 1000
+  # targets:
+  #   - url: https://hooks.example/dnssec
+  #     events: [zone_invalid, transfer_failed]
+  #     zones: [example.com.]
+  #     headers:
+  #       Authorization: Bearer secret
+
+# =============================================================================
+# Persistence
+# =============================================================================
+# The zone store is an in-memory cache of transferred contents. These options
+# only persist monitor metadata (and optional packed snapshots) across restarts.
+
+state:
+  # JSON file of last-known state/findings. Empty disables persistence.
+  file: ""
+  # How often to rewrite state.file when it is set.
+  save_interval: 1m
+  zone_snapshots:
+    # Write packed zone contents so the next start can verify before the first AXFR.
+    enabled: false
+    dir: /var/lib/dnssec-auditor/zones
+    # Minimum time between snapshot writes for a given zone.
+    min_interval: 1h
+
+# =============================================================================
+# HTTP API
+# =============================================================================
+# JSON API, SSE events, Prometheus /metrics, /health, /ui/config,
+# OpenAPI at /openapi.json, and interactive docs at /docs.
+# No authentication. Errors use application/problem+json.
+
+api:
+  # host:port passed to net.Listen. ":8080" listens on all interfaces.
+  listen: ":8080"
+
+# =============================================================================
+# Logging
+# =============================================================================
+
+logging:
+  # json (default) or text.
+  format: json
+  # debug | info | warn | error
+  level: info
+  # Fraction of successful GET API requests to log (0–1). Errors, non-GET, and
+  # requests slower than slow_threshold_ms are always logged.
+  sample_rate: 0.1
+  # Requests slower than this are always logged, regardless of sample_rate.
+  slow_threshold_ms: 500
+
+# =============================================================================
+# UI theme (served at GET /ui/config)
+# =============================================================================
+
+theme:
+  app_name: DNSSEC Auditor
+  # dark or light. The browser's last choice in localStorage wins if present.
+  default_mode: dark
+  # When false, the UI hides the light/dark toggle.
+  allow_mode_toggle: true
+  # Optional image URL or data URI shown in the header.
+  # logo: /logo.svg
+  # Optional CSS custom-property overrides for each mode (keys are CSS names).
+  # dark:
+  #   --bg: "#0f1419"
+  #   --accent: "#3d8bfd"
+  # light:
+  #   --bg: "#f4f6f9"
+  #   --accent: "#0b5fff"

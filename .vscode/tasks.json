@@ -1,0 +1,28 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run All",
+      "dependsOn": ["BACKEND", "FRONTEND"],
+      "dependsOrder": "parallel",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "BACKEND",
+      "type": "shell",
+      "command": "go run ./cmd/dnssec-auditor serve --config .devcontainer/config.devcontainer.yaml",
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "FRONTEND",
+      "type": "shell",
+      "command": "npm run dev",
+      "isBackground": true,
+      "problemMatcher": []
+    }
+  ]
+}

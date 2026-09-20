@@ -1,0 +1,59 @@
+dnskey-zskonly.example.	3600	IN	NS	ns1.dnskey-zskonly.example.
+dnskey-zskonly.example.	3600	IN	NS	ns2.dnskey-zskonly.example.
+dnskey-zskonly.example.	3600	IN	SOA	ns1.dnskey-zskonly.example. hostmaster.dnskey-zskonly.example. 1 3600 600 86400 300
+dnskey-zskonly.example.	3600	IN	RRSIG	NS 13 2 3600 20380119031407 19700101000001 35952 dnskey-zskonly.example. gplPWJMe6SwIPUZSv8d550HsKn2XNyzONE3Naoi0puWw/H9ayCFOEBPNW7zwxBNa9sjGmMlNCurO9FBqOA2yYw==
+dnskey-zskonly.example.	3600	IN	RRSIG	NSEC3PARAM 13 2 0 20380119031407 19700101000001 35952 dnskey-zskonly.example. Fao2QRERdnyx4mQAZARvbL/S23ACO4PDI4roiXUlkuSDRfc8cG0ZXDWDEoUFoB7ptKPAxms4dp1ZKaUy0+ltYw==
+dnskey-zskonly.example.	3600	IN	RRSIG	SOA 13 2 3600 20380119031407 19700101000001 35952 dnskey-zskonly.example. JbV9/QZ+MoRhsHyjh/bN2dpJkXB9sJk7CXKcaGat9zrs0lPO+SUYa0A6KKGVo3jXDPrwUiGXU0asJ8UVvpZpJg==
+dnskey-zskonly.example.	3600	IN	DNSKEY	256 3 13 ISRH1ceJ258NvcvGOZQmQaJgt80eHzcIQTyaBOemC+9H8BX+OZiZQOohkYKiqoUhysSzo+bFV4SFPaLsZPGmtA==
+dnskey-zskonly.example.	3600	IN	DNSKEY	257 3 13 W52DcdNvf+jMWlATHydclTASFooC7wVOsnpBJHMtBw6IP+XFBUHcYzthq5vr5KbJPRF7hPA00M+EN+3ZJH1pkQ==
+dnskey-zskonly.example.	0	IN	NSEC3PARAM	1 0 0 -
+6e1dllceeb1lacm9vmr5e8fi78rum6nb.dnskey-zskonly.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 35952 dnskey-zskonly.example. eNP3I4W6vi+bjvIf81i9VYMXXT9Du48FhMqti6DLm/D4h4L7YjTnDs9eSiQMzHJffn5CQCqqr/Q7rLhG9dnRNw==
+6e1dllceeb1lacm9vmr5e8fi78rum6nb.dnskey-zskonly.example.	3600	IN	NSEC3	1 1 0 - 6UIV0IA1GA5R2B7651VA1USLQ37ET3VT NS SOA RRSIG DNSKEY NSEC3PARAM
+6uiv0ia1ga5r2b7651va1uslq37et3vt.dnskey-zskonly.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 35952 dnskey-zskonly.example. mcpZzQjGwz5SpKANP96kPn499tCT14GA+N8cLvH1Fcj4Tg6BYr7lZ+EMO6IhuCCAbEZIEXLKHQX0xweq0nHo/w==
+6uiv0ia1ga5r2b7651va1uslq37et3vt.dnskey-zskonly.example.	3600	IN	NSEC3	1 1 0 - OA5I358IVJCP3RGEC3L318HJDOFL53TM NS DS RRSIG
+d00000.dnskey-zskonly.example.	3600	IN	NS	ns1.d00000.dnskey-zskonly.example.
+d00000.dnskey-zskonly.example.	3600	IN	NS	ns2.d00000.dnskey-zskonly.example.
+d00000.dnskey-zskonly.example.	3600	IN	NS	ns3.d00000.dnskey-zskonly.example.
+d00000.dnskey-zskonly.example.	3600	IN	NS	ns4.d00000.dnskey-zskonly.example.
+ns1.d00000.dnskey-zskonly.example.	3600	IN	A	192.0.2.2
+ns2.d00000.dnskey-zskonly.example.	3600	IN	A	192.0.2.3
+ns3.d00000.dnskey-zskonly.example.	3600	IN	A	192.0.2.4
+ns4.d00000.dnskey-zskonly.example.	3600	IN	A	192.0.2.5
+d00001.dnskey-zskonly.example.	3600	IN	NS	ns1.d00001.dnskey-zskonly.example.
+d00001.dnskey-zskonly.example.	3600	IN	NS	ns2.d00001.dnskey-zskonly.example.
+d00001.dnskey-zskonly.example.	3600	IN	NS	ns3.d00001.dnskey-zskonly.example.
+d00001.dnskey-zskonly.example.	3600	IN	NS	ns4.d00001.dnskey-zskonly.example.
+ns1.d00001.dnskey-zskonly.example.	3600	IN	A	192.0.2.3
+ns2.d00001.dnskey-zskonly.example.	3600	IN	A	192.0.2.4
+ns3.d00001.dnskey-zskonly.example.	3600	IN	A	192.0.2.5
+ns4.d00001.dnskey-zskonly.example.	3600	IN	A	192.0.2.6
+d00002.dnskey-zskonly.example.	3600	IN	NS	ns1.d00002.dnskey-zskonly.example.
+d00002.dnskey-zskonly.example.	3600	IN	NS	ns2.d00002.dnskey-zskonly.example.
+d00002.dnskey-zskonly.example.	3600	IN	NS	ns3.d00002.dnskey-zskonly.example.
+d00002.dnskey-zskonly.example.	3600	IN	NS	ns4.d00002.dnskey-zskonly.example.
+d00002.dnskey-zskonly.example.	3600	IN	DS	63490 13 2 9247F06562EC6C664DA2744214CCE6A20951A7086FE87A5AFB18D23584C1CF6C
+d00002.dnskey-zskonly.example.	3600	IN	RRSIG	DS 13 3 3600 20380119031407 19700101000001 35952 dnskey-zskonly.example. +NIBckrzjRgc66ZYKNLcnOCjNR9m1hJxs4jG581ZJQD5bNaNrhh/7Yra0Oy1+tW7B+bOlRepw1LZ0r2H3GgAOQ==
+ns1.d00002.dnskey-zskonly.example.	3600	IN	A	192.0.2.4
+ns2.d00002.dnskey-zskonly.example.	3600	IN	A	192.0.2.5
+ns3.d00002.dnskey-zskonly.example.	3600	IN	A	192.0.2.6
+ns4.d00002.dnskey-zskonly.example.	3600	IN	A	192.0.2.7
+d00003.dnskey-zskonly.example.	3600	IN	NS	ns1.d00003.dnskey-zskonly.example.
+d00003.dnskey-zskonly.example.	3600	IN	NS	ns2.d00003.dnskey-zskonly.example.
+d00003.dnskey-zskonly.example.	3600	IN	NS	ns3.d00003.dnskey-zskonly.example.
+d00003.dnskey-zskonly.example.	3600	IN	NS	ns4.d00003.dnskey-zskonly.example.
+d00003.dnskey-zskonly.example.	3600	IN	DS	63539 13 2 C581277009A9A9AA2051F983F9F7870C47FD722ACA377C93B74D5C0C7FCBFE52
+d00003.dnskey-zskonly.example.	3600	IN	RRSIG	DS 13 3 3600 20380119031407 19700101000001 35952 dnskey-zskonly.example. LoMyX8bgfav/EZ4pZdBqqXZr0cPxyeaGxlRm/eBEwKPLfafeAQXKYPn8lBof4pQemVBxmCEt6mUQgrBX3dJPWg==
+ns1.d00003.dnskey-zskonly.example.	3600	IN	A	192.0.2.5
+ns2.d00003.dnskey-zskonly.example.	3600	IN	A	192.0.2.6
+ns3.d00003.dnskey-zskonly.example.	3600	IN	A	192.0.2.7
+ns4.d00003.dnskey-zskonly.example.	3600	IN	A	192.0.2.8
+ns1.dnskey-zskonly.example.	3600	IN	A	192.0.2.1
+ns1.dnskey-zskonly.example.	3600	IN	RRSIG	A 13 3 3600 20380119031407 19700101000001 35952 dnskey-zskonly.example. 0i94XWXcJvfjnGaRsa5DsDWXFS0VP++KpAdUx/oRPp0q8QNfugzv86X3fOQrTKxl86IddrInYcMdkTP6DwO4tg==
+ns2.dnskey-zskonly.example.	3600	IN	A	192.0.2.2
+ns2.dnskey-zskonly.example.	3600	IN	RRSIG	A 13 3 3600 20380119031407 19700101000001 35952 dnskey-zskonly.example. DqCBclMsmW9mNgJPz1E/K8FJsrZsUhBu0ZYC6yRpN592cDGGDfYmOoBj79Vm6/wwaZzjNQjak0OrCO5Ef22mTg==
+oa5i358ivjcp3rgec3l318hjdofl53tm.dnskey-zskonly.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 35952 dnskey-zskonly.example. 79DrdQZbIJcdBAX8JEd8RADof1+6224dCVAnNVlkoZmS5h5UvGilD15x3IRYXNpm58YSoOfh5mu+4o88eaGzPQ==
+oa5i358ivjcp3rgec3l318hjdofl53tm.dnskey-zskonly.example.	3600	IN	NSEC3	1 1 0 - QH049RTQGHT5AE0GG2654QHU5R2LGI0E A RRSIG
+qh049rtqght5ae0gg2654qhu5r2lgi0e.dnskey-zskonly.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 35952 dnskey-zskonly.example. PS8g8UUNzDMioYrUckqJUNthuCJEZitAQv8d8qPXdIT9PCpdaWf/sEdR8gCtF0jATUl9N1yGs1Y/QtGDZtIO0w==
+qh049rtqght5ae0gg2654qhu5r2lgi0e.dnskey-zskonly.example.	3600	IN	NSEC3	1 1 0 - R85EFSOB7D4FM9SEA200R6ANVL2GBB8P A RRSIG
+r85efsob7d4fm9sea200r6anvl2gbb8p.dnskey-zskonly.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 35952 dnskey-zskonly.example. uiBXK4uQ1g0tnyM+HZNo9iYbL0OFjAp3TMFaOkBF5cg2SdJ5J5puiIdO5FpMrOngRzLmyPQIbXoY9NOZ/yHtog==
+r85efsob7d4fm9sea200r6anvl2gbb8p.dnskey-zskonly.example.	3600	IN	NSEC3	1 1 0 - 6E1DLLCEEB1LACM9VMR5E8FI78RUM6NB NS DS RRSIG

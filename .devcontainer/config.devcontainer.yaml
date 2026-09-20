@@ -1,0 +1,18 @@
+servers:
+  - name: bind
+    address: bind
+    port: 53
+zones: []
+notify:
+  enabled: true
+  bind_address: 0.0.0.0
+  udp_port: 5354
+  tcp_port: 5354
+api:
+  listen: ":8080"
+logging:
+  format: text
+  level: debug
+theme:
+  app_name: DNSSEC Auditor
+  default_mode: dark

@@ -1,0 +1,61 @@
+zonemd-bad.example.	3600	IN	NS	ns1.zonemd-bad.example.
+zonemd-bad.example.	3600	IN	NS	ns2.zonemd-bad.example.
+zonemd-bad.example.	3600	IN	SOA	ns1.zonemd-bad.example. hostmaster.zonemd-bad.example. 1 3600 600 86400 300
+zonemd-bad.example.	3600	IN	RRSIG	DNSKEY 13 2 3600 20380119031407 19700101000001 7243 zonemd-bad.example. c2+nD7e0WWKtKFF7uirJXWtHXkT5kS9P5QQEDfyfuB07XygrorNX/3h0ycfBqOLiiSa67wVFAygh1M0L6RJMGQ==
+zonemd-bad.example.	3600	IN	RRSIG	NS 13 2 3600 20380119031407 19700101000001 59950 zonemd-bad.example. Ti/KVHudnVelZYMBXxJDxvHd5wNMNSkDPfBVFpSbz8bjK17429xvIbjcqGnPW01+B5unMcrTBwwdEHylM6NwOQ==
+zonemd-bad.example.	3600	IN	RRSIG	NSEC3PARAM 13 2 0 20380119031407 19700101000001 59950 zonemd-bad.example. VfBbuFb6LMK6saD7Dywc9XAfC/jNwOxajao6DycFROkNrphvPwRtPBTA/t1qvGx5AHSQ/w53auV4F2jc3NYalA==
+zonemd-bad.example.	3600	IN	RRSIG	SOA 13 2 3600 20380119031407 19700101000001 59950 zonemd-bad.example. S50qY7HoC0vkwvvdD0o4QNJ5Muhq74BCaSKILXS2xgtr/k2aecTxZVygc/1zn87fQF3kNJhE2VNc6WAQ+6ZVxw==
+zonemd-bad.example.	3600	IN	DNSKEY	256 3 13 puEQn2UP4rC9q7ljUnD4Z1Z8B8aa09gFncqRsRYffOsNzp0WMwHINOQOpp7CgoGBTm3yxNpirADqBJIWcQxnzA==
+zonemd-bad.example.	3600	IN	DNSKEY	257 3 13 A7/UdIk3MQwsJdm+lEguq/Eu8gLYpmyiNMBhPQ4cvPVRa3wQ+TaokMCYnjc0RruYiegC14Els53dgGh6BUpoqA==
+zonemd-bad.example.	0	IN	NSEC3PARAM	1 0 0 -
+zonemd-bad.example.	3600	IN	ZONEMD	1 1 1 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+5ngq1asl8kmg18k9gdoh839v82c8q95b.zonemd-bad.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 59950 zonemd-bad.example. S3X317OOOSfFYIDn/AkGt3cUflJLZbr1LMzDCFd5MCxnXTmEXWCABkm4LvKl5R8s6UFHwwc5MOm5E/QCg+PbMQ==
+5ngq1asl8kmg18k9gdoh839v82c8q95b.zonemd-bad.example.	3600	IN	NSEC3	1 1 0 - 9O422IBP78K15PAVAFSA47SDQBIKRPD2 NS SOA RRSIG DNSKEY NSEC3PARAM
+9o422ibp78k15pavafsa47sdqbikrpd2.zonemd-bad.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 59950 zonemd-bad.example. /DDW/+iOIXQO4YmcW0ir/Oyemr3Yrzt2+bdMsDfZt3RiNKLf4rUp4d9Oxy1XwHWhhkpYt8Nk/rvzlbHpbzAEEA==
+9o422ibp78k15pavafsa47sdqbikrpd2.zonemd-bad.example.	3600	IN	NSEC3	1 1 0 - C3KAOQKHI2LLKET9NET1T4JD1UTJS2CS A RRSIG
+c3kaoqkhi2llket9net1t4jd1utjs2cs.zonemd-bad.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 59950 zonemd-bad.example. LDLfIOkHiIdWX6VuQINVUn3C0RIMox2QEfjsL5Qzm0xrprlAO9k9txBHpbPOy4qzAC+IAdQyjfaS+3PQzlS7jw==
+c3kaoqkhi2llket9net1t4jd1utjs2cs.zonemd-bad.example.	3600	IN	NSEC3	1 1 0 - DLAS2Q7TE7D4CJU80GTHB47JHCOLQIHQ NS DS RRSIG
+d00000.zonemd-bad.example.	3600	IN	NS	ns1.d00000.zonemd-bad.example.
+d00000.zonemd-bad.example.	3600	IN	NS	ns2.d00000.zonemd-bad.example.
+d00000.zonemd-bad.example.	3600	IN	NS	ns3.d00000.zonemd-bad.example.
+d00000.zonemd-bad.example.	3600	IN	NS	ns4.d00000.zonemd-bad.example.
+ns1.d00000.zonemd-bad.example.	3600	IN	A	192.0.2.2
+ns2.d00000.zonemd-bad.example.	3600	IN	A	192.0.2.3
+ns3.d00000.zonemd-bad.example.	3600	IN	A	192.0.2.4
+ns4.d00000.zonemd-bad.example.	3600	IN	A	192.0.2.5
+d00001.zonemd-bad.example.	3600	IN	NS	ns1.d00001.zonemd-bad.example.
+d00001.zonemd-bad.example.	3600	IN	NS	ns2.d00001.zonemd-bad.example.
+d00001.zonemd-bad.example.	3600	IN	NS	ns3.d00001.zonemd-bad.example.
+d00001.zonemd-bad.example.	3600	IN	NS	ns4.d00001.zonemd-bad.example.
+ns1.d00001.zonemd-bad.example.	3600	IN	A	192.0.2.3
+ns2.d00001.zonemd-bad.example.	3600	IN	A	192.0.2.4
+ns3.d00001.zonemd-bad.example.	3600	IN	A	192.0.2.5
+ns4.d00001.zonemd-bad.example.	3600	IN	A	192.0.2.6
+d00002.zonemd-bad.example.	3600	IN	NS	ns1.d00002.zonemd-bad.example.
+d00002.zonemd-bad.example.	3600	IN	NS	ns2.d00002.zonemd-bad.example.
+d00002.zonemd-bad.example.	3600	IN	NS	ns3.d00002.zonemd-bad.example.
+d00002.zonemd-bad.example.	3600	IN	NS	ns4.d00002.zonemd-bad.example.
+d00002.zonemd-bad.example.	3600	IN	DS	47719 13 2 184D036FB97CA8A1588BAAF2864AE9DDC329BED4A0FC034992CF1A31E2756E5E
+d00002.zonemd-bad.example.	3600	IN	RRSIG	DS 13 3 3600 20380119031407 19700101000001 59950 zonemd-bad.example. Oj32X3UiSdQGK2N/zbDzPoARinGekAIbxRxjbAilItIreMrpVQEtXZ4fYniyBfm4pqUY2yfD3tCwLNxN6cEaxQ==
+ns1.d00002.zonemd-bad.example.	3600	IN	A	192.0.2.4
+ns2.d00002.zonemd-bad.example.	3600	IN	A	192.0.2.5
+ns3.d00002.zonemd-bad.example.	3600	IN	A	192.0.2.6
+ns4.d00002.zonemd-bad.example.	3600	IN	A	192.0.2.7
+d00003.zonemd-bad.example.	3600	IN	NS	ns1.d00003.zonemd-bad.example.
+d00003.zonemd-bad.example.	3600	IN	NS	ns2.d00003.zonemd-bad.example.
+d00003.zonemd-bad.example.	3600	IN	NS	ns3.d00003.zonemd-bad.example.
+d00003.zonemd-bad.example.	3600	IN	NS	ns4.d00003.zonemd-bad.example.
+d00003.zonemd-bad.example.	3600	IN	DS	42141 13 2 38AD847A15973BBACE423A733DEE97B90BD52F5044A338E91979D9A89E714277
+d00003.zonemd-bad.example.	3600	IN	RRSIG	DS 13 3 3600 20380119031407 19700101000001 59950 zonemd-bad.example. kPPWpcpoa+1sdvihQuv6376mcrArjXw3HoyHW0QbKY5JBP3mfe618RKUdTJ3ASlSNsM0CPseucv2tw6h2RcIvg==
+ns1.d00003.zonemd-bad.example.	3600	IN	A	192.0.2.5
+ns2.d00003.zonemd-bad.example.	3600	IN	A	192.0.2.6
+ns3.d00003.zonemd-bad.example.	3600	IN	A	192.0.2.7
+ns4.d00003.zonemd-bad.example.	3600	IN	A	192.0.2.8
+dlas2q7te7d4cju80gthb47jhcolqihq.zonemd-bad.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 59950 zonemd-bad.example. DLdB7L4K4C7Gh0ZiD3gXRjdL2gSZ/yaKvwRInaNoamtD6Sqo6mUcVMMzwdG9OA8H/gMDD7Z5oUYYKJWLTHFtpw==
+dlas2q7te7d4cju80gthb47jhcolqihq.zonemd-bad.example.	3600	IN	NSEC3	1 1 0 - JLNG2NAEBM01JE3P6QA5KGQBA3GG4VUV A RRSIG
+jlng2naebm01je3p6qa5kgqba3gg4vuv.zonemd-bad.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 59950 zonemd-bad.example. +lEDpreKNxyvMW07hz2cGY357Iv3MF1GL+YziC876StyxF9vtmrJQH0HMDcN3gAyTCSsB7sTXBbRJvPmgENhdw==
+jlng2naebm01je3p6qa5kgqba3gg4vuv.zonemd-bad.example.	3600	IN	NSEC3	1 1 0 - 5NGQ1ASL8KMG18K9GDOH839V82C8Q95B NS DS RRSIG
+ns1.zonemd-bad.example.	3600	IN	A	192.0.2.1
+ns1.zonemd-bad.example.	3600	IN	RRSIG	A 13 3 3600 20380119031407 19700101000001 59950 zonemd-bad.example. xTDLd9QkjRU3NMzj/bNabbLifb44QkDXe99J2L4Liu+GrB1NhlOffIinOLAsF3+Pl9+rgiD637QRHER21tAEhA==
+ns2.zonemd-bad.example.	3600	IN	A	192.0.2.2
+ns2.zonemd-bad.example.	3600	IN	RRSIG	A 13 3 3600 20380119031407 19700101000001 59950 zonemd-bad.example. SyApllDtmRKLF4maDmoEIDErHjhNctEScfzsD+V6Yfjh47e9p1hTmxplNoMEKwzKafdWmEgbkRCr+FXUCEBzFQ==

@@ -1,0 +1,50 @@
+groups:
+  - name: dnssec-auditor
+    rules:
+      - alert: DNSSECZoneInvalid
+        expr: dnssec_auditor_zone_valid == 0
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "DNSSEC zone {{ $labels.zone }} is invalid"
+
+      - alert: DNSSECZoneExpiring
+        expr: (dnssec_auditor_zone_rrsig_earliest_expiry_timestamp_seconds - time()) < 172800
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "DNSSEC signatures for {{ $labels.zone }} expire in under 48h"
+
+      - alert: DNSSECZoneStale
+        expr: dnssec_auditor_zone_state{state="stale"} == 1
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Zone {{ $labels.zone }} exceeded SOA EXPIRE without a refresh"
+
+      - alert: DNSSECSerialSkew
+        expr: dnssec_auditor_zone_findings{code="SERIAL_SKEW"} > 0
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Serial skew on {{ $labels.zone }}"
+
+      - alert: DNSSECChainOfTrustFailed
+        expr: dnssec_auditor_zone_chain_of_trust_ok == 0
+        for: 15m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Parent DS does not match keys for {{ $labels.zone }}"
+
+      - alert: DNSSECAuditorDown
+        expr: up{job="dnssec-auditor"} == 0
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: "dnssec-auditor is not being scraped"

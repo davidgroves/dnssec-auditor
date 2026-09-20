@@ -1,0 +1,48 @@
+# Binaries
+/dnssec-auditor
+/zonegen
+/testprimary
+/bin/
+*.exe
+*.test
+*.out
+
+# Go
+vendor/
+coverage.out
+coverage.html
+*.prof
+cpu.pprof
+mem.pprof
+
+# Node
+node_modules/
+dist/
+frontend/dist/
+
+# IDE / OS
+.idea/
+.vscode/*.log
+.DS_Store
+*.swp
+
+# Local config and runtime (root only; examples/config.yaml is committed)
+/config.yaml
+/.config.yaml
+.tmp/
+*.db
+state.json
+*.snap
+
+# Test artifacts
+tests/e2e/results/
+test-results/
+playwright-report/
+.vite/
+
+# Devcontainer leftovers
+.venv/
+
+# Caches
+.ruff_cache/
+.pytest_cache/

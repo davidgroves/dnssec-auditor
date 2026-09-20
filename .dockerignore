@@ -1,0 +1,9 @@
+.git
+node_modules
+dist
+.tmp
+*.snap
+state.json
+tests/e2e/results
+playwright-report
+test-results

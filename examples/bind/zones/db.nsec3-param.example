@@ -1,0 +1,60 @@
+nsec3-param.example.	3600	IN	NS	ns1.nsec3-param.example.
+nsec3-param.example.	3600	IN	NS	ns2.nsec3-param.example.
+nsec3-param.example.	3600	IN	SOA	ns1.nsec3-param.example. hostmaster.nsec3-param.example. 1 3600 600 86400 300
+nsec3-param.example.	3600	IN	RRSIG	DNSKEY 13 2 3600 20380119031407 19700101000001 3633 nsec3-param.example. HMYjnE7ASMmaCFzPao3uZ0KHgaPcXSdAVHzYkoRODK4diQ/oAFxnpB2yFjoMJF3UIxme2LzckCaM+Gc+qqeXqA==
+nsec3-param.example.	3600	IN	RRSIG	NS 13 2 3600 20380119031407 19700101000001 34221 nsec3-param.example. V1VwJjdqiBBiFeRatwx0mHNf8vlY23wB+DLKcmat27Ekf0MCxjzxJwzsWUPyDJAESD1zIGRJhBbPThrejiH/hw==
+nsec3-param.example.	3600	IN	RRSIG	NSEC3PARAM 13 2 0 20380119031407 19700101000001 34221 nsec3-param.example. NLmoEn390YVXQL4218k44nZpFFMbewtDiVT4p6UYJVCuQS9filxc1E6Sm3dcGyC8Y3TVMckYcGP/JY/BKplTqw==
+nsec3-param.example.	3600	IN	RRSIG	SOA 13 2 3600 20380119031407 19700101000001 34221 nsec3-param.example. skaTQq3o1CkCyaXXv4JyJUF3l7OOkB+yRdUPpiJgmMT+hz42G6ZCbPd0eqCHGAZ3roCn37tLiH7qBqvmqp/fJQ==
+nsec3-param.example.	3600	IN	DNSKEY	256 3 13 90P8ItFCuRqyMdtkeVOdy72P7xSBS0mGT1U+6J4MfQrghZs5VITmaGrPZFEBADua/KiAhBumkmdfMqV22fJyHA==
+nsec3-param.example.	3600	IN	DNSKEY	257 3 13 6u/JgL6SJVx5nA/rF/o/rVVg2FwxYhZE8wBb81UXkLOZcILO580AVJxGs2SOW//vnGqObDDYbtzIg2NDIbXsEQ==
+nsec3-param.example.	0	IN	NSEC3PARAM	1 0 10 -
+9cqmpbb53rlpkd74unn4vr1f3i1st8ds.nsec3-param.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 34221 nsec3-param.example. O9dYPj/z3FJ1OtBf8n2KEmJ/Jf2xtRvqGARuyk3x69T369ekhLBoBNr8+5cYsQCbPbgYYAU7eacIVbGS/AjDZw==
+9cqmpbb53rlpkd74unn4vr1f3i1st8ds.nsec3-param.example.	3600	IN	NSEC3	1 1 0 - EU8L1BCDODRQTLEEVJECQBGC4IG3R20I A RRSIG
+d00000.nsec3-param.example.	3600	IN	NS	ns1.d00000.nsec3-param.example.
+d00000.nsec3-param.example.	3600	IN	NS	ns2.d00000.nsec3-param.example.
+d00000.nsec3-param.example.	3600	IN	NS	ns3.d00000.nsec3-param.example.
+d00000.nsec3-param.example.	3600	IN	NS	ns4.d00000.nsec3-param.example.
+ns1.d00000.nsec3-param.example.	3600	IN	A	192.0.2.2
+ns2.d00000.nsec3-param.example.	3600	IN	A	192.0.2.3
+ns3.d00000.nsec3-param.example.	3600	IN	A	192.0.2.4
+ns4.d00000.nsec3-param.example.	3600	IN	A	192.0.2.5
+d00001.nsec3-param.example.	3600	IN	NS	ns1.d00001.nsec3-param.example.
+d00001.nsec3-param.example.	3600	IN	NS	ns2.d00001.nsec3-param.example.
+d00001.nsec3-param.example.	3600	IN	NS	ns3.d00001.nsec3-param.example.
+d00001.nsec3-param.example.	3600	IN	NS	ns4.d00001.nsec3-param.example.
+ns1.d00001.nsec3-param.example.	3600	IN	A	192.0.2.3
+ns2.d00001.nsec3-param.example.	3600	IN	A	192.0.2.4
+ns3.d00001.nsec3-param.example.	3600	IN	A	192.0.2.5
+ns4.d00001.nsec3-param.example.	3600	IN	A	192.0.2.6
+d00002.nsec3-param.example.	3600	IN	NS	ns1.d00002.nsec3-param.example.
+d00002.nsec3-param.example.	3600	IN	NS	ns2.d00002.nsec3-param.example.
+d00002.nsec3-param.example.	3600	IN	NS	ns3.d00002.nsec3-param.example.
+d00002.nsec3-param.example.	3600	IN	NS	ns4.d00002.nsec3-param.example.
+d00002.nsec3-param.example.	3600	IN	DS	62326 13 2 7474BA00A83E63BF896C2F36BD526F98EE782917DD6223D6E4F698DAEB833CBA
+d00002.nsec3-param.example.	3600	IN	RRSIG	DS 13 3 3600 20380119031407 19700101000001 34221 nsec3-param.example. FpLYviTQmtiDOCm3Ijqz2ZCIX6owgxJw2FXW76Cx71RwrqVi05TMhAQrL6nqfFIEzbNHZpcJuP0GUOG4kbio4g==
+ns1.d00002.nsec3-param.example.	3600	IN	A	192.0.2.4
+ns2.d00002.nsec3-param.example.	3600	IN	A	192.0.2.5
+ns3.d00002.nsec3-param.example.	3600	IN	A	192.0.2.6
+ns4.d00002.nsec3-param.example.	3600	IN	A	192.0.2.7
+d00003.nsec3-param.example.	3600	IN	NS	ns1.d00003.nsec3-param.example.
+d00003.nsec3-param.example.	3600	IN	NS	ns2.d00003.nsec3-param.example.
+d00003.nsec3-param.example.	3600	IN	NS	ns3.d00003.nsec3-param.example.
+d00003.nsec3-param.example.	3600	IN	NS	ns4.d00003.nsec3-param.example.
+d00003.nsec3-param.example.	3600	IN	DS	20841 13 2 DCAC9E037A2ACFF5AB39131588446B7264EDF7117B1C9974EF804CC617A25FB5
+d00003.nsec3-param.example.	3600	IN	RRSIG	DS 13 3 3600 20380119031407 19700101000001 34221 nsec3-param.example. pCKD0JfLdMrGyDEhas5W760TX3BSkGQslA0hUPBYxOxeGeyCzqSt9wN8eVriidFT89LBycVuQJrFV4+W4VPHaw==
+ns1.d00003.nsec3-param.example.	3600	IN	A	192.0.2.5
+ns2.d00003.nsec3-param.example.	3600	IN	A	192.0.2.6
+ns3.d00003.nsec3-param.example.	3600	IN	A	192.0.2.7
+ns4.d00003.nsec3-param.example.	3600	IN	A	192.0.2.8
+eu8l1bcdodrqtleevjecqbgc4ig3r20i.nsec3-param.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 34221 nsec3-param.example. O2G5/3+JIdjiW50U3wjuD826QXxwULTZcVBaz1tc7yv1BiembmqD4MDzotD8+S7cfbnbSIqWz226tyyvQ496AQ==
+eu8l1bcdodrqtleevjecqbgc4ig3r20i.nsec3-param.example.	3600	IN	NSEC3	1 1 0 - FMQ4FE257F91CCOS3QF7AICUVMOI0GQ7 NS DS RRSIG
+fmq4fe257f91ccos3qf7aicuvmoi0gq7.nsec3-param.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 34221 nsec3-param.example. FztuAqmhJ9K6LjARb97h0TPEWctqdYlRuoRyDh6ImKGm2pnW2wDAinxZQfj86MmEKAgnZcuJCOCNx8lXj83BBg==
+fmq4fe257f91ccos3qf7aicuvmoi0gq7.nsec3-param.example.	3600	IN	NSEC3	1 1 0 - Q9FFLNA3K2JU4NPADSE4R5T2BF5T0J42 NS SOA RRSIG DNSKEY NSEC3PARAM
+ns1.nsec3-param.example.	3600	IN	A	192.0.2.1
+ns1.nsec3-param.example.	3600	IN	RRSIG	A 13 3 3600 20380119031407 19700101000001 34221 nsec3-param.example. hb+clIh17dzkdFnfozGXEqxY2AtjphnRcGJU6V1Z7h0hj/cVTYPzStuFkn3kQUVMvCz4x5maIcB9Uy42XI+S6Q==
+ns2.nsec3-param.example.	3600	IN	A	192.0.2.2
+ns2.nsec3-param.example.	3600	IN	RRSIG	A 13 3 3600 20380119031407 19700101000001 34221 nsec3-param.example. UMKYQS+nkkafVunCcKGyPnnWvCJ8pPqfcQBjc1FeTpRcZ7P7ZbgMj70wO8V9lImhRPzg3AqLfrjX5IhPvPYkkA==
+q9fflna3k2ju4npadse4r5t2bf5t0j42.nsec3-param.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 34221 nsec3-param.example. hpxYs4UQv5pUy0pptk26kVh1AUNpyUle8uugcgEqHYeKPPGaFWFD2XzTv9vfx0N8Pimc1v1OPwtp9eZqoRthFA==
+q9fflna3k2ju4npadse4r5t2bf5t0j42.nsec3-param.example.	3600	IN	NSEC3	1 1 0 - UV2LSKJOVIE4V7LCMVOPFNM5FPIFVGTP NS DS RRSIG
+uv2lskjovie4v7lcmvopfnm5fpifvgtp.nsec3-param.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 34221 nsec3-param.example. yKURALJMy9FgqsZKUto/4qLGEdZTJsQr57coA4vcxq7YbwUdbOP446HcR27klGRW/aR5rb9X+BRxzDM9lbj1ig==
+uv2lskjovie4v7lcmvopfnm5fpifvgtp.nsec3-param.example.	3600	IN	NSEC3	1 1 0 - 9CQMPBB53RLPKD74UNN4VR1F3I1ST8DS A RRSIG

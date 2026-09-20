@@ -1,0 +1,61 @@
+dnskey-unused.example.	3600	IN	NS	ns1.dnskey-unused.example.
+dnskey-unused.example.	3600	IN	NS	ns2.dnskey-unused.example.
+dnskey-unused.example.	3600	IN	SOA	ns1.dnskey-unused.example. hostmaster.dnskey-unused.example. 1 3600 600 86400 300
+dnskey-unused.example.	3600	IN	RRSIG	DNSKEY 13 2 3600 20380119031407 19700101000001 16586 dnskey-unused.example. AqKgiRgpdwIRnfN2ELw3wd1RjHis5BSlhVQAV1T8KzlQDRUGedeo8+UUZq/ClGycX6q/luaHYvlEYTKxx3aUGQ==
+dnskey-unused.example.	3600	IN	RRSIG	NS 13 2 3600 20380119031407 19700101000001 23878 dnskey-unused.example. iot1s9GIQrhmQSg93pXsSM9aux4UJYlSFpKYG76qZfDm6v8Msrpb3E5Dba27eUptmFSamSl+Iwg/MyPq+SbHUg==
+dnskey-unused.example.	3600	IN	RRSIG	NSEC3PARAM 13 2 0 20380119031407 19700101000001 23878 dnskey-unused.example. 2SKb7/kIOIHtqWo434GQhOeAVaWU5HITCyoyJ4pJtbY+oKHEK52L7Cfi1FMxtA5M2vWSoIve3p/Sbd62+BoYCQ==
+dnskey-unused.example.	3600	IN	RRSIG	SOA 13 2 3600 20380119031407 19700101000001 23878 dnskey-unused.example. 3Ecq3i+pWjrtERdfmB7/HSvcoeZIniQIZeqsDlHYf/kb2et4ve1sQpgik+W8W8tBeE/UIPcYakNDeKqjC/HrdQ==
+dnskey-unused.example.	3600	IN	DNSKEY	256 3 13 6cgNu20hcXUK1tx6lKkMH0lBTn0HqD4SjTxqASx6/LeMZC7I7ivRax2XEykTiHxjiN7BDVwqeL3z6fAALvPWhQ==
+dnskey-unused.example.	3600	IN	DNSKEY	256 3 13 HnOPWuXtmx7g4KT3Uc3uMdwldGADU4pI4v76uhsMSqf+kDPErdT97ZDLqsqNMwe8kJXFyo7MBjwl+lElwfdv2g==
+dnskey-unused.example.	3600	IN	DNSKEY	257 3 13 Pa77lga8wuEm2U3cObzWg7A4WIDUR2ctWkcCId4BaxHOf6gcQC2X8603N4TVhfkjckW8mxzvlwwNZHZ8/ddkgQ==
+dnskey-unused.example.	0	IN	NSEC3PARAM	1 0 0 -
+5hl3150kicfvtetlb1q4ha375cam8lhh.dnskey-unused.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 23878 dnskey-unused.example. kZRn5WuCfbLgJuRWY6fXog9zkKiElcbZBZv5Pl0aDqjUnw4lXkWvt081E9pSH9We38OgMVcCCo7/25coqRbYtQ==
+5hl3150kicfvtetlb1q4ha375cam8lhh.dnskey-unused.example.	3600	IN	NSEC3	1 1 0 - 5MT9PE0S7HTVIH786TE5UUG5QP9397V2 NS DS RRSIG
+5mt9pe0s7htvih786te5uug5qp9397v2.dnskey-unused.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 23878 dnskey-unused.example. c1Rm2CDJoobtxSVSWRwrp5pANkYC1S3qHCI3pEeg3D6XtRLLhVHbjc6A9X9QVJxxO27DpufsiSIdG5wVh6Uz+g==
+5mt9pe0s7htvih786te5uug5qp9397v2.dnskey-unused.example.	3600	IN	NSEC3	1 1 0 - CHE0PIDRFKN00U5942QHDLFI2D7DU58L NS SOA RRSIG DNSKEY NSEC3PARAM
+che0pidrfkn00u5942qhdlfi2d7du58l.dnskey-unused.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 23878 dnskey-unused.example. r5nUwB2A3XCEDKs2Fx9V34vAKa/GyqeNSKuLWFB0sY+gt6u6iWsPxeplLAYcIWZRf6jUL9un3Hhy9oKca25NEw==
+che0pidrfkn00u5942qhdlfi2d7du58l.dnskey-unused.example.	3600	IN	NSEC3	1 1 0 - HQVIGFC940I417BS9P3FS7G5IFC3GN9C A RRSIG
+d00000.dnskey-unused.example.	3600	IN	NS	ns1.d00000.dnskey-unused.example.
+d00000.dnskey-unused.example.	3600	IN	NS	ns2.d00000.dnskey-unused.example.
+d00000.dnskey-unused.example.	3600	IN	NS	ns3.d00000.dnskey-unused.example.
+d00000.dnskey-unused.example.	3600	IN	NS	ns4.d00000.dnskey-unused.example.
+ns1.d00000.dnskey-unused.example.	3600	IN	A	192.0.2.2
+ns2.d00000.dnskey-unused.example.	3600	IN	A	192.0.2.3
+ns3.d00000.dnskey-unused.example.	3600	IN	A	192.0.2.4
+ns4.d00000.dnskey-unused.example.	3600	IN	A	192.0.2.5
+d00001.dnskey-unused.example.	3600	IN	NS	ns1.d00001.dnskey-unused.example.
+d00001.dnskey-unused.example.	3600	IN	NS	ns2.d00001.dnskey-unused.example.
+d00001.dnskey-unused.example.	3600	IN	NS	ns3.d00001.dnskey-unused.example.
+d00001.dnskey-unused.example.	3600	IN	NS	ns4.d00001.dnskey-unused.example.
+ns1.d00001.dnskey-unused.example.	3600	IN	A	192.0.2.3
+ns2.d00001.dnskey-unused.example.	3600	IN	A	192.0.2.4
+ns3.d00001.dnskey-unused.example.	3600	IN	A	192.0.2.5
+ns4.d00001.dnskey-unused.example.	3600	IN	A	192.0.2.6
+d00002.dnskey-unused.example.	3600	IN	NS	ns1.d00002.dnskey-unused.example.
+d00002.dnskey-unused.example.	3600	IN	NS	ns2.d00002.dnskey-unused.example.
+d00002.dnskey-unused.example.	3600	IN	NS	ns3.d00002.dnskey-unused.example.
+d00002.dnskey-unused.example.	3600	IN	NS	ns4.d00002.dnskey-unused.example.
+d00002.dnskey-unused.example.	3600	IN	DS	27041 13 2 301F8472865AEC73B40DC2E84D58140BEA3261653B9E6F45E012E7B560D274CB
+d00002.dnskey-unused.example.	3600	IN	RRSIG	DS 13 3 3600 20380119031407 19700101000001 23878 dnskey-unused.example. txtNlY1UsVEznyp+OhNKzOge/6JH2nZzLyqALvIzk5ab31wEZsM/v1SfXitycRVctPZVO9cYyAyJVP+NnmR1Wg==
+ns1.d00002.dnskey-unused.example.	3600	IN	A	192.0.2.4
+ns2.d00002.dnskey-unused.example.	3600	IN	A	192.0.2.5
+ns3.d00002.dnskey-unused.example.	3600	IN	A	192.0.2.6
+ns4.d00002.dnskey-unused.example.	3600	IN	A	192.0.2.7
+d00003.dnskey-unused.example.	3600	IN	NS	ns1.d00003.dnskey-unused.example.
+d00003.dnskey-unused.example.	3600	IN	NS	ns2.d00003.dnskey-unused.example.
+d00003.dnskey-unused.example.	3600	IN	NS	ns3.d00003.dnskey-unused.example.
+d00003.dnskey-unused.example.	3600	IN	NS	ns4.d00003.dnskey-unused.example.
+d00003.dnskey-unused.example.	3600	IN	DS	26585 13 2 B3B0506FFE8CEAF63AE852D0C8F1A349DD04C37515A9FBD255DDD010DAD274BC
+d00003.dnskey-unused.example.	3600	IN	RRSIG	DS 13 3 3600 20380119031407 19700101000001 23878 dnskey-unused.example. KaeZnK8W96CCTOHk+DRoC2sKjCG3AqLzrHCkf60tKYZrKxaNYj1X6T8utCh0pOJQuxrazZ1P7Pv3cYwyErzr9w==
+ns1.d00003.dnskey-unused.example.	3600	IN	A	192.0.2.5
+ns2.d00003.dnskey-unused.example.	3600	IN	A	192.0.2.6
+ns3.d00003.dnskey-unused.example.	3600	IN	A	192.0.2.7
+ns4.d00003.dnskey-unused.example.	3600	IN	A	192.0.2.8
+hqvigfc940i417bs9p3fs7g5ifc3gn9c.dnskey-unused.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 23878 dnskey-unused.example. FtqkQDKsuqmfIPspfqI+pnPHAawZrSLzOlcgHRvb8toS20CCMvj3NhzL2y0YlNtjigOc9uEKheGlwfcvy+TZyQ==
+hqvigfc940i417bs9p3fs7g5ifc3gn9c.dnskey-unused.example.	3600	IN	NSEC3	1 1 0 - T2ATTUOLV85DJL1LSQJMR3JI14F8PPI4 A RRSIG
+ns1.dnskey-unused.example.	3600	IN	A	192.0.2.1
+ns1.dnskey-unused.example.	3600	IN	RRSIG	A 13 3 3600 20380119031407 19700101000001 23878 dnskey-unused.example. pZLiuldbLwtHiwU+IdhmUIHcdVcd5pou4T9wKNbp/jOC+s97Ht1Mmb4LlcNJDJuG6NKgx07ZyWrj9PV32YIs6Q==
+ns2.dnskey-unused.example.	3600	IN	A	192.0.2.2
+ns2.dnskey-unused.example.	3600	IN	RRSIG	A 13 3 3600 20380119031407 19700101000001 23878 dnskey-unused.example. t/Sx9zNjxvhrdG5gRMh8M5AGPkl5qFsb/lLW0Q0bQr6UCmbSmDCfY47jBXt+sZNymM43AxqV56GMrrTb2IB4XQ==
+t2attuolv85djl1lsqjmr3ji14f8ppi4.dnskey-unused.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 23878 dnskey-unused.example. sNOE17ByRgR/aWjRrPfmyfYVtbq1h6AYyiPTgSbhcHmy1RWVvKYZS7Hc9Uq2QAKWLIwWO9tAH4dB/CPYqKVzIw==
+t2attuolv85djl1lsqjmr3ji14f8ppi4.dnskey-unused.example.	3600	IN	NSEC3	1 1 0 - 5HL3150KICFVTETLB1Q4HA375CAM8LHH NS DS RRSIG

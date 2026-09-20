@@ -1,0 +1,93 @@
+nsec-missing.example.	3600	IN	NS	ns1.nsec-missing.example.
+nsec-missing.example.	3600	IN	NS	ns2.nsec-missing.example.
+nsec-missing.example.	3600	IN	SOA	ns1.nsec-missing.example. hostmaster.nsec-missing.example. 1 3600 600 86400 300
+nsec-missing.example.	3600	IN	RRSIG	DNSKEY 13 2 3600 20380119031407 19700101000001 57941 nsec-missing.example. aRIkZn0/QiNRLvFINoC4uSA7AycsOr4VDdlIWbB6X1cgd+aWhBAvyQsSKUPbIjt/Um5QAxP/9eWj7Jo0pebwQA==
+nsec-missing.example.	3600	IN	RRSIG	NS 13 2 3600 20380119031407 19700101000001 27926 nsec-missing.example. y/mVwm1BsnYbg64xMrnIrjOs24yKPvRaMswG7EfF/fZlooIZUOFaQT9NESt769K2eZoLd90vnfS2yY/Dl2RlyQ==
+nsec-missing.example.	3600	IN	RRSIG	NSEC 13 2 3600 20380119031407 19700101000001 27926 nsec-missing.example. FTdR4GyTGE1VrtJNOc9AU4mHbgj5WWuyHOjEcrJBqCSDO0DFi6VL4pix9M2KF7Lmq9P3+xKFvXkqnnMi6iWwHQ==
+nsec-missing.example.	3600	IN	RRSIG	SOA 13 2 3600 20380119031407 19700101000001 27926 nsec-missing.example. hCCbd6toSjlJ0u9LfZr17aNNFPvFr54VZYNZxZTi3E1toebk4GPmdXgXCC4PXNI1WEBFXVJqjVyKQpaeEKlIAw==
+nsec-missing.example.	3600	IN	NSEC	d00000.nsec-missing.example. NS SOA RRSIG NSEC DNSKEY
+nsec-missing.example.	3600	IN	DNSKEY	256 3 13 6E+XpPB+YAp21V9207fvsMrXD3NFgsucah+EM6vgbxmDaL80VUEU7oroLD/pc0mfNHBn7SrvT6930tw9bhKZ+Q==
+nsec-missing.example.	3600	IN	DNSKEY	257 3 13 Wrm1o3NEOUcvv5ypPG+S8CbTmuxbuui3T/uWmdmO1N+UniTm+vrMoTJDTmABYqxVFwB6I/IHbHsURGXT+ZzXiA==
+d00000.nsec-missing.example.	3600	IN	NS	ns1.d00000.nsec-missing.example.
+d00000.nsec-missing.example.	3600	IN	NS	ns2.d00000.nsec-missing.example.
+d00000.nsec-missing.example.	3600	IN	NS	ns3.d00000.nsec-missing.example.
+d00000.nsec-missing.example.	3600	IN	NS	ns4.d00000.nsec-missing.example.
+d00000.nsec-missing.example.	3600	IN	RRSIG	NSEC 13 3 3600 20380119031407 19700101000001 27926 nsec-missing.example. rX5dnKiq/nIV1Dggbs0/E0zEcpppupncFvor5nWYgj3IGWlAWX2ANKO7LLt57pfWERsJ67P+FoY280wg6ibIAQ==
+d00000.nsec-missing.example.	3600	IN	NSEC	ns1.d00000.nsec-missing.example. NS RRSIG NSEC
+ns1.d00000.nsec-missing.example.	3600	IN	A	192.0.2.2
+ns1.d00000.nsec-missing.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 27926 nsec-missing.example. QwAYrugU2IgFfcgpumS1/kzYvtIqAgFtGJ/vtc7QAgcAsy7XkjIAoO/C/uamzJQ3gWXsu8IdurtMGrL2Jrf3oQ==
+ns1.d00000.nsec-missing.example.	3600	IN	NSEC	ns2.d00000.nsec-missing.example. A RRSIG NSEC
+ns2.d00000.nsec-missing.example.	3600	IN	A	192.0.2.3
+ns2.d00000.nsec-missing.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 27926 nsec-missing.example. y40kxiCRKrfPSb7ZWz+dlqMWlaFiEKwPuGIycMWK0pkAz9+EfQzA/x+FEEjo9U65KUyf22jsV5BWZ9P7Q3ENRA==
+ns2.d00000.nsec-missing.example.	3600	IN	NSEC	ns3.d00000.nsec-missing.example. A RRSIG NSEC
+ns3.d00000.nsec-missing.example.	3600	IN	A	192.0.2.4
+ns3.d00000.nsec-missing.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 27926 nsec-missing.example. QIk8vDhswXAhOTALdsaMoNiJV7AMeBj6QTyU1hLwuK2F712gHe1ZOxl3tI4v4U2IB37Q12IaeWKbsBLWRe+V4A==
+ns3.d00000.nsec-missing.example.	3600	IN	NSEC	ns4.d00000.nsec-missing.example. A RRSIG NSEC
+ns4.d00000.nsec-missing.example.	3600	IN	A	192.0.2.5
+ns4.d00000.nsec-missing.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 27926 nsec-missing.example. sLoTl956b0fypPHfVy45VkgrXwt3o9+4plrX6Ywk3MtNP5zoR515G2AAtJ1ETfSt6Wt042l5+wyXFz+0+oRUpA==
+ns4.d00000.nsec-missing.example.	3600	IN	NSEC	d00001.nsec-missing.example. A RRSIG NSEC
+d00001.nsec-missing.example.	3600	IN	NS	ns1.d00001.nsec-missing.example.
+d00001.nsec-missing.example.	3600	IN	NS	ns2.d00001.nsec-missing.example.
+d00001.nsec-missing.example.	3600	IN	NS	ns3.d00001.nsec-missing.example.
+d00001.nsec-missing.example.	3600	IN	NS	ns4.d00001.nsec-missing.example.
+d00001.nsec-missing.example.	3600	IN	RRSIG	NSEC 13 3 3600 20380119031407 19700101000001 27926 nsec-missing.example. 3rnEv7RHGxFtPzLVaxb4W+wy8Z7NcG0FzXEczuSx14akZN5tvfIF/0O5ukqUi6e3NTsoLmizGxtz3eodgk33/Q==
+ns1.d00001.nsec-missing.example.	3600	IN	A	192.0.2.3
+ns1.d00001.nsec-missing.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 27926 nsec-missing.example. +n64+87hzCdmobSlxLDRMkYwOuLDiGTd30P3XUpwDK0BLaw+Hi2sXzMKkamxZkVs20fYnKMI6/wdaZNou8iBfA==
+ns1.d00001.nsec-missing.example.	3600	IN	NSEC	ns2.d00001.nsec-missing.example. A RRSIG NSEC
+ns2.d00001.nsec-missing.example.	3600	IN	A	192.0.2.4
+ns2.d00001.nsec-missing.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 27926 nsec-missing.example. nHTzAnTcIO8WBGrKGK/6TOWihY/5XSLCIioIvlIUWne8Th0cr5+yLo8i0+zz/c6X8o6agwfPGDTzySjbhWl39w==
+ns2.d00001.nsec-missing.example.	3600	IN	NSEC	ns3.d00001.nsec-missing.example. A RRSIG NSEC
+ns3.d00001.nsec-missing.example.	3600	IN	A	192.0.2.5
+ns3.d00001.nsec-missing.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 27926 nsec-missing.example. F7pGZAkBrBgfFCzjCT/Q5GNS4CKdAA0VT4O2kPh4FS12u8I8rLoTtSIQM801vIBbsU7+a33E8j2xBmoqpBSRhw==
+ns3.d00001.nsec-missing.example.	3600	IN	NSEC	ns4.d00001.nsec-missing.example. A RRSIG NSEC
+ns4.d00001.nsec-missing.example.	3600	IN	A	192.0.2.6
+ns4.d00001.nsec-missing.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 27926 nsec-missing.example. oZpZRFaEkUmK1tbNv8Yz+2XygNdPj87uV+Q4NUOmpYki+yUedltOPW0uaB6HU/75duELP3NCvM3rIeAbrcItHA==
+ns4.d00001.nsec-missing.example.	3600	IN	NSEC	d00002.nsec-missing.example. A RRSIG NSEC
+d00002.nsec-missing.example.	3600	IN	NS	ns1.d00002.nsec-missing.example.
+d00002.nsec-missing.example.	3600	IN	NS	ns2.d00002.nsec-missing.example.
+d00002.nsec-missing.example.	3600	IN	NS	ns3.d00002.nsec-missing.example.
+d00002.nsec-missing.example.	3600	IN	NS	ns4.d00002.nsec-missing.example.
+d00002.nsec-missing.example.	3600	IN	DS	13396 13 2 9B76BE1B6075379334763A12BD267C19955F301DA6516B1A07CF97B0D338D000
+d00002.nsec-missing.example.	3600	IN	RRSIG	DS 13 3 3600 20380119031407 19700101000001 27926 nsec-missing.example. N1ePzeh8WGAXLJt6kZqjNvvRjMIppKbETkNJP7q9mElrdby+vhT0SR2z+WZVRgRX2PsZjbwCwRFV1DooQChaHQ==
+d00002.nsec-missing.example.	3600	IN	RRSIG	NSEC 13 3 3600 20380119031407 19700101000001 27926 nsec-missing.example. /R9DeP/E0Ir4+Av7To9jAzHwWo2lTnWpJq/tvl/LISvsL/lY00TwlMZbNCCNs/CTmxW7QDfcRSgIQlQkwQri3g==
+d00002.nsec-missing.example.	3600	IN	NSEC	ns1.d00002.nsec-missing.example. NS DS RRSIG NSEC
+ns1.d00002.nsec-missing.example.	3600	IN	A	192.0.2.4
+ns1.d00002.nsec-missing.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 27926 nsec-missing.example. FVu8eA9kqgUYX6vaWny4FE5PA4UhvEnBVb9fJ57MOIgZ4y6dNggmeyB3u2cRSD1GepOi9r7Stfj/BVTuNzNYWQ==
+ns1.d00002.nsec-missing.example.	3600	IN	NSEC	ns2.d00002.nsec-missing.example. A RRSIG NSEC
+ns2.d00002.nsec-missing.example.	3600	IN	A	192.0.2.5
+ns2.d00002.nsec-missing.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 27926 nsec-missing.example. A7Ft/OaX9vGoq/d5ceLnczp/tcoyYdCqjXMBKua7llx2zi1q/kcimUbQIbsRoMSTbhwyYpeJIwE5H1YdzqlmpA==
+ns2.d00002.nsec-missing.example.	3600	IN	NSEC	ns3.d00002.nsec-missing.example. A RRSIG NSEC
+ns3.d00002.nsec-missing.example.	3600	IN	A	192.0.2.6
+ns3.d00002.nsec-missing.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 27926 nsec-missing.example. PjjlssnTTFfTsTDu2r3Thzy9/ethMXlgllyu22KjoVcUFimp/4Y+GPQQjm1KWGX7203CkPTGagZFSCR71Sn5Uw==
+ns3.d00002.nsec-missing.example.	3600	IN	NSEC	ns4.d00002.nsec-missing.example. A RRSIG NSEC
+ns4.d00002.nsec-missing.example.	3600	IN	A	192.0.2.7
+ns4.d00002.nsec-missing.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 27926 nsec-missing.example. FxjcnU1/OMAfOE8XLLrp/HRDm5l00R6beoPUB/6h/OY8qqS25qIwW3+OYEZY0SYpUn3yoCnUkBHzJm/uP9qT4A==
+ns4.d00002.nsec-missing.example.	3600	IN	NSEC	d00003.nsec-missing.example. A RRSIG NSEC
+d00003.nsec-missing.example.	3600	IN	NS	ns1.d00003.nsec-missing.example.
+d00003.nsec-missing.example.	3600	IN	NS	ns2.d00003.nsec-missing.example.
+d00003.nsec-missing.example.	3600	IN	NS	ns3.d00003.nsec-missing.example.
+d00003.nsec-missing.example.	3600	IN	NS	ns4.d00003.nsec-missing.example.
+d00003.nsec-missing.example.	3600	IN	DS	10995 13 2 96F72BF91D5FD23E8A96BFEE99E3B509F6501DDD3C5F1EF9A88B23C3A834E1E8
+d00003.nsec-missing.example.	3600	IN	RRSIG	DS 13 3 3600 20380119031407 19700101000001 27926 nsec-missing.example. 1FBEI5OlDcr3xWmOE1lPGjqQlPQi0cQyOSXplBv1/tK+cvKB7SxdUjTfk9ND6GyVAIh6Qm+OKoB0I2gbE0atZg==
+d00003.nsec-missing.example.	3600	IN	RRSIG	NSEC 13 3 3600 20380119031407 19700101000001 27926 nsec-missing.example. 1SdPkZ8gyaMRjr4aeLFmtfSCSEXBwX/RaHQnMdo1iWWMxG+JMdwMSVQG0JPGa7v/Q07izZGCo5YQikKRTUcD/A==
+d00003.nsec-missing.example.	3600	IN	NSEC	ns1.d00003.nsec-missing.example. NS DS RRSIG NSEC
+ns1.d00003.nsec-missing.example.	3600	IN	A	192.0.2.5
+ns1.d00003.nsec-missing.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 27926 nsec-missing.example. k0XV4cG8ONSuK/LF81Du/euuem+UAPNzBahYNpMqMaQdMNeSXB17v0f4S8Q/46bLyLdfSVvgA4hf+X/YZrnWHw==
+ns1.d00003.nsec-missing.example.	3600	IN	NSEC	ns2.d00003.nsec-missing.example. A RRSIG NSEC
+ns2.d00003.nsec-missing.example.	3600	IN	A	192.0.2.6
+ns2.d00003.nsec-missing.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 27926 nsec-missing.example. YDjq4EWr45ZveyfswHn7pCHbgP7Iwyfw5hkFBg99HOjJXpaZuRrLItVNC7NBTORsYs2mVJyqkseYjQmSGdvsaw==
+ns2.d00003.nsec-missing.example.	3600	IN	NSEC	ns3.d00003.nsec-missing.example. A RRSIG NSEC
+ns3.d00003.nsec-missing.example.	3600	IN	A	192.0.2.7
+ns3.d00003.nsec-missing.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 27926 nsec-missing.example. q5Eo45hroMzDUksot0DNUPidSv4byA1noa/K+3V3kIZTswkTC9hJYtKvTg7yyBjWBzrVGnvOY5yknKoaP+xFyQ==
+ns3.d00003.nsec-missing.example.	3600	IN	NSEC	ns4.d00003.nsec-missing.example. A RRSIG NSEC
+ns4.d00003.nsec-missing.example.	3600	IN	A	192.0.2.8
+ns4.d00003.nsec-missing.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 27926 nsec-missing.example. ZRboxX4+Nc0YvyqZ9Pi6VPfdQ7FcoHYFXmasBtnqQ8LwDZzsxhCigzRnIyJxE2V9dqxXDBmpxSEv6ZoFDdJJ8w==
+ns4.d00003.nsec-missing.example.	3600	IN	NSEC	ns1.nsec-missing.example. A RRSIG NSEC
+ns1.nsec-missing.example.	3600	IN	A	192.0.2.1
+ns1.nsec-missing.example.	3600	IN	RRSIG	A 13 3 3600 20380119031407 19700101000001 27926 nsec-missing.example. 3Jp/3ykywKL35Z+jL+U5sFvZL47C6vsrhUUrcfDlu1Dec/Q5u4yFYUS07owuyRI9XB7Db6dEi0WuXLQeNRreOQ==
+ns1.nsec-missing.example.	3600	IN	RRSIG	NSEC 13 3 3600 20380119031407 19700101000001 27926 nsec-missing.example. 653SDIXUJiQDUAIqv1qdxEcUJiaBGUi8g8veto0sdzqVI0SEDeBFnh5zyny8AIdzbMNta4ZOI/FKbxCMbqW/yw==
+ns1.nsec-missing.example.	3600	IN	NSEC	ns2.nsec-missing.example. A RRSIG NSEC
+ns2.nsec-missing.example.	3600	IN	A	192.0.2.2
+ns2.nsec-missing.example.	3600	IN	RRSIG	A 13 3 3600 20380119031407 19700101000001 27926 nsec-missing.example. l5+DhPSGvX2nRrln/YiYJPA++py2mIKUQK0N+PMzXGoMJrcsHTPR39Q5cjx2a05K8QO1VbUAwy3+dN1IP1rsHQ==
+ns2.nsec-missing.example.	3600	IN	RRSIG	NSEC 13 3 3600 20380119031407 19700101000001 27926 nsec-missing.example. wG7de1gu7Z6tQUI1QHFTPOoR8KeImZjujqyGyP98LkfgNC9glizkQg0ybBkcJ1vPZkTSyXpCnZUnnzWCkiD0Kg==
+ns2.nsec-missing.example.	3600	IN	NSEC	nsec-missing.example. A RRSIG NSEC

@@ -1,0 +1,68 @@
+nsec3-bitmap.example.	3600	IN	NS	ns1.nsec3-bitmap.example.
+nsec3-bitmap.example.	3600	IN	NS	ns2.nsec3-bitmap.example.
+nsec3-bitmap.example.	3600	IN	SOA	ns1.nsec3-bitmap.example. hostmaster.nsec3-bitmap.example. 1 3600 600 86400 300
+nsec3-bitmap.example.	3600	IN	RRSIG	DNSKEY 13 2 3600 20380119031407 19700101000001 17703 nsec3-bitmap.example. GoaReYbK85eK8Rm9qievXgV7kH2e0xGSmBAsAphRuobhzFDh1GAH/S/BxeDU/ahiEwe7qDRHQm5kDNqjC70HDg==
+nsec3-bitmap.example.	3600	IN	RRSIG	NS 13 2 3600 20380119031407 19700101000001 5779 nsec3-bitmap.example. 9CzEdSaTnndnWE1cMA7NSnhMGMQ8TOlKi28eHiVUA3txdbkBhsiCt3tRPPmpMXsBmMhG4zZQbs27bPYEwmKG4Q==
+nsec3-bitmap.example.	3600	IN	RRSIG	NSEC3PARAM 13 2 0 20380119031407 19700101000001 5779 nsec3-bitmap.example. yvR2Or8Y5tS59MNwE9X9TRRhUSn3cWeBNFYh7S0nTSdBoySgRyvaIcNtHDx2qwxXxgs7DiuzR6Jbg1JhzkF5ng==
+nsec3-bitmap.example.	3600	IN	RRSIG	SOA 13 2 3600 20380119031407 19700101000001 5779 nsec3-bitmap.example. +mlwpeV9BNZIcADIxCJVadKWzBU0yjIiBwAFJN+/7LK/fPobzn1OcD+RW44JtwWioSL3RJ6yVQeQvT0/e7LNDg==
+nsec3-bitmap.example.	3600	IN	DNSKEY	256 3 13 cQ3MlYoRZPsXYNGwDN0w0vW+8H6OOjq+S0RoNdK053rLaoucDNOTpeuewm2UPFxOT4hum+Q+sc5KrzdvxI5xPw==
+nsec3-bitmap.example.	3600	IN	DNSKEY	257 3 13 DBZB4DZt4YM2tc4yLDBtpu7zuNT/iplMRM6wKdk62JmUQCJ9a+xUC74NzDGvIRQ16i9vjqcYAz9yqv6JlNOGnA==
+nsec3-bitmap.example.	0	IN	NSEC3PARAM	1 0 0 -
+0hlkr9vltguo1kmmlv460gbsunukr6lj.nsec3-bitmap.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 5779 nsec3-bitmap.example. vF5cEl0/sftSCZcrKsAUxa0yugF6c6Zpd7HyB/AGN1mmwgxAN0MQDfXX2BJTbTDkJCKXrzgq+CyjkFHt39Jnrw==
+0hlkr9vltguo1kmmlv460gbsunukr6lj.nsec3-bitmap.example.	3600	IN	NSEC3	1 1 0 - AA8188HPF5QIP2DK99V3J1TKT48E0V82 A RRSIG
+aa8188hpf5qip2dk99v3j1tkt48e0v82.nsec3-bitmap.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 5779 nsec3-bitmap.example. e5unXmxkO3hRzcB7Zd6C64Pt85wYo/o6v89iel9vN2/mJg2vKQdifetjzKOev1BwOP993+c+ZkvwIE09f+7PVQ==
+aa8188hpf5qip2dk99v3j1tkt48e0v82.nsec3-bitmap.example.	3600	IN	NSEC3	1 1 0 - GSVRURBONOUJ3FR3HQUSVAPL9VQKGTB6 NS DS RRSIG
+d00000.nsec3-bitmap.example.	3600	IN	NS	ns1.d00000.nsec3-bitmap.example.
+d00000.nsec3-bitmap.example.	3600	IN	NS	ns2.d00000.nsec3-bitmap.example.
+d00000.nsec3-bitmap.example.	3600	IN	NS	ns3.d00000.nsec3-bitmap.example.
+d00000.nsec3-bitmap.example.	3600	IN	NS	ns4.d00000.nsec3-bitmap.example.
+d00000.nsec3-bitmap.example.	3600	IN	DS	58054 13 2 E91DF90FB96B18A2CCD9735A222163D94F410A725CDA4A7B6DBA279E39A9E2B0
+d00000.nsec3-bitmap.example.	3600	IN	RRSIG	DS 13 3 3600 20380119031407 19700101000001 5779 nsec3-bitmap.example. Ye+EPHNz4xt8utuTFGo0lEw7XAEKZgftEqmW4qX0srcrtAfS7wHEVDBYTQCgKL0SBUhNoULMrufcJyvHozx0mQ==
+ns1.d00000.nsec3-bitmap.example.	3600	IN	A	192.0.2.2
+ns2.d00000.nsec3-bitmap.example.	3600	IN	A	192.0.2.3
+ns3.d00000.nsec3-bitmap.example.	3600	IN	A	192.0.2.4
+ns4.d00000.nsec3-bitmap.example.	3600	IN	A	192.0.2.5
+d00001.nsec3-bitmap.example.	3600	IN	NS	ns1.d00001.nsec3-bitmap.example.
+d00001.nsec3-bitmap.example.	3600	IN	NS	ns2.d00001.nsec3-bitmap.example.
+d00001.nsec3-bitmap.example.	3600	IN	NS	ns3.d00001.nsec3-bitmap.example.
+d00001.nsec3-bitmap.example.	3600	IN	NS	ns4.d00001.nsec3-bitmap.example.
+d00001.nsec3-bitmap.example.	3600	IN	DS	3853 13 2 87EAADE40A96F7C72A03DCFDCD31F4AD632841C2314AFFEFAE729F50F7B8859B
+d00001.nsec3-bitmap.example.	3600	IN	RRSIG	DS 13 3 3600 20380119031407 19700101000001 5779 nsec3-bitmap.example. cM4sJPk09u8Cv+f+fMBBRfVKXRbLh3SnnZebqaf8+qErYCamlQqLLH5XuMbl6kbg8jXqiI5NbvW6HZ0ik4K65g==
+ns1.d00001.nsec3-bitmap.example.	3600	IN	A	192.0.2.3
+ns2.d00001.nsec3-bitmap.example.	3600	IN	A	192.0.2.4
+ns3.d00001.nsec3-bitmap.example.	3600	IN	A	192.0.2.5
+ns4.d00001.nsec3-bitmap.example.	3600	IN	A	192.0.2.6
+d00002.nsec3-bitmap.example.	3600	IN	NS	ns1.d00002.nsec3-bitmap.example.
+d00002.nsec3-bitmap.example.	3600	IN	NS	ns2.d00002.nsec3-bitmap.example.
+d00002.nsec3-bitmap.example.	3600	IN	NS	ns3.d00002.nsec3-bitmap.example.
+d00002.nsec3-bitmap.example.	3600	IN	NS	ns4.d00002.nsec3-bitmap.example.
+d00002.nsec3-bitmap.example.	3600	IN	DS	56470 13 2 842192F3AD6FB3FF641275C1A5807D1804C615F04A0143FF7A956BF6E5FF202E
+d00002.nsec3-bitmap.example.	3600	IN	RRSIG	DS 13 3 3600 20380119031407 19700101000001 5779 nsec3-bitmap.example. uqQRN2wtiQewcnYwt7QORk04ymGMsvz+TYtQGp8i2HfDjsT3siYMr8TrfiJFTjPZQKQL4iiulqow4SQf7HZCjQ==
+ns1.d00002.nsec3-bitmap.example.	3600	IN	A	192.0.2.4
+ns2.d00002.nsec3-bitmap.example.	3600	IN	A	192.0.2.5
+ns3.d00002.nsec3-bitmap.example.	3600	IN	A	192.0.2.6
+ns4.d00002.nsec3-bitmap.example.	3600	IN	A	192.0.2.7
+d00003.nsec3-bitmap.example.	3600	IN	NS	ns1.d00003.nsec3-bitmap.example.
+d00003.nsec3-bitmap.example.	3600	IN	NS	ns2.d00003.nsec3-bitmap.example.
+d00003.nsec3-bitmap.example.	3600	IN	NS	ns3.d00003.nsec3-bitmap.example.
+d00003.nsec3-bitmap.example.	3600	IN	NS	ns4.d00003.nsec3-bitmap.example.
+d00003.nsec3-bitmap.example.	3600	IN	DS	45651 13 2 607BB3E25CC0D8858C538D4A4ADBCA7565603744419D12ADDBED9141E67DDA33
+d00003.nsec3-bitmap.example.	3600	IN	RRSIG	DS 13 3 3600 20380119031407 19700101000001 5779 nsec3-bitmap.example. 6GzonLuXApaExdwT/+Gq9YRHDvdFkVn4ptrq4opbEFOd7L3YwrLIkKcYKf+K0lshR0KcoqBaWe4SMt+dDSRQPw==
+ns1.d00003.nsec3-bitmap.example.	3600	IN	A	192.0.2.5
+ns2.d00003.nsec3-bitmap.example.	3600	IN	A	192.0.2.6
+ns3.d00003.nsec3-bitmap.example.	3600	IN	A	192.0.2.7
+ns4.d00003.nsec3-bitmap.example.	3600	IN	A	192.0.2.8
+gsvrurbonouj3fr3hqusvapl9vqkgtb6.nsec3-bitmap.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 5779 nsec3-bitmap.example. 1rnw/fAnV8ccbbyOP9yw6IBH4CR1/NGiS7nCAuyYx23PaN9OVOKzk4G1uw5PQFsYcklRp40iBSZPxAHKBnxN3w==
+gsvrurbonouj3fr3hqusvapl9vqkgtb6.nsec3-bitmap.example.	3600	IN	NSEC3	1 1 0 - JKD1TFVKEBFL312JEDJSC73F99B62D0E NS DS RRSIG
+jkd1tfvkebfl312jedjsc73f99b62d0e.nsec3-bitmap.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 5779 nsec3-bitmap.example. deb3uLnvY+XnEb6kdV7opHEavng9qrVBSKTI0LaxDUpL7SYOLGQGzu7suEEeMF1/wyWqrfWL1PnksRDge0rTjA==
+jkd1tfvkebfl312jedjsc73f99b62d0e.nsec3-bitmap.example.	3600	IN	NSEC3	1 1 0 - LR9PLG8M1P9DOL34L8T6U79U3JUPP3DL NS RRSIG
+lr9plg8m1p9dol34l8t6u79u3jupp3dl.nsec3-bitmap.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 5779 nsec3-bitmap.example. uxTSvep4GLOYN3daDf38GN/JZdxGqakbrveQTJs4LecHwLPv20NgkeCmz6E++NRlUOevErnoLLus6iQvxD0ssQ==
+lr9plg8m1p9dol34l8t6u79u3jupp3dl.nsec3-bitmap.example.	3600	IN	NSEC3	1 1 0 - OAPP15U57V4E04NQUMC648MR2G3JP4PC NS DS RRSIG
+ns1.nsec3-bitmap.example.	3600	IN	A	192.0.2.1
+ns1.nsec3-bitmap.example.	3600	IN	RRSIG	A 13 3 3600 20380119031407 19700101000001 5779 nsec3-bitmap.example. z4IZiYGEp5beNzA3tQgZzHtljeM8NVeK/QpFmSE2Lnq+Rc4j4SElFSItg6ATwEIchN+0UitMmbf7h92/gwbCOA==
+ns2.nsec3-bitmap.example.	3600	IN	A	192.0.2.2
+ns2.nsec3-bitmap.example.	3600	IN	RRSIG	A 13 3 3600 20380119031407 19700101000001 5779 nsec3-bitmap.example. zi9fZKqGGpldJ9m/JseGAXqNL9mrHpsPxKL5uFkLBhaG1Pp1x3mzOqdjz2RWWBbmmRqCpZQDaQTHdqqQSFCljQ==
+oapp15u57v4e04nqumc648mr2g3jp4pc.nsec3-bitmap.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 5779 nsec3-bitmap.example. 9Kgpb1bBAjH1TZH1qWYJ7DcWC/DcwCaRba+HJCVuZynOqpp1uDTmPvkhyzwCHhJHB8r43/C2CdGNsWrGR8aBXw==
+oapp15u57v4e04nqumc648mr2g3jp4pc.nsec3-bitmap.example.	3600	IN	NSEC3	1 1 0 - QRVL751KSHS9NVAPI1O55I2ODK7QNCJU A RRSIG
+qrvl751kshs9nvapi1o55i2odk7qncju.nsec3-bitmap.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 5779 nsec3-bitmap.example. cS5NL1/YWuEUKfuxRTHYm2EoR6Z4PcIxYQKtnXxspESuKVhJjJ6fszh+wVwMwpA90huZbxeknpwgDKc8Qh1mYQ==
+qrvl751kshs9nvapi1o55i2odk7qncju.nsec3-bitmap.example.	3600	IN	NSEC3	1 1 0 - 0HLKR9VLTGUO1KMMLV460GBSUNUKR6LJ NS SOA RRSIG DNSKEY NSEC3PARAM

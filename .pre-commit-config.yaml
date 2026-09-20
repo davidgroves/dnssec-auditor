@@ -1,0 +1,19 @@
+repos:
+  - repo: local
+    hooks:
+      - id: go-fmt
+        name: go fmt
+        entry: gofmt -l -w
+        language: system
+        types: [go]
+      - id: go-vet
+        name: go vet
+        entry: go vet ./...
+        language: system
+        pass_filenames: false
+      - id: tsc
+        name: typescript type check
+        entry: npm run typecheck
+        language: system
+        types: [ts]
+        pass_filenames: false

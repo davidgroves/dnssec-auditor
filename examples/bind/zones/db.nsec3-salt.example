@@ -1,0 +1,68 @@
+nsec3-salt.example.	3600	IN	NS	ns1.nsec3-salt.example.
+nsec3-salt.example.	3600	IN	NS	ns2.nsec3-salt.example.
+nsec3-salt.example.	3600	IN	SOA	ns1.nsec3-salt.example. hostmaster.nsec3-salt.example. 1 3600 600 86400 300
+nsec3-salt.example.	3600	IN	RRSIG	DNSKEY 13 2 3600 20380119031407 19700101000001 27561 nsec3-salt.example. foSI20xV0Zzg7iQyPejg+eWVjWHQgiMizvFCTkSlUQkWR7igUKYoz6gufJOZUPp7soLQEmJWFU7opsvmxd3qmA==
+nsec3-salt.example.	3600	IN	RRSIG	NS 13 2 3600 20380119031407 19700101000001 54053 nsec3-salt.example. DMWIzggdcZnRSN72+HETjKgfkwZbZcF2ZDIwixjJ6fZQs2FKqos1ET2H6uzLvMT/vL63+/O1gXsVWLXIMzChRA==
+nsec3-salt.example.	3600	IN	RRSIG	NSEC3PARAM 13 2 0 20380119031407 19700101000001 54053 nsec3-salt.example. ki8DVMl4EqG5c03Ny+Luwk4X/mEIatN3qhtv/MWwjVaW774A71JzEPkWqKmFLYjOEoAJPwKAiKr682Qc1rZo0g==
+nsec3-salt.example.	3600	IN	RRSIG	SOA 13 2 3600 20380119031407 19700101000001 54053 nsec3-salt.example. erig/sxF4RtTh0iWtW4dzEcrT+EqfxKqtVjXtnt+/4gqbo8npMCan6Pvmy9gxhk87qSH3Sny77zp74e0jC2c8A==
+nsec3-salt.example.	3600	IN	DNSKEY	256 3 13 tQ53ijGWaTgBNzU7civwjLb5KWLY28YOJe6gxAzIpA00XiHeKnTKhQQFQKG7i2T8Nr5ZiG1sqfbSxlX26SkNwg==
+nsec3-salt.example.	3600	IN	DNSKEY	257 3 13 Fh8A0H1tbsXCm8bTSD7Ugb0NpQGvRJmmCRZ6bu97Rc56EeHea1i94NnwahPfbn+sIWybGm6+lsxXx75Kp7iyWg==
+nsec3-salt.example.	0	IN	NSEC3PARAM	1 0 0 AABB
+1p0ftvl9b6jsr9tahpmirhtm3c73m214.nsec3-salt.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 54053 nsec3-salt.example. iMK0hMrzMqfhCVyjSbODg7Op/6FGLQt+VSm3xj6DJFPzcWPVibnuU69LM+OCYWCQXWIUd63ZbsSWhMQXpaV9yA==
+1p0ftvl9b6jsr9tahpmirhtm3c73m214.nsec3-salt.example.	3600	IN	NSEC3	1 0 0 AABB 7V3OM7JQ6JR6PF971ES11R11FG0OIDVE NS DS RRSIG
+7v3om7jq6jr6pf971es11r11fg0oidve.nsec3-salt.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 54053 nsec3-salt.example. Of0Sam+EzChOCjaMXhAJyz6UMRsE4xEuNC1TedlOpepPyIhIyxv0S+tbmR4+McaN23AQ9G4/weTfg+bue9bY7Q==
+7v3om7jq6jr6pf971es11r11fg0oidve.nsec3-salt.example.	3600	IN	NSEC3	1 0 0 AABB 9IO40M71HMIM313NF38KE25BTK4CAL1I A RRSIG
+9io40m71hmim313nf38ke25btk4cal1i.nsec3-salt.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 54053 nsec3-salt.example. 9byXBPbju9rXtqATtgE8g/cQRxYzFmWriSl60TnXPA2qcjSWVQts6RLb2BSHMcyIzSlOmVdCJBUJwj5B5o5g9w==
+9io40m71hmim313nf38ke25btk4cal1i.nsec3-salt.example.	3600	IN	NSEC3	1 0 0 AABB HQEO8Q33UL3FEA9IIN1FEPUARF4I2VHT A RRSIG
+d00000.nsec3-salt.example.	3600	IN	NS	ns1.d00000.nsec3-salt.example.
+d00000.nsec3-salt.example.	3600	IN	NS	ns2.d00000.nsec3-salt.example.
+d00000.nsec3-salt.example.	3600	IN	NS	ns3.d00000.nsec3-salt.example.
+d00000.nsec3-salt.example.	3600	IN	NS	ns4.d00000.nsec3-salt.example.
+d00000.nsec3-salt.example.	3600	IN	DS	37755 13 2 B9434237ED14DFDC8AEE9B12C165767D065EFDA2B95E558E9FE6023F598EA4C0
+d00000.nsec3-salt.example.	3600	IN	RRSIG	DS 13 3 3600 20380119031407 19700101000001 54053 nsec3-salt.example. ZfHfhoOt3s2kQBE9rNp+UOZ1RbzVXn4lgKe0Nfh/Y4omAs+4eHi1CVJLgKr4UTJ7pkHQcYwu+iBm6K1V4FbKNw==
+ns1.d00000.nsec3-salt.example.	3600	IN	A	192.0.2.2
+ns2.d00000.nsec3-salt.example.	3600	IN	A	192.0.2.3
+ns3.d00000.nsec3-salt.example.	3600	IN	A	192.0.2.4
+ns4.d00000.nsec3-salt.example.	3600	IN	A	192.0.2.5
+d00001.nsec3-salt.example.	3600	IN	NS	ns1.d00001.nsec3-salt.example.
+d00001.nsec3-salt.example.	3600	IN	NS	ns2.d00001.nsec3-salt.example.
+d00001.nsec3-salt.example.	3600	IN	NS	ns3.d00001.nsec3-salt.example.
+d00001.nsec3-salt.example.	3600	IN	NS	ns4.d00001.nsec3-salt.example.
+d00001.nsec3-salt.example.	3600	IN	DS	51435 13 2 5E92C3613C161F237B21117847E4E542B1A724401FA53722DC10CF93CF37EA51
+d00001.nsec3-salt.example.	3600	IN	RRSIG	DS 13 3 3600 20380119031407 19700101000001 54053 nsec3-salt.example. GhzgDkFfpJKmjcxtIXtY6NjxaMNYIx/ZpSSZyyTTWqqAxRHXZoYWvkPDAGV4CG77OmymVcAAKzYxeqJBRrouDw==
+ns1.d00001.nsec3-salt.example.	3600	IN	A	192.0.2.3
+ns2.d00001.nsec3-salt.example.	3600	IN	A	192.0.2.4
+ns3.d00001.nsec3-salt.example.	3600	IN	A	192.0.2.5
+ns4.d00001.nsec3-salt.example.	3600	IN	A	192.0.2.6
+d00002.nsec3-salt.example.	3600	IN	NS	ns1.d00002.nsec3-salt.example.
+d00002.nsec3-salt.example.	3600	IN	NS	ns2.d00002.nsec3-salt.example.
+d00002.nsec3-salt.example.	3600	IN	NS	ns3.d00002.nsec3-salt.example.
+d00002.nsec3-salt.example.	3600	IN	NS	ns4.d00002.nsec3-salt.example.
+d00002.nsec3-salt.example.	3600	IN	DS	50826 13 2 DC87F95990D837161F12EE9C6FF5F6FADB4BDE3FD40A3CDE80CF16966A8CAF7B
+d00002.nsec3-salt.example.	3600	IN	RRSIG	DS 13 3 3600 20380119031407 19700101000001 54053 nsec3-salt.example. Uf4+H9HektIpY4KOeLnHnCl9AVdhd+LUoLUOktbP1AC3ZZhs2S1klJD6z5Vn00r0DGdti29s5IHQpRML41/LMQ==
+ns1.d00002.nsec3-salt.example.	3600	IN	A	192.0.2.4
+ns2.d00002.nsec3-salt.example.	3600	IN	A	192.0.2.5
+ns3.d00002.nsec3-salt.example.	3600	IN	A	192.0.2.6
+ns4.d00002.nsec3-salt.example.	3600	IN	A	192.0.2.7
+d00003.nsec3-salt.example.	3600	IN	NS	ns1.d00003.nsec3-salt.example.
+d00003.nsec3-salt.example.	3600	IN	NS	ns2.d00003.nsec3-salt.example.
+d00003.nsec3-salt.example.	3600	IN	NS	ns3.d00003.nsec3-salt.example.
+d00003.nsec3-salt.example.	3600	IN	NS	ns4.d00003.nsec3-salt.example.
+d00003.nsec3-salt.example.	3600	IN	DS	11295 13 2 0FF72BEC407D67E26994B3F284F1D9A5D0021A6CA36CF2E545E1CA556DB7AE53
+d00003.nsec3-salt.example.	3600	IN	RRSIG	DS 13 3 3600 20380119031407 19700101000001 54053 nsec3-salt.example. YfbZe72UMuidAgYzL8FDI4G5CA0bNEE8bU04/iudLMWr4OXGDTnnOvj07JxhSP6O/PTASH4KXa2rS3iOjquYzA==
+ns1.d00003.nsec3-salt.example.	3600	IN	A	192.0.2.5
+ns2.d00003.nsec3-salt.example.	3600	IN	A	192.0.2.6
+ns3.d00003.nsec3-salt.example.	3600	IN	A	192.0.2.7
+ns4.d00003.nsec3-salt.example.	3600	IN	A	192.0.2.8
+hqeo8q33ul3fea9iin1fepuarf4i2vht.nsec3-salt.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 54053 nsec3-salt.example. R9KSbHE2AUZ1ihadEftkDQStz9MhwMMrwV8BEBguzgQzkownAvTyufjIaa1Ts/hn5oi7KYkQY7vUMP/WAmHXQQ==
+hqeo8q33ul3fea9iin1fepuarf4i2vht.nsec3-salt.example.	3600	IN	NSEC3	1 0 0 AABB I9QRQMJDHDMMNOI57ERJDBE59C2769OA NS DS RRSIG
+i9qrqmjdhdmmnoi57erjdbe59c2769oa.nsec3-salt.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 54053 nsec3-salt.example. fWYi2ImoCTqMliJjWkgc/zfJPRWdC0mLCaaFw+IDfIcnXfuHpamWHPMYN3ttmA+ftDRqOSuLxpTIMU56YcW91Q==
+i9qrqmjdhdmmnoi57erjdbe59c2769oa.nsec3-salt.example.	3600	IN	NSEC3	1 0 0 AABB L3O5ANVQB52JAIOC927M7PH25P3LOEJE NS DS RRSIG
+l3o5anvqb52jaioc927m7ph25p3loeje.nsec3-salt.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 54053 nsec3-salt.example. MMvRMNsbzH8Mgm8xHd/mBmr585ZnhKi0WA63RBqhkXrAlULG/XW33/UMZaQUZWDbY6CTPnOIkYULn5NN/eG61w==
+l3o5anvqb52jaioc927m7ph25p3loeje.nsec3-salt.example.	3600	IN	NSEC3	1 0 0 AABB TFBALTNGPBJTIH9QIU4U427CS45K48PC NS DS RRSIG
+ns1.nsec3-salt.example.	3600	IN	A	192.0.2.1
+ns1.nsec3-salt.example.	3600	IN	RRSIG	A 13 3 3600 20380119031407 19700101000001 54053 nsec3-salt.example. UjxpftpIkdfky3yzZIS0yBtAca7UiqtpZaPtwft5GeHz7W7dsViFFXZOSlSC3DGe/SHTedAcNGb6MRQ8Oc/gUA==
+ns2.nsec3-salt.example.	3600	IN	A	192.0.2.2
+ns2.nsec3-salt.example.	3600	IN	RRSIG	A 13 3 3600 20380119031407 19700101000001 54053 nsec3-salt.example. Lqllx9fEWmCKpZ6NJuHej1YXpowroOeaYgvl9oCW+qBJIRClMLPl6f+o+vcWxMomE499C6i1pe177HqP0lYvDg==
+tfbaltngpbjtih9qiu4u427cs45k48pc.nsec3-salt.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 54053 nsec3-salt.example. DDyAJmMDL/ZsvI5Sy/yi2Owl/0KBM758+UGNV4xIB5uAtGhOfimNT3HVTf1oKW2IN15+tWJap8THGJfMB2Kh7A==
+tfbaltngpbjtih9qiu4u427cs45k48pc.nsec3-salt.example.	3600	IN	NSEC3	1 0 0 AABB 1P0FTVL9B6JSR9TAHPMIRHTM3C73M214 NS SOA RRSIG DNSKEY NSEC3PARAM

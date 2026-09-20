@@ -1,0 +1,60 @@
+nsec3-chain.example.	3600	IN	NS	ns1.nsec3-chain.example.
+nsec3-chain.example.	3600	IN	NS	ns2.nsec3-chain.example.
+nsec3-chain.example.	3600	IN	SOA	ns1.nsec3-chain.example. hostmaster.nsec3-chain.example. 1 3600 600 86400 300
+nsec3-chain.example.	3600	IN	RRSIG	DNSKEY 13 2 3600 20380119031407 19700101000001 23449 nsec3-chain.example. i9S7ojvNPO7vvM2tiRYnAeggsQWurLvbsdiHk/3KlWKbvwFxUF20NEfz5xTwD6KhBIdWS0eFWFsZBg3u3OBl0A==
+nsec3-chain.example.	3600	IN	RRSIG	NS 13 2 3600 20380119031407 19700101000001 25736 nsec3-chain.example. LF9s8J4hKDOnX2YKeVxVqIygLoV4SRInZBR2NPBykpoE367xgiRvacJNwqhKwpRvr26/jNFhhcdfeCG7Xblk1g==
+nsec3-chain.example.	3600	IN	RRSIG	NSEC3PARAM 13 2 0 20380119031407 19700101000001 25736 nsec3-chain.example. FCUqKuEm3Epiyncye098KkGl4c/GvtRmdohXeOJyEDnv9bNm3z2pytaTBzI9IuV2IeLXP+Mv3wxEmmIw4jIgCw==
+nsec3-chain.example.	3600	IN	RRSIG	SOA 13 2 3600 20380119031407 19700101000001 25736 nsec3-chain.example. jy4rkxdiDppN60F94Aa0dMWFgPvLOPN1AXIhL789a8IlEApMIb33Hbl/b5dWV5YRZVgvMNpjTD1Dnh0KnbmAJw==
+nsec3-chain.example.	3600	IN	DNSKEY	256 3 13 6CK7+4ZXosB+xRkjfrAlrw573IMwm/cSmwS0xSyJmDnFtHdtlHRk0Kv5Xn8Pk1xjKx4ovrUMPOwWaVdPQa6Nrw==
+nsec3-chain.example.	3600	IN	DNSKEY	257 3 13 ax8OsmYyTdEzTVU6NNhqtt2nmYCYJ6XkcityEVeH1Dtav6b1afXWKrJJ+YhusxL1pERcPBJ25SBD2jluHr04/Q==
+nsec3-chain.example.	0	IN	NSEC3PARAM	1 0 0 -
+3n6ajqt7brvc7np4h4dccmpo69v4gh09.nsec3-chain.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 25736 nsec3-chain.example. 1EYujc9rcBdOad5QkquQZ07Tp5R/gtu0ijZr8tyZvWVL/kljLuL+OR5KdztObfurNdGc2MNR2O0IKGltm7xEKA==
+3n6ajqt7brvc7np4h4dccmpo69v4gh09.nsec3-chain.example.	3600	IN	NSEC3	1 1 0 - 5Q31EIP4INEN1T6ONGQLH9MAEB6PHK8A NS DS RRSIG
+5q31eip4inen1t6ongqlh9maeb6phk8a.nsec3-chain.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 25736 nsec3-chain.example. 4VHIWnzLY0dIQk9kU8jYu6olb5IfV25PZwVsW9E67KCf79AbiNtD0EwiviJ7lr+grQTvcnJxuw4QsCWR8Y/BSA==
+5q31eip4inen1t6ongqlh9maeb6phk8a.nsec3-chain.example.	3600	IN	NSEC3	1 1 0 - 6SGUENJ3P03HM49EFT140MLHAKSIUAA4 A RRSIG
+6sguenj3p03hm49eft140mlhaksiuaa4.nsec3-chain.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 25736 nsec3-chain.example. rCFcaxfKdMbM2fwJYwz8L5Z4Xk6elzdRRTL1qqM3/G+bEs9pvRHst+dMJAhC8wNTYz3cpDPnJErk/F774YSwOw==
+6sguenj3p03hm49eft140mlhaksiuaa4.nsec3-chain.example.	3600	IN	NSEC3	1 1 0 - AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA A RRSIG
+d00000.nsec3-chain.example.	3600	IN	NS	ns1.d00000.nsec3-chain.example.
+d00000.nsec3-chain.example.	3600	IN	NS	ns2.d00000.nsec3-chain.example.
+d00000.nsec3-chain.example.	3600	IN	NS	ns3.d00000.nsec3-chain.example.
+d00000.nsec3-chain.example.	3600	IN	NS	ns4.d00000.nsec3-chain.example.
+ns1.d00000.nsec3-chain.example.	3600	IN	A	192.0.2.2
+ns2.d00000.nsec3-chain.example.	3600	IN	A	192.0.2.3
+ns3.d00000.nsec3-chain.example.	3600	IN	A	192.0.2.4
+ns4.d00000.nsec3-chain.example.	3600	IN	A	192.0.2.5
+d00001.nsec3-chain.example.	3600	IN	NS	ns1.d00001.nsec3-chain.example.
+d00001.nsec3-chain.example.	3600	IN	NS	ns2.d00001.nsec3-chain.example.
+d00001.nsec3-chain.example.	3600	IN	NS	ns3.d00001.nsec3-chain.example.
+d00001.nsec3-chain.example.	3600	IN	NS	ns4.d00001.nsec3-chain.example.
+ns1.d00001.nsec3-chain.example.	3600	IN	A	192.0.2.3
+ns2.d00001.nsec3-chain.example.	3600	IN	A	192.0.2.4
+ns3.d00001.nsec3-chain.example.	3600	IN	A	192.0.2.5
+ns4.d00001.nsec3-chain.example.	3600	IN	A	192.0.2.6
+d00002.nsec3-chain.example.	3600	IN	NS	ns1.d00002.nsec3-chain.example.
+d00002.nsec3-chain.example.	3600	IN	NS	ns2.d00002.nsec3-chain.example.
+d00002.nsec3-chain.example.	3600	IN	NS	ns3.d00002.nsec3-chain.example.
+d00002.nsec3-chain.example.	3600	IN	NS	ns4.d00002.nsec3-chain.example.
+d00002.nsec3-chain.example.	3600	IN	DS	30984 13 2 94DD441144440C2CA9B546A90BBD57ADDAC4FFF26C1827F7634671B253EB95B9
+d00002.nsec3-chain.example.	3600	IN	RRSIG	DS 13 3 3600 20380119031407 19700101000001 25736 nsec3-chain.example. Xo6dHVzTJXpl5Svm2q/wjTFlWZS+OsH12imUH64JPHBkLO9yLae7PLLpIorJwbOpDjvo7FJ6LKbrZFDYBmou/Q==
+ns1.d00002.nsec3-chain.example.	3600	IN	A	192.0.2.4
+ns2.d00002.nsec3-chain.example.	3600	IN	A	192.0.2.5
+ns3.d00002.nsec3-chain.example.	3600	IN	A	192.0.2.6
+ns4.d00002.nsec3-chain.example.	3600	IN	A	192.0.2.7
+d00003.nsec3-chain.example.	3600	IN	NS	ns1.d00003.nsec3-chain.example.
+d00003.nsec3-chain.example.	3600	IN	NS	ns2.d00003.nsec3-chain.example.
+d00003.nsec3-chain.example.	3600	IN	NS	ns3.d00003.nsec3-chain.example.
+d00003.nsec3-chain.example.	3600	IN	NS	ns4.d00003.nsec3-chain.example.
+d00003.nsec3-chain.example.	3600	IN	DS	14368 13 2 1AB0CFEF893D163477BCC9E28AEF2470C6396FE2E96FFB8AAEF257AAB07EAB64
+d00003.nsec3-chain.example.	3600	IN	RRSIG	DS 13 3 3600 20380119031407 19700101000001 25736 nsec3-chain.example. h6g9WhsA8VGFq7Ux6fCtAGLxdUf/vgarkd/9G7zZuKrGLLSAOehPz6OEzt+YZsDsahd5S2pH+EoiVOeii5HVJA==
+ns1.d00003.nsec3-chain.example.	3600	IN	A	192.0.2.5
+ns2.d00003.nsec3-chain.example.	3600	IN	A	192.0.2.6
+ns3.d00003.nsec3-chain.example.	3600	IN	A	192.0.2.7
+ns4.d00003.nsec3-chain.example.	3600	IN	A	192.0.2.8
+f1787toa5ne84i3ateg6o5g5124mb2vh.nsec3-chain.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 25736 nsec3-chain.example. oGG8moL6GbpSkvjDXXW7bBwnUm4VlZxShyrO9cV1pcTq80lqudn6TVyAAEnlKzAIG2z/y6+9F8HJhPqwvhmB7w==
+f1787toa5ne84i3ateg6o5g5124mb2vh.nsec3-chain.example.	3600	IN	NSEC3	1 1 0 - MQR5E1SA8MA1UHQOLSRI538H6CM3PJUE NS DS RRSIG
+mqr5e1sa8ma1uhqolsri538h6cm3pjue.nsec3-chain.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 25736 nsec3-chain.example. pI3D9hlFmXbXfRHHIXP7rFu1TvxsIeywFU7mccT1zps1toYTUFu6mKwnhABfXF+YuZOJXqNksSCme2l8Gn7bug==
+mqr5e1sa8ma1uhqolsri538h6cm3pjue.nsec3-chain.example.	3600	IN	NSEC3	1 1 0 - 3N6AJQT7BRVC7NP4H4DCCMPO69V4GH09 NS SOA RRSIG DNSKEY NSEC3PARAM
+ns1.nsec3-chain.example.	3600	IN	A	192.0.2.1
+ns1.nsec3-chain.example.	3600	IN	RRSIG	A 13 3 3600 20380119031407 19700101000001 25736 nsec3-chain.example. AFDGHQ3ZFVJWHZ2RrUnuCk7Ex0s5aDAcyJJ0rU+M5AWRSx5bZWnJVSC6yLDNZSgYBoxzTHhhY/3Rkc+CSsqeGg==
+ns2.nsec3-chain.example.	3600	IN	A	192.0.2.2
+ns2.nsec3-chain.example.	3600	IN	RRSIG	A 13 3 3600 20380119031407 19700101000001 25736 nsec3-chain.example. JEO60E0G7jgRzNO9Os5aXkYHIgHy+t+jt9rktKCGo0wgf5EsnDGIL53qBRC2ldx1jaEtzf3RssSTLMoishww8w==

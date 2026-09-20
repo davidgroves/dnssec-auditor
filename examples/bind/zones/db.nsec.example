@@ -1,0 +1,17 @@
+$TTL 3600
+$ORIGIN nsec.example.
+
+@       IN      SOA     ns1.nsec.example. hostmaster.nsec.example. (
+                        1
+                        3600
+                        600
+                        86400
+                        300
+                        )
+
+@       IN      NS      ns1.nsec.example.
+ns1     IN      A       192.0.2.21
+
+www     IN      A       192.0.2.22
+mail    IN      A       192.0.2.23
+@       IN      MX      10 mail.nsec.example.

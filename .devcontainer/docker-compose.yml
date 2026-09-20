@@ -1,0 +1,19 @@
+services:
+  dev:
+    image: mcr.microsoft.com/devcontainers/go:1-1.25-bookworm
+    volumes:
+      - ..:/workspace:cached
+    command: sleep infinity
+    networks: [devnet]
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  bind:
+    image: internetsystemsconsortium/bind9:9.20
+    networks: [devnet]
+    ports:
+      - "15353:53/udp"
+      - "15353:53/tcp"
+
+networks:
+  devnet:

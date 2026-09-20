@@ -1,0 +1,108 @@
+wildcard.example.	3600	IN	NS	ns1.wildcard.example.
+wildcard.example.	3600	IN	NS	ns2.wildcard.example.
+wildcard.example.	3600	IN	SOA	ns1.wildcard.example. hostmaster.wildcard.example. 1 3600 600 86400 300
+wildcard.example.	3600	IN	RRSIG	DNSKEY 13 2 3600 20380119031407 19700101000001 61850 wildcard.example. eInlylwzeupMW6jYPHQmgN49Qyctu3WgpdIcnkvc8biTfiqqBkj7I8vzNFz+kxhUeTnNpBHjo4CzwGoY9PN+Gw==
+wildcard.example.	3600	IN	RRSIG	NS 13 2 3600 20380119031407 19700101000001 56689 wildcard.example. 5c7ir1l2hox/zrm3aZV0SWXsMUreU7L/gETch5wlKw0a+vg8IY9d6VRg30p6cizcwuoKQys0/ZpGC2pUE41wSg==
+wildcard.example.	3600	IN	RRSIG	NSEC 13 2 3600 20380119031407 19700101000001 56689 wildcard.example. vk41PgYU7x2k8qg98DgZIqe3M5cDdV1fmOxgzt84V+g0jjW8QQyGEGnQrQeNI7FmuFcR5Xnni+6XDj0D68+vDw==
+wildcard.example.	3600	IN	RRSIG	SOA 13 2 3600 20380119031407 19700101000001 56689 wildcard.example. F9DqiO2ggFx2tzIE8nx10nv6dreyxZVWkh43M7B5IqA/T+jljcX19q2Bos7FQF6eZ9Me3qJa8hJrjXwRzVV7ew==
+wildcard.example.	3600	IN	NSEC	*.wildcard.example. NS SOA RRSIG NSEC DNSKEY
+wildcard.example.	3600	IN	DNSKEY	256 3 13 9jIlHU+qWye7QPnBYhQSFNDR81A8ZYxI9J05UGWUt9ylOZOEZlfUSK4czzaJpxQUEXt90Yd9cb+HEMc95G3INA==
+wildcard.example.	3600	IN	DNSKEY	257 3 13 Z+hdCqA5ItW7l+W6AiqTVhnoBbBoYsAG6OAoyo8fSStJkjMCvXCRxtbvjVbSlbP0W+DdI1wrSqxvwKEzfNvYeA==
+*.wildcard.example.	3600	IN	A	192.0.2.99
+*.wildcard.example.	3600	IN	RRSIG	A 13 2 3600 20380119031407 19700101000001 56689 wildcard.example. wO7Kx1ipSGNdEZC0dFM1OWyeUufa28BwsM6FisfjnW4rFciXG4Kfy8T9XlV5nOA5dJaMeTbvgGb110dsTZtTmQ==
+*.wildcard.example.	3600	IN	RRSIG	NSEC 13 2 3600 20380119031407 19700101000001 56689 wildcard.example. F0MbQjgcH3FdKaezdgL1JwS+8edfgtR0sIhU9mk1y+71FF+pp5Fi2sSypLG9HxjPjWUr3qcP5bXHbrNDhD/hvg==
+*.wildcard.example.	3600	IN	NSEC	alias.wildcard.example. A RRSIG NSEC
+alias.wildcard.example.	3600	IN	DNAME	target.wildcard.example.
+alias.wildcard.example.	3600	IN	RRSIG	DNAME 13 3 3600 20380119031407 19700101000001 56689 wildcard.example. v/uVeyMFd7pybTRYSuj6kScsvSEpzl6MS44ErjPOqVR9TAx4UqIOXz3hlH2jLNMqc+10wfv78Rz6M/Xmh8Okkw==
+alias.wildcard.example.	3600	IN	RRSIG	NSEC 13 3 3600 20380119031407 19700101000001 56689 wildcard.example. a3eIv+OCzPJXUeeLtEo7OHSgAP+NIis9nOEokAeJ9W6Zwp/m/IeWjQQr0YvNgIDJav6qUeVT+LmJ+t7G1+FtWg==
+alias.wildcard.example.	3600	IN	NSEC	child.wildcard.example. DNAME RRSIG NSEC
+child.wildcard.example.	3600	IN	RRSIG	NSEC 13 3 3600 20380119031407 19700101000001 56689 wildcard.example. /gYm+A+sLAWO8NRaQcA8zuB950YU2rS8LYyxatKbADWRejy8cGtsaOdZSMKPW6no1MDUkf5XXu/3VZ6iSTlYkw==
+child.wildcard.example.	3600	IN	NSEC	ent.child.wildcard.example. RRSIG NSEC
+ent.child.wildcard.example.	3600	IN	TXT	"empty-nonterminal-parent"
+ent.child.wildcard.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 56689 wildcard.example. GQVqHhJ0e7nIOh3ZSxQtKUKwv+kbwhAw6T9fFx0hU3+5SGG7GfHGOiF1IwAMEUfEd6r3a9v9TrtlBPpwwILJ8w==
+ent.child.wildcard.example.	3600	IN	RRSIG	TXT 13 4 3600 20380119031407 19700101000001 56689 wildcard.example. FS3UOPGD4Eoz0s3UQxRkBJV9NmXB2SZ1IMipHhH1yiCJeBtSjPtP7ZmhQcoLVbIlc0gRsMckf/PyUgLo4RKDvg==
+ent.child.wildcard.example.	3600	IN	NSEC	d00000.wildcard.example. TXT RRSIG NSEC
+d00000.wildcard.example.	3600	IN	NS	ns1.d00000.wildcard.example.
+d00000.wildcard.example.	3600	IN	NS	ns2.d00000.wildcard.example.
+d00000.wildcard.example.	3600	IN	NS	ns3.d00000.wildcard.example.
+d00000.wildcard.example.	3600	IN	NS	ns4.d00000.wildcard.example.
+d00000.wildcard.example.	3600	IN	RRSIG	NSEC 13 3 3600 20380119031407 19700101000001 56689 wildcard.example. tqzuUzIwrqOxyS6ktB5a0JhDzBxwGBMqWU3CWtIODGcACeISFQhDYTyZ6Pek6ncxEYD1Ar540esHXbQOmEyK1A==
+d00000.wildcard.example.	3600	IN	NSEC	ns1.d00000.wildcard.example. NS RRSIG NSEC
+ns1.d00000.wildcard.example.	3600	IN	A	192.0.2.2
+ns1.d00000.wildcard.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 56689 wildcard.example. neGD4W4QkYBOYdQIRPA2eRql+o3LOYZRRJVDBuquuem8O5aSQdTBW0OcbWGjljRYU2UMLpX6iW4qlmxx25MX1A==
+ns1.d00000.wildcard.example.	3600	IN	NSEC	ns2.d00000.wildcard.example. A RRSIG NSEC
+ns2.d00000.wildcard.example.	3600	IN	A	192.0.2.3
+ns2.d00000.wildcard.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 56689 wildcard.example. 5o3onG6WFJVHlVeyhd+rhqhEX5DUGTdTgAgMKg1oBL/StJnUVe0zAQTAHgnYL7mqGE5wfm4oRV01qPvsuyy2Rw==
+ns2.d00000.wildcard.example.	3600	IN	NSEC	ns3.d00000.wildcard.example. A RRSIG NSEC
+ns3.d00000.wildcard.example.	3600	IN	A	192.0.2.4
+ns3.d00000.wildcard.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 56689 wildcard.example. LJP57PP2VNmK8JhXlGko48qMSwXf2GoJcSDCgwrhr4pQ9N6IZnss9nhGAU3iS1onozWAj0igNTJyz5Ly7dvDOA==
+ns3.d00000.wildcard.example.	3600	IN	NSEC	ns4.d00000.wildcard.example. A RRSIG NSEC
+ns4.d00000.wildcard.example.	3600	IN	A	192.0.2.5
+ns4.d00000.wildcard.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 56689 wildcard.example. dn162Vr89sfCqFGt2zapBTO5gzP0z9jqZ81QROUxAWCQE4Xy72qQVZwnPJG/ipwNMGcCIvoSNGmLmFkpFQ+gRg==
+ns4.d00000.wildcard.example.	3600	IN	NSEC	d00001.wildcard.example. A RRSIG NSEC
+d00001.wildcard.example.	3600	IN	NS	ns1.d00001.wildcard.example.
+d00001.wildcard.example.	3600	IN	NS	ns2.d00001.wildcard.example.
+d00001.wildcard.example.	3600	IN	NS	ns3.d00001.wildcard.example.
+d00001.wildcard.example.	3600	IN	NS	ns4.d00001.wildcard.example.
+d00001.wildcard.example.	3600	IN	RRSIG	NSEC 13 3 3600 20380119031407 19700101000001 56689 wildcard.example. VI6fDGpVhbQL5Mdth9SJamtTRZUGADS6DI+DaGmCIQSt8RvMrqqcFdPHyISFXz4P3HnjexZXOQ1v9CZqK2nsTA==
+d00001.wildcard.example.	3600	IN	NSEC	ns1.d00001.wildcard.example. NS RRSIG NSEC
+ns1.d00001.wildcard.example.	3600	IN	A	192.0.2.3
+ns1.d00001.wildcard.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 56689 wildcard.example. lDqGjCui4ZU6NtYqSi3KEh+lki+5gF3mp+HPbmF13o+HFdgEWfxVk0OGnB6T5Qb0Q+gJjjL8uwRoK1RlKqLnTQ==
+ns1.d00001.wildcard.example.	3600	IN	NSEC	ns2.d00001.wildcard.example. A RRSIG NSEC
+ns2.d00001.wildcard.example.	3600	IN	A	192.0.2.4
+ns2.d00001.wildcard.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 56689 wildcard.example. NV4W3IWvYMMqU1aKdMzLGUNjG+VNX7IgeeUaFZZr+U1jnV7wmzhD+Fp/guhld9gr4wmhICNz0G2W7wpRPg0jyw==
+ns2.d00001.wildcard.example.	3600	IN	NSEC	ns3.d00001.wildcard.example. A RRSIG NSEC
+ns3.d00001.wildcard.example.	3600	IN	A	192.0.2.5
+ns3.d00001.wildcard.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 56689 wildcard.example. GofGmzOADPnflVvnwAOK4CdxTI7K+4/QMkCNzXabSd9eSvZYkHApXcEFq6B4XWML8Cg/Koopf5df2pG9gFSmlA==
+ns3.d00001.wildcard.example.	3600	IN	NSEC	ns4.d00001.wildcard.example. A RRSIG NSEC
+ns4.d00001.wildcard.example.	3600	IN	A	192.0.2.6
+ns4.d00001.wildcard.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 56689 wildcard.example. uzInLjOwUM6Mxlp2w8pv1OQpwUUDglQ1eNrdFjJt04mzMLANkcJwkborNmOTf5zm6TroxH+qaoZout/kGFAcng==
+ns4.d00001.wildcard.example.	3600	IN	NSEC	d00002.wildcard.example. A RRSIG NSEC
+d00002.wildcard.example.	3600	IN	NS	ns1.d00002.wildcard.example.
+d00002.wildcard.example.	3600	IN	NS	ns2.d00002.wildcard.example.
+d00002.wildcard.example.	3600	IN	NS	ns3.d00002.wildcard.example.
+d00002.wildcard.example.	3600	IN	NS	ns4.d00002.wildcard.example.
+d00002.wildcard.example.	3600	IN	DS	24667 13 2 5DC3D212F04146E759565E97038EE082FB01A73B709E9EA22827AD7864DAD82D
+d00002.wildcard.example.	3600	IN	RRSIG	DS 13 3 3600 20380119031407 19700101000001 56689 wildcard.example. tzN+X8/2RjsblPODX27EFoNch/uNOpx5UjCkex1HP8Vx8r2/kWltByFJRaSDbj+ilmgN8Sc8RT3RTd+yFy7yWg==
+d00002.wildcard.example.	3600	IN	RRSIG	NSEC 13 3 3600 20380119031407 19700101000001 56689 wildcard.example. giYjuIlchAxKwNURJUTADqmOiKEbeGes1ByaYWJXEoWn1kAlClcdOaswEhIUwHz8nYM742S3B+V1qdOq6ZPTvA==
+d00002.wildcard.example.	3600	IN	NSEC	ns1.d00002.wildcard.example. NS DS RRSIG NSEC
+ns1.d00002.wildcard.example.	3600	IN	A	192.0.2.4
+ns1.d00002.wildcard.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 56689 wildcard.example. IKIkbWrILkp6U6J30fA+MzyzE9Tpm6kUfnzb/DBRVozUTHAnI4MKNW215QlrzKzg1VHGdksn+ssNYo7+cc2Jxg==
+ns1.d00002.wildcard.example.	3600	IN	NSEC	ns2.d00002.wildcard.example. A RRSIG NSEC
+ns2.d00002.wildcard.example.	3600	IN	A	192.0.2.5
+ns2.d00002.wildcard.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 56689 wildcard.example. BBFKfHGftnwZjDLL7GpGdzuN8rynHkiv9MTx26y1gXeOt+xGPeWZ+OvmWtFhR7nx4PiadMWlrIdRqH9GkOyPbQ==
+ns2.d00002.wildcard.example.	3600	IN	NSEC	ns3.d00002.wildcard.example. A RRSIG NSEC
+ns3.d00002.wildcard.example.	3600	IN	A	192.0.2.6
+ns3.d00002.wildcard.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 56689 wildcard.example. hjBDICKR8GhTeEFoup3RjBrvnf3EQu0GJyHSnnrChQL9HjjoSu6ESLImxF6pAsnx6qJi/9Vfvkw8gne3HEalBg==
+ns3.d00002.wildcard.example.	3600	IN	NSEC	ns4.d00002.wildcard.example. A RRSIG NSEC
+ns4.d00002.wildcard.example.	3600	IN	A	192.0.2.7
+ns4.d00002.wildcard.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 56689 wildcard.example. tlVeEHZLDf796uYwQAJgp1Y4FRKGnbFweZaJsXvTH+Z45ulxNACUz9trRGxpC5+/dkyPI52nvBOzvF5MxE3O7Q==
+ns4.d00002.wildcard.example.	3600	IN	NSEC	d00003.wildcard.example. A RRSIG NSEC
+d00003.wildcard.example.	3600	IN	NS	ns1.d00003.wildcard.example.
+d00003.wildcard.example.	3600	IN	NS	ns2.d00003.wildcard.example.
+d00003.wildcard.example.	3600	IN	NS	ns3.d00003.wildcard.example.
+d00003.wildcard.example.	3600	IN	NS	ns4.d00003.wildcard.example.
+d00003.wildcard.example.	3600	IN	DS	31434 13 2 D5515BFE72ACFCB36278962647C193388AD95DC3AA557ACD7E9358D7887B9AE9
+d00003.wildcard.example.	3600	IN	RRSIG	DS 13 3 3600 20380119031407 19700101000001 56689 wildcard.example. NdrGF624CgPAyt70pOVI0npn6r157YKV4PpgS2Q8VtccAve4tFhERaMipnytsKMEWIi0a3zBDaRehKEs7Q1mVA==
+d00003.wildcard.example.	3600	IN	RRSIG	NSEC 13 3 3600 20380119031407 19700101000001 56689 wildcard.example. YpVmgqEoljGqN6eAIOmCcszPLchMtbUkqbq5+dh38jFboV6EycFECyZC5NH9B3QNUCpKOZH4U6b1R0D3xIC4cw==
+d00003.wildcard.example.	3600	IN	NSEC	ns1.d00003.wildcard.example. NS DS RRSIG NSEC
+ns1.d00003.wildcard.example.	3600	IN	A	192.0.2.5
+ns1.d00003.wildcard.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 56689 wildcard.example. pm4sPW8YgUcQA9Q9kZBsdWzftCD93ibC9E3UvaWxuVf2+6BWza23D2IZs9be1jpwR6HPyRmfCndLI0BIk9pYAQ==
+ns1.d00003.wildcard.example.	3600	IN	NSEC	ns2.d00003.wildcard.example. A RRSIG NSEC
+ns2.d00003.wildcard.example.	3600	IN	A	192.0.2.6
+ns2.d00003.wildcard.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 56689 wildcard.example. YfsgJz7TYeNDK9prqAEP8wU6P2SgiHCOh7jgkA6d9/r1+AKydMpQXbHkp4UlupeN1Ajc2zERmoG3fAFohz6Low==
+ns2.d00003.wildcard.example.	3600	IN	NSEC	ns3.d00003.wildcard.example. A RRSIG NSEC
+ns3.d00003.wildcard.example.	3600	IN	A	192.0.2.7
+ns3.d00003.wildcard.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 56689 wildcard.example. i4bAjMlOHVTpPvpQVg5bo3od9yIXchliqpTkkL4gXixbdJcI8rlM/w65bKuAsN/Xm1Dx2QvVqKoUI2SB0yBqYw==
+ns3.d00003.wildcard.example.	3600	IN	NSEC	ns4.d00003.wildcard.example. A RRSIG NSEC
+ns4.d00003.wildcard.example.	3600	IN	A	192.0.2.8
+ns4.d00003.wildcard.example.	3600	IN	RRSIG	NSEC 13 4 3600 20380119031407 19700101000001 56689 wildcard.example. XdoAwsk1fid7arlAdK3Kv2PrQ3sP7LU7wsskHpqAEo3/1gW8J7m5gVvHymtEi0xeZv/adZCKnf+Dx8c2z72Bqg==
+ns4.d00003.wildcard.example.	3600	IN	NSEC	ns1.wildcard.example. A RRSIG NSEC
+ns1.wildcard.example.	3600	IN	A	192.0.2.1
+ns1.wildcard.example.	3600	IN	RRSIG	A 13 3 3600 20380119031407 19700101000001 56689 wildcard.example. 8LRLNOpt7TQ+oI/wrPoogUCdDQitINP8y5XwRVVjSePLZGsdQjPCXgxtKfblBZrESOUxtzSUfpp/4YR8kYOYPg==
+ns1.wildcard.example.	3600	IN	RRSIG	NSEC 13 3 3600 20380119031407 19700101000001 56689 wildcard.example. zPTAys+Fc2llakfI7BCtRpgQxUXy92EWeMmKKiXpfBzIBJqfuvGzb+uapKhkgsqAKnIuL92Qn5a+dh3jx11PwQ==
+ns1.wildcard.example.	3600	IN	NSEC	ns2.wildcard.example. A RRSIG NSEC
+ns2.wildcard.example.	3600	IN	A	192.0.2.2
+ns2.wildcard.example.	3600	IN	RRSIG	A 13 3 3600 20380119031407 19700101000001 56689 wildcard.example. kPigm0iR7nLTktAB2sXsKTbSm1nLe3tooO0qNDg4qnZEJTfEnN87Al8XDdjoq1ph9thfAQbQVQmI6Sg3jFOtQw==
+ns2.wildcard.example.	3600	IN	RRSIG	NSEC 13 3 3600 20380119031407 19700101000001 56689 wildcard.example. YC4kx9nXemC0bL/Zp+n2I9o9vvIsAnKdZj+zSMyCanwyuMMP3L/dl4HioEbmb1DE9Vl1d2cgNoDWt2+6+FUkpg==
+ns2.wildcard.example.	3600	IN	NSEC	wildcard.example. A RRSIG NSEC

@@ -1,0 +1,20 @@
+zonemd-good.example.	3600	IN	NS	ns1.zonemd-good.example.
+zonemd-good.example.	3600	IN	NS	ns2.zonemd-good.example.
+zonemd-good.example.	3600	IN	SOA	ns1.zonemd-good.example. hostmaster.zonemd-good.example. 1 3600 600 86400 300
+zonemd-good.example.	3600	IN	RRSIG	DNSKEY 13 2 3600 20380119031407 19700101000001 4013 zonemd-good.example. oO0UvzsM8DlouZ1MkedduHab/N8trna5JeQChVP3nVbyCWfGI9Ub5X9yPUrXjNyyoXiOoLYhOEHW0hFuZ3jg6g==
+zonemd-good.example.	3600	IN	RRSIG	NS 13 2 3600 20380119031407 19700101000001 15906 zonemd-good.example. 5j7Ttig8A7MGwtnJCAdkio3/A6Lqu7rqBnLuJLTD1g+XvwyKOhJbp+7XKvPwcHph5dOhAoF6rKSqXIRGTpD/Ww==
+zonemd-good.example.	3600	IN	RRSIG	NSEC 13 2 3600 20380119031407 19700101000001 15906 zonemd-good.example. ntBACXh3Em5iI9pyI+3VWcY5gSmFJbu3IVafqqe1UIKLizdxhqxY4PFZl2WY8ebsxSV6gxqF0QZDT0kwCGjbLw==
+zonemd-good.example.	3600	IN	RRSIG	SOA 13 2 3600 20380119031407 19700101000001 15906 zonemd-good.example. YXnuFDWC1n9+4uQUYXvIw4nGTBw64JeCQliNhy0MB0U18uxID79sc8au3NCCkFDGGA9Z4DuVE04di04zWUxi6w==
+zonemd-good.example.	3600	IN	RRSIG	ZONEMD 13 2 3600 20380119031407 19700101000001 15906 zonemd-good.example. wFX2GBgVHn7KBr3Niz51CM4OU0l7ZZR7jXPhiiFffMVyGvzSxL9BQ0AlRSiWwnb29eJ+j1Af+iMcuv8j95etYw==
+zonemd-good.example.	3600	IN	NSEC	ns1.zonemd-good.example. NS SOA RRSIG NSEC DNSKEY ZONEMD
+zonemd-good.example.	3600	IN	DNSKEY	256 3 13 Atow9ymDEabH6vjOCPDJR3GYvjjkvCtEqpOgGwlDtuNlhUWb8x2BSggKpZgxqdEXVgo1du03sqkHzJ8AaTjiLA==
+zonemd-good.example.	3600	IN	DNSKEY	257 3 13 0OR8usmS408XLlfxzi7qqTxjj8qwpLsXnGvmYbVjIjMBwOJXoseKhrfFnjwMVDSmStjvJri0mmiJVrb3ie5XGg==
+zonemd-good.example.	3600	IN	ZONEMD	1 1 1 1b6e63c2049f2718939346fab1be6ca558e66a4a4e5169e643bea3014343e6d3250752b261a6d112c0b6c17091c4a3f8
+ns1.zonemd-good.example.	3600	IN	A	192.0.2.1
+ns1.zonemd-good.example.	3600	IN	RRSIG	A 13 3 3600 20380119031407 19700101000001 15906 zonemd-good.example. fIwYKygRdR3XXKwEHsy5ARRj/qCeHTRYZn6JvTKE1eIsCzkL3qigvWf26JJUaN2BGnEXc4CYxoZvJIF1SHlgcg==
+ns1.zonemd-good.example.	3600	IN	RRSIG	NSEC 13 3 3600 20380119031407 19700101000001 15906 zonemd-good.example. n5GzPtP5RPbrHs/qX7UDzrjMkYUPB8GFjp4+NC09IKcAadsUP+lKrcILQMOS0xjHQ6hmwis9QvOZ3gKPyJSVEQ==
+ns1.zonemd-good.example.	3600	IN	NSEC	ns2.zonemd-good.example. A RRSIG NSEC
+ns2.zonemd-good.example.	3600	IN	A	192.0.2.2
+ns2.zonemd-good.example.	3600	IN	RRSIG	A 13 3 3600 20380119031407 19700101000001 15906 zonemd-good.example. X+PdZ/o/K/aHKR3RYBS2xgd84W6IX+X+cyUuCeJp0LHgT25Il8suixCqCqO0Osf37GP+fspfsrvNOMQPcMYoFw==
+ns2.zonemd-good.example.	3600	IN	RRSIG	NSEC 13 3 3600 20380119031407 19700101000001 15906 zonemd-good.example. 9vR9ptRwoJQ/WzW3Aj6yJhlA0/Uv+8HOdJIbrq6OzJqnzwBBSN1OKhFHggnPlmbfvw3HYa8vMWrA0bTIDhqtvQ==
+ns2.zonemd-good.example.	3600	IN	NSEC	zonemd-good.example. A RRSIG NSEC

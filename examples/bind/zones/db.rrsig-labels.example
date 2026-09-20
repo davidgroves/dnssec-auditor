@@ -1,0 +1,60 @@
+rrsig-labels.example.	3600	IN	NS	ns1.rrsig-labels.example.
+rrsig-labels.example.	3600	IN	NS	ns2.rrsig-labels.example.
+rrsig-labels.example.	3600	IN	SOA	ns1.rrsig-labels.example. hostmaster.rrsig-labels.example. 1 3600 600 86400 300
+rrsig-labels.example.	3600	IN	RRSIG	DNSKEY 13 2 3600 20380119031407 19700101000001 28610 rrsig-labels.example. geVR2IN/IhHg4ZuDrkWJgrXBNYH63fQhOpv+ZGhMm0pVtzYSkBSldoCOnoGcQH222TCWVVCJFgIkhSrUUg8uZA==
+rrsig-labels.example.	3600	IN	RRSIG	NS 13 2 3600 20380119031407 19700101000001 52288 rrsig-labels.example. XBTMoLJr5WOzsc9zi15lRzmJAFxnjOviYZoQlVpWmtEo0gJAJppZvOvueYmWbjEXuftqq+QwubgTeQqCaOvFwQ==
+rrsig-labels.example.	3600	IN	RRSIG	NSEC3PARAM 13 2 0 20380119031407 19700101000001 52288 rrsig-labels.example. HYr0sxqvnJyxjadkeAuYFu3NDOgehMMPKnyp/8VsS8B6VBLBdDLwhdPMBlIWUcV94sfHV8bnhjT4HPI/3p3atA==
+rrsig-labels.example.	3600	IN	RRSIG	SOA 13 99 3600 20380119031407 19700101000001 52288 rrsig-labels.example. KWLHWB7ElNi2KhyM9vRx4xgUtr0iaJnmkQV1J4sW5mLjGe3NCPWx3+a2SzRP2eRRl4uFgVEDQJtZzXAXVoiUVg==
+rrsig-labels.example.	3600	IN	DNSKEY	256 3 13 bDuF+mQt9LwS0aoV1gdDTsX/ositokTFl26QYEWuXfcnDa/wyqacKIT8luK0CIvlSTDJxK6IBCa7AIJ3yZkZ4Q==
+rrsig-labels.example.	3600	IN	DNSKEY	257 3 13 1GXyVDVHk9pWBhtf/MGRZoYCgPTCUDMtxyf8YQgAIwZD9Hy1eBXTjufN1p7jdT8jfYu7Cak5g55i6Qp8HjkS5Q==
+rrsig-labels.example.	0	IN	NSEC3PARAM	1 0 0 -
+1s49bvm0o9a07df7k3tsvp6up0568pt7.rrsig-labels.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 52288 rrsig-labels.example. vkqX+TMrgfathAs9BNlyfr5U52Ol1/a8ZqWZKKrS065Fz1+HqJ8RF8FHIadOhkmWj9rkNkv656HrSgGP3FCCvg==
+1s49bvm0o9a07df7k3tsvp6up0568pt7.rrsig-labels.example.	3600	IN	NSEC3	1 1 0 - AJPTUKRNQMQESN3I682KAAOM71T6GNNS NS DS RRSIG
+ajptukrnqmqesn3i682kaaom71t6gnns.rrsig-labels.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 52288 rrsig-labels.example. 1jl6NnbRMFU1Rj2jwPcwk7W/u0BbQWo6z8U1PAV5mxaQoi9xH66+rc+eV0NnYgc379/THhLuX7sXLnrQVEckRQ==
+ajptukrnqmqesn3i682kaaom71t6gnns.rrsig-labels.example.	3600	IN	NSEC3	1 1 0 - F2OJTQ236RT4BEMLMDGMD7OFRMN8MCMC A RRSIG
+d00000.rrsig-labels.example.	3600	IN	NS	ns1.d00000.rrsig-labels.example.
+d00000.rrsig-labels.example.	3600	IN	NS	ns2.d00000.rrsig-labels.example.
+d00000.rrsig-labels.example.	3600	IN	NS	ns3.d00000.rrsig-labels.example.
+d00000.rrsig-labels.example.	3600	IN	NS	ns4.d00000.rrsig-labels.example.
+ns1.d00000.rrsig-labels.example.	3600	IN	A	192.0.2.2
+ns2.d00000.rrsig-labels.example.	3600	IN	A	192.0.2.3
+ns3.d00000.rrsig-labels.example.	3600	IN	A	192.0.2.4
+ns4.d00000.rrsig-labels.example.	3600	IN	A	192.0.2.5
+d00001.rrsig-labels.example.	3600	IN	NS	ns1.d00001.rrsig-labels.example.
+d00001.rrsig-labels.example.	3600	IN	NS	ns2.d00001.rrsig-labels.example.
+d00001.rrsig-labels.example.	3600	IN	NS	ns3.d00001.rrsig-labels.example.
+d00001.rrsig-labels.example.	3600	IN	NS	ns4.d00001.rrsig-labels.example.
+ns1.d00001.rrsig-labels.example.	3600	IN	A	192.0.2.3
+ns2.d00001.rrsig-labels.example.	3600	IN	A	192.0.2.4
+ns3.d00001.rrsig-labels.example.	3600	IN	A	192.0.2.5
+ns4.d00001.rrsig-labels.example.	3600	IN	A	192.0.2.6
+d00002.rrsig-labels.example.	3600	IN	NS	ns1.d00002.rrsig-labels.example.
+d00002.rrsig-labels.example.	3600	IN	NS	ns2.d00002.rrsig-labels.example.
+d00002.rrsig-labels.example.	3600	IN	NS	ns3.d00002.rrsig-labels.example.
+d00002.rrsig-labels.example.	3600	IN	NS	ns4.d00002.rrsig-labels.example.
+d00002.rrsig-labels.example.	3600	IN	DS	12643 13 2 130D597B644507988263DB894B2245F461C8D487DB33D367C17B4B83CA06C4E9
+d00002.rrsig-labels.example.	3600	IN	RRSIG	DS 13 3 3600 20380119031407 19700101000001 52288 rrsig-labels.example. mx70lB5MFZ+txiJtZOl4No1k+rtAecoXSedpqdJgxQ+EfeSzdtD2B+YZufmGVyIewJvhxp8H3yzLzfQ9VHLFGg==
+ns1.d00002.rrsig-labels.example.	3600	IN	A	192.0.2.4
+ns2.d00002.rrsig-labels.example.	3600	IN	A	192.0.2.5
+ns3.d00002.rrsig-labels.example.	3600	IN	A	192.0.2.6
+ns4.d00002.rrsig-labels.example.	3600	IN	A	192.0.2.7
+d00003.rrsig-labels.example.	3600	IN	NS	ns1.d00003.rrsig-labels.example.
+d00003.rrsig-labels.example.	3600	IN	NS	ns2.d00003.rrsig-labels.example.
+d00003.rrsig-labels.example.	3600	IN	NS	ns3.d00003.rrsig-labels.example.
+d00003.rrsig-labels.example.	3600	IN	NS	ns4.d00003.rrsig-labels.example.
+d00003.rrsig-labels.example.	3600	IN	DS	59497 13 2 BE9A656E1C4689866CCFD2BD4763CE8A87938436656E7F04C26113690F3ED0AE
+d00003.rrsig-labels.example.	3600	IN	RRSIG	DS 13 3 3600 20380119031407 19700101000001 52288 rrsig-labels.example. qckROLVC+3+3MEbbZIGfMYfx4qVC7rqn/pk6r/Wqvmv1MGFgrlw0iCbCMIazY7FMXhNcBifUJsqqMezI0AflMg==
+ns1.d00003.rrsig-labels.example.	3600	IN	A	192.0.2.5
+ns2.d00003.rrsig-labels.example.	3600	IN	A	192.0.2.6
+ns3.d00003.rrsig-labels.example.	3600	IN	A	192.0.2.7
+ns4.d00003.rrsig-labels.example.	3600	IN	A	192.0.2.8
+f2ojtq236rt4bemlmdgmd7ofrmn8mcmc.rrsig-labels.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 52288 rrsig-labels.example. K9euHIwo58g27VFS/0lx4SIp3mH8zG0RkIKq7paF9YewMehyqC27YFAnwoApMX2FsxkuX0I/bAZiYkO2sbA3NQ==
+f2ojtq236rt4bemlmdgmd7ofrmn8mcmc.rrsig-labels.example.	3600	IN	NSEC3	1 1 0 - SL9EV9O3PPKISMVH17B4D724GC5P4NJ1 NS DS RRSIG
+ns1.rrsig-labels.example.	3600	IN	A	192.0.2.1
+ns1.rrsig-labels.example.	3600	IN	RRSIG	A 13 3 3600 20380119031407 19700101000001 52288 rrsig-labels.example. Dv5IjU7LHs3sw/5VeAQDNrqEfVpIpC1UvNF8Aod2G5p7Gq3B2MP+OQCQwV5uWBFeedlhk98jH+dPkoo7lV3vKg==
+ns2.rrsig-labels.example.	3600	IN	A	192.0.2.2
+ns2.rrsig-labels.example.	3600	IN	RRSIG	A 13 3 3600 20380119031407 19700101000001 52288 rrsig-labels.example. 0/XuUW9XtF6bYR1ZU+lwUUbt+abDuGl6RTbkxmj+Es7yF/ADLfIo3jMfbVkf/CDAKBO/zByWGqzRw3htpYzhYQ==
+sl9ev9o3ppkismvh17b4d724gc5p4nj1.rrsig-labels.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 52288 rrsig-labels.example. UGk3uT9HUnOa4VpwM5zO/yvwPU2hsfwZ7L0iHvCRBzgtAGadtRL4pleSUIPvWnD5X3M7kSsx1PtmJr4M9n2dXA==
+sl9ev9o3ppkismvh17b4d724gc5p4nj1.rrsig-labels.example.	3600	IN	NSEC3	1 1 0 - VD0U0J121OITU13TQ2OKJ6CMJU7VNAEF A RRSIG
+vd0u0j121oitu13tq2okj6cmju7vnaef.rrsig-labels.example.	3600	IN	RRSIG	NSEC3 13 3 3600 20380119031407 19700101000001 52288 rrsig-labels.example. CMxDYukDrnpIIbQUuyXAlcpXk5PGrwpfd1YuaEq/Li+yY0Rq9gVqv95PuySaeyjmxW/iQ2NeVOVzji8eB6ttPQ==
+vd0u0j121oitu13tq2okj6cmju7vnaef.rrsig-labels.example.	3600	IN	NSEC3	1 1 0 - 1S49BVM0O9A07DF7K3TSVP6UP0568PT7 NS SOA RRSIG DNSKEY NSEC3PARAM

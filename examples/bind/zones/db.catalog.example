@@ -1,0 +1,47 @@
+$ORIGIN catalog.example.
+$TTL 3600
+
+@       IN      SOA     ns.catalog.example. hostmaster.catalog.example. (
+                        1
+                        3600
+                        600
+                        86400
+                        60
+                        )
+
+@       IN      NS      invalid.
+
+version IN      TXT     "2"
+
+example-com.zones              IN      PTR     example.com.
+nsec-example.zones             IN      PTR     nsec.example.
+unsigned-example.zones         IN      PTR     unsigned.example.
+broken-example.zones           IN      PTR     broken.example.
+member-example.zones           IN      PTR     member.example.
+rrsig-missing-example.zones    IN      PTR     rrsig-missing.example.
+rrsig-expired-example.zones    IN      PTR     rrsig-expired.example.
+rrsig-future-example.zones     IN      PTR     rrsig-future.example.
+rrsig-unknown-example.zones    IN      PTR     rrsig-unknown.example.
+rrsig-labels-example.zones     IN      PTR     rrsig-labels.example.
+rrsig-ttl-example.zones        IN      PTR     rrsig-ttl.example.
+rrsig-expiring-example.zones   IN      PTR     rrsig-expiring.example.
+dnskey-zskonly-example.zones   IN      PTR     dnskey-zskonly.example.
+dnskey-unused-example.zones    IN      PTR     dnskey-unused.example.
+alg-rsasha1-example.zones      IN      PTR     alg-rsasha1.example.
+alg-rsasha1nsec3-example.zones IN      PTR     alg-rsasha1nsec3.example.
+alg-rsasha256-example.zones    IN      PTR     alg-rsasha256.example.
+alg-ed25519-example.zones      IN      PTR     alg-ed25519.example.
+nsec3-missing-example.zones    IN      PTR     nsec3-missing.example.
+nsec3-chain-example.zones      IN      PTR     nsec3-chain.example.
+nsec3-bitmap-example.zones     IN      PTR     nsec3-bitmap.example.
+nsec3-param-example.zones      IN      PTR     nsec3-param.example.
+nsec3-iters-example.zones      IN      PTR     nsec3-iters.example.
+nsec3-salt-example.zones       IN      PTR     nsec3-salt.example.
+nsec3-strict-example.zones     IN      PTR     nsec3-strict.example.
+nsec-missing-example.zones     IN      PTR     nsec-missing.example.
+nsec-chain-example.zones       IN      PTR     nsec-chain.example.
+mixed-nsec-nsec3-example.zones IN      PTR     mixed-nsec-nsec3.example.
+mixed-nsec3-plus-nsec-example.zones IN PTR     mixed-nsec3-plus-nsec.example.
+zonemd-bad-example.zones       IN      PTR     zonemd-bad.example.
+zonemd-good-example.zones      IN      PTR     zonemd-good.example.
+wildcard-example.zones         IN      PTR     wildcard.example.
