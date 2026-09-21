@@ -1,6 +1,6 @@
 services:
   dev:
-    image: mcr.microsoft.com/devcontainers/go:1-1.25-bookworm
+    image: mcr.microsoft.com/devcontainers/go:1.25-bookworm
     volumes:
       - ..:/workspace:cached
     command: sleep infinity
@@ -8,12 +8,11 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
+  # Reachable from the dev service as bind:53. Host port 15353 is left to
+  # examples/docker-compose.yaml so both stacks can run at once.
   bind:
     image: internetsystemsconsortium/bind9:9.21
     networks: [devnet]
-    ports:
-      - "15353:53/udp"
-      - "15353:53/tcp"
 
 networks:
   devnet:

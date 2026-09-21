@@ -3,6 +3,11 @@
   "dockerComposeFile": "docker-compose.yml",
   "service": "dev",
   "workspaceFolder": "/workspace",
+  "features": {
+    "ghcr.io/devcontainers/features/node:2": {
+      "version": "22"
+    }
+  },
   "shutdownAction": "stopCompose",
   "postCreateCommand": "go version && npm install",
   "forwardPorts": [5173, 8080, 5354],
