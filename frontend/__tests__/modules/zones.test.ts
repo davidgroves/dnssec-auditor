@@ -1,6 +1,7 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import {
   compareZones,
+  createZoneMethods,
   defaultSortDir,
   formatLastValid,
   formatLastValidTitle,
@@ -156,5 +157,38 @@ describe('formatSigning', () => {
     expect(formatSigning('nsec3')).toBe('NSEC3');
     expect(formatSigning('mixed')).toBe('Mixed');
     expect(formatSigning(undefined)).toBe('Unsigned');
+  });
+});
+
+describe('loadZones', () => {
+  it('retries until the API is up', async () => {
+    const fetchMock = vi
+      .fn()
+      .mockRejectedValueOnce(new Error('connect ECONNREFUSED'))
+      .mockResolvedValueOnce({
+        ok: true,
+        status: 200,
+        json: async () => ({ zones: [{ name: 'example.com.', state: 'valid' }] }),
+      })
+      .mockResolvedValueOnce({
+        ok: true,
+        status: 200,
+        json: async () => ({ catalogs: [] }),
+      });
+    vi.stubGlobal('fetch', fetchMock);
+    const methods = createZoneMethods();
+    const toast = vi.fn();
+    const ctx = {
+      loading: false,
+      zones: [] as { name: string; state: string }[],
+      catalogs: [] as unknown[],
+      counts: {} as Record<string, number>,
+      toast,
+    };
+    await methods.loadZones.call(ctx as never, 3);
+    expect(ctx.zones).toEqual([{ name: 'example.com.', state: 'valid' }]);
+    expect(ctx.counts).toEqual({ valid: 1 });
+    expect(toast).not.toHaveBeenCalled();
+    vi.unstubAllGlobals();
   });
 });

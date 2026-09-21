@@ -1,18 +1,75 @@
+# Devcontainer auditor config. Start All Tasks runs testprimary on :5353
+# (the compose BIND sidecar is the image default recursive resolver unless
+# that service is recreated with examples/bind/named.conf).
+#
+#   go run ./cmd/dnssec-auditor serve --config .devcontainer/config.devcontainer.yaml
+
 servers:
   - name: bind
-    address: bind
-    port: 53
-zones: []
+    address: 127.0.0.1
+    port: 5353
+
+zones:
+  - { name: example.com., servers: [bind] }
+  - { name: nsec.example., servers: [bind] }
+  - { name: unsigned.example., servers: [bind] }
+  - { name: broken.example., servers: [bind] }
+  - { name: rrsig-missing.example., servers: [bind] }
+  - { name: rrsig-expired.example., servers: [bind] }
+  - { name: rrsig-future.example., servers: [bind] }
+  - { name: rrsig-unknown.example., servers: [bind] }
+  - { name: rrsig-labels.example., servers: [bind] }
+  - { name: rrsig-ttl.example., servers: [bind] }
+  - { name: rrsig-expiring.example., servers: [bind] }
+  - { name: dnskey-zskonly.example., servers: [bind] }
+  - { name: dnskey-unused.example., servers: [bind] }
+  - { name: alg-rsasha1.example., servers: [bind] }
+  - { name: alg-rsasha1nsec3.example., servers: [bind] }
+  - { name: alg-rsasha256.example., servers: [bind] }
+  - { name: alg-ed25519.example., servers: [bind] }
+  - { name: nsec3-missing.example., servers: [bind] }
+  - { name: nsec3-chain.example., servers: [bind] }
+  - { name: nsec3-bitmap.example., servers: [bind] }
+  - { name: nsec3-param.example., servers: [bind] }
+  - { name: nsec3-iters.example., servers: [bind] }
+  - { name: nsec3-salt.example., servers: [bind] }
+  - { name: nsec3-strict.example., servers: [bind] }
+  - { name: nsec-missing.example., servers: [bind] }
+  - { name: nsec-chain.example., servers: [bind] }
+  - { name: mixed-nsec-nsec3.example., servers: [bind] }
+  - { name: mixed-nsec3-plus-nsec.example., servers: [bind] }
+  - { name: zonemd-bad.example., servers: [bind] }
+  - { name: zonemd-good.example., servers: [bind] }
+  - { name: wildcard.example., servers: [bind] }
+
+catalogs:
+  - name: catalog.example.
+    servers: [bind]
+    member_servers: [bind]
+
+refresh:
+  min_interval: 30s
+  max_interval: 1h
+  retry_min: 15s
+  retry_max: 5m
+  jitter: 0.1
+  prefer_ixfr: true
+  concurrent_transfers: 16
+  probe_all_servers: true
+
 notify:
   enabled: true
   bind_address: 0.0.0.0
   udp_port: 5354
   tcp_port: 5354
+
 api:
   listen: ":8080"
+
 logging:
   format: text
   level: debug
+
 theme:
   app_name: DNSSEC Auditor
   default_mode: dark

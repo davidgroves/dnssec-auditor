@@ -3,11 +3,26 @@
   "tasks": [
     {
       "label": "Run All",
-      "dependsOn": ["BACKEND", "FRONTEND"],
-      "dependsOrder": "parallel",
+      "dependsOn": ["PRIMARY", "BACKEND", "FRONTEND"],
+      "dependsOrder": "sequence",
       "group": {
         "kind": "build",
         "isDefault": true
+      }
+    },
+    {
+      "label": "PRIMARY",
+      "type": "shell",
+      "command": "go run ./cmd/testprimary --listen 127.0.0.1:5353 --scenario-pack examples --notify 127.0.0.1:5354",
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "dnssec-auditor-primary",
+        "pattern": { "regexp": "^$" },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".",
+          "endsPattern": "testprimary listening"
+        }
       }
     },
     {
@@ -15,14 +30,30 @@
       "type": "shell",
       "command": "go run ./cmd/dnssec-auditor serve --config .devcontainer/config.devcontainer.yaml",
       "isBackground": true,
-      "problemMatcher": []
+      "problemMatcher": {
+        "owner": "dnssec-auditor-backend",
+        "pattern": { "regexp": "^$" },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".",
+          "endsPattern": "api listening"
+        }
+      }
     },
     {
       "label": "FRONTEND",
       "type": "shell",
       "command": "npm run dev",
       "isBackground": true,
-      "problemMatcher": []
+      "problemMatcher": {
+        "owner": "dnssec-auditor-frontend",
+        "pattern": { "regexp": "^$" },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".",
+          "endsPattern": "Local:"
+        }
+      }
     }
   ]
 }

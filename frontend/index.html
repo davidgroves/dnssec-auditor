@@ -45,7 +45,7 @@
         <tbody>
           <template x-for="z in zones.filter(z => !z.valid)" :key="z.name">
             <tr>
-              <td><a :href="'/zones/' + encodeURIComponent(z.name)" @click.prevent="openZone(z.name)" x-text="z.name"></a></td>
+              <td><a :href="zoneHref(z.name)" @click.prevent="openZone(z.name)" x-text="z.name"></a></td>
               <td><span class="badge" :class="z.state" x-text="z.state"></span></td>
               <td x-text="z.serial"></td>
               <td x-text="z.error_count"></td>
@@ -90,7 +90,7 @@
         <tbody>
           <template x-for="z in filteredZones()" :key="z.name">
             <tr>
-              <td><a :href="'/zones/' + encodeURIComponent(z.name)" @click.prevent="openZone(z.name)" x-text="z.name"></a></td>
+              <td><a :href="zoneHref(z.name)" @click.prevent="openZone(z.name)" x-text="z.name"></a></td>
               <td><span class="badge" :class="z.state" x-text="z.state"></span></td>
               <td x-text="z.serial"></td>
               <td class="muted"
@@ -169,7 +169,7 @@
           <p class="muted" x-show="!c.members.length">No members yet.</p>
           <ul>
             <template x-for="m in c.members" :key="m">
-              <li><a :href="'/zones/' + encodeURIComponent(m)" @click.prevent="openZone(m)" x-text="m"></a></li>
+              <li><a :href="zoneHref(m)" @click.prevent="openZone(m)" x-text="m"></a></li>
             </template>
           </ul>
         </div>
@@ -179,7 +179,7 @@
         <tbody>
           <template x-for="z in zones.filter(z => (z.source || '').startsWith('catalog'))" :key="z.name">
             <tr>
-              <td><a :href="'/zones/' + encodeURIComponent(z.name)" @click.prevent="openZone(z.name)" x-text="z.name"></a></td>
+              <td><a :href="zoneHref(z.name)" @click.prevent="openZone(z.name)" x-text="z.name"></a></td>
               <td x-text="z.source"></td>
             </tr>
           </template>

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildPath, canonicalizeZone, parsePath, routeFromState } from '../../modules/router';
+import { buildPath, canonicalizeZone, encodeZonePath, parsePath, routeFromState } from '../../modules/router';
 
 describe('canonicalizeZone', () => {
   it('adds a trailing dot', () => {
@@ -41,7 +41,14 @@ describe('buildPath', () => {
     expect(buildPath({ view: 'dashboard' })).toBe('/');
     expect(buildPath({ view: 'zones' })).toBe('/zones');
     expect(buildPath({ view: 'catalogs' })).toBe('/catalogs');
-    expect(buildPath({ view: 'detail', zone: 'broken.example.' })).toBe('/zones/broken.example.');
+    expect(buildPath({ view: 'detail', zone: 'broken.example.' })).toBe('/zones/broken.example');
+  });
+});
+
+describe('encodeZonePath', () => {
+  it('drops the trailing DNS dot so SPA hosts do not treat the path as a file', () => {
+    expect(encodeZonePath('dnskey-zskonly.example.')).toBe('dnskey-zskonly.example');
+    expect(encodeZonePath('dnskey-zskonly.example')).toBe('dnskey-zskonly.example');
   });
 });
 

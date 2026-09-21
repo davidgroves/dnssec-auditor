@@ -53,4 +53,5 @@ input { background: var(--surface); color: var(--text); border: 1px solid var(--
 .muted { color: var(--muted); }
 .finding.error { color: var(--err); }
 .finding.warning { color: var(--warn); }
-.row { display: flex; gap: 0.75rem; align-items: center; margin: 1rem 0; }
+.row { display: flex; gap: 0.75rem; align-items: center; margin: 1rem 0; flex-wrap: wrap; }
+.row h2 { margin: 0; min-width: 0; overflow-wrap: anywhere; }

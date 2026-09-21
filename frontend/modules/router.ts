@@ -15,6 +15,11 @@ export function canonicalizeZone(name: string): string {
   return trimmed.endsWith('.') ? trimmed : `${trimmed}.`;
 }
 
+/** Path segment for a zone: FQDN without the trailing DNS dot, URI-encoded. */
+export function encodeZonePath(name: string): string {
+  return encodeURIComponent(canonicalizeZone(name).replace(/\.+$/, ''));
+}
+
 /**
  * Parse a URL pathname into an app route.
  * Pure — safe for unit tests without `window`.
@@ -56,7 +61,7 @@ export function buildPath(route: Route): string {
     case 'catalogs':
       return '/catalogs';
     case 'detail':
-      return `/zones/${encodeURIComponent(canonicalizeZone(route.zone))}`;
+      return `/zones/${encodeZonePath(route.zone)}`;
   }
 }
 
@@ -75,12 +80,20 @@ export function syncBrowserUrl(path: string, replace = false): void {
   if (typeof window === 'undefined') {
     return;
   }
-  if (window.location.pathname === path) {
+  if (pathsEqual(window.location.pathname, path)) {
     return;
   }
   if (replace) {
     window.history.replaceState(null, '', path);
   } else {
     window.history.pushState(null, '', path);
+  }
+}
+
+function pathsEqual(a: string, b: string): boolean {
+  try {
+    return decodeURIComponent(a) === decodeURIComponent(b);
+  } catch {
+    return a === b;
   }
 }

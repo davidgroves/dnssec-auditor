@@ -52,6 +52,9 @@ export function createApp(config: AppConfig): Record<string, unknown> {
         this.syncUrl(opts.replace === true);
       }
     },
+    zoneHref(name: string) {
+      return buildPath({ view: 'detail', zone: name });
+    },
     async applyRoute(route: Route, replace = true) {
       switch (route.view) {
         case 'dashboard':
@@ -80,7 +83,7 @@ export function createApp(config: AppConfig): Record<string, unknown> {
       } catch {
         this.applyThemeFromConfig(this.config);
       }
-      await this.loadZones();
+      await this.loadZones(20);
       await this.loadMemory();
       await this.applyRoute(parsePath(window.location.pathname), true);
       window.addEventListener('popstate', () => {

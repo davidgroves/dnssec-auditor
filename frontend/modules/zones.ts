@@ -4,7 +4,7 @@ import type { ZoneView } from '../types';
 
 export type ZoneContext = AppState & {
   toast: (msg: string, type: 'success' | 'error' | 'warning') => void;
-  loadZones: () => Promise<void>;
+  loadZones: (retries?: number) => Promise<void>;
   openZone: (name: string, opts?: { replace?: boolean }) => Promise<void>;
   refreshZone: (name: string, full?: boolean) => Promise<void>;
   downloadZone: (name: string) => Promise<void>;
@@ -190,27 +190,37 @@ export function createZoneMethods() {
       }
       return this.sortDir === 'asc' ? ' ▲' : ' ▼';
     },
-    async loadZones(this: ZoneContext) {
+    async loadZones(this: ZoneContext, retries = 0) {
       this.loading = true;
-      try {
-        const data = await api<{ zones: ZoneView[] }>('/v1/zones');
-        this.zones = data.zones ?? [];
-        const counts: Record<string, number> = {};
-        for (const z of this.zones) {
-          counts[z.state] = (counts[z.state] ?? 0) + 1;
-        }
-        this.counts = counts;
+      let lastErr: unknown;
+      for (let i = 0; i <= retries; i++) {
         try {
-          const cats = await api<{ catalogs: CatalogView[] }>('/v1/catalogs');
-          this.catalogs = cats.catalogs ?? [];
-        } catch {
-          this.catalogs = [];
+          const data = await api<{ zones: ZoneView[] }>('/v1/zones');
+          this.zones = data.zones ?? [];
+          const counts: Record<string, number> = {};
+          for (const z of this.zones) {
+            counts[z.state] = (counts[z.state] ?? 0) + 1;
+          }
+          this.counts = counts;
+          try {
+            const cats = await api<{ catalogs: CatalogView[] }>('/v1/catalogs');
+            this.catalogs = cats.catalogs ?? [];
+          } catch {
+            this.catalogs = [];
+          }
+          lastErr = undefined;
+          break;
+        } catch (err) {
+          lastErr = err;
+          if (i < retries) {
+            await new Promise((resolve) => setTimeout(resolve, 500));
+          }
         }
-      } catch (err) {
-        this.toast(`Failed to load zones: ${err}`, 'error');
-      } finally {
-        this.loading = false;
       }
+      if (lastErr) {
+        this.toast(`Failed to load zones: ${lastErr}`, 'error');
+      }
+      this.loading = false;
     },
     async openZone(this: ZoneContext, name: string) {
       try {

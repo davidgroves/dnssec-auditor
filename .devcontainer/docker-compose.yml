@@ -12,7 +12,21 @@ services:
   # examples/docker-compose.yaml so both stacks can run at once.
   bind:
     image: internetsystemsconsortium/bind9:9.21
+    hostname: bind
+    environment:
+      - TZ=UTC
+    volumes:
+      - ../examples/bind/named.conf:/etc/bind/named.conf:ro
+      - ../examples/bind/static-zones.conf:/etc/bind/static-zones.conf:ro
+      - ../examples/bind/zones:/etc/bind/zones-source:ro
+      - ./bind-entrypoint.sh:/entrypoint.sh:ro
+      - bind-zones:/var/lib/bind
     networks: [devnet]
+    entrypoint: ["/bin/sh", "/entrypoint.sh"]
+    restart: unless-stopped
 
 networks:
   devnet:
+
+volumes:
+  bind-zones:

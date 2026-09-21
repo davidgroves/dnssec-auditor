@@ -235,6 +235,7 @@ func (m *Manager) Refresh(ctx context.Context, z *ZoneRuntime, forceFull bool) {
 		z.schedule(m.cfg.Refresh, 0, 60, true)
 		z.mu.Unlock()
 		wide.Result = "transfer_failed"
+		wide.Extra = map[string]any{"error": "all servers unreachable"}
 		wide.Emit(m.log)
 		m.metrics.TransfersTotal.WithLabelValues(z.Name, "soa", "error").Inc()
 		m.bus.Publish(event.Event{Type: event.TransferFailed, Zone: z.Name, Result: "error"})
@@ -329,6 +330,7 @@ func (m *Manager) Refresh(ctx context.Context, z *ZoneRuntime, forceFull bool) {
 		z.mu.Unlock()
 		wide.Result = "transfer_failed"
 		wide.Method = method
+		wide.Extra = map[string]any{"error": err.Error()}
 		wide.Emit(m.log)
 		m.metrics.TransfersTotal.WithLabelValues(z.Name, method, "error").Inc()
 		m.bus.Publish(event.Event{Type: event.TransferFailed, Zone: z.Name, Method: method, Result: "error"})
