@@ -1,5 +1,5 @@
 # Build a static dnssec-auditor binary.
-FROM golang:1.25-bookworm AS builder
+FROM golang:1.27-bookworm AS builder
 WORKDIR /src
 COPY go.mod go.sum ./
 RUN go mod download

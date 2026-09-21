@@ -9,7 +9,7 @@ services:
       - "host.docker.internal:host-gateway"
 
   bind:
-    image: internetsystemsconsortium/bind9:9.20
+    image: internetsystemsconsortium/bind9:9.21
     networks: [devnet]
     ports:
       - "15353:53/udp"
