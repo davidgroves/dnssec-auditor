@@ -292,6 +292,28 @@ func TestZonesListAndRefreshJSON(t *testing.T) {
 	if accepted.Status != "refreshing" || !accepted.Full {
 		t.Fatalf("accepted %#v", accepted)
 	}
+
+	z := mgr.Get("example.com.")
+	if z == nil {
+		t.Fatal("missing zone")
+	}
+	if !z.TryLockRefresh(true) {
+		t.Fatal("lock")
+	}
+	rec = httptest.NewRecorder()
+	req = httptest.NewRequest(http.MethodGet, "/v1/zones/example.com.", nil)
+	h.ServeHTTP(rec, req)
+	if rec.Code != http.StatusOK {
+		t.Fatalf("get status %d body=%s", rec.Code, rec.Body.String())
+	}
+	var view monitor.ZoneView
+	if err := json.Unmarshal(rec.Body.Bytes(), &view); err != nil {
+		t.Fatal(err)
+	}
+	if !view.Refreshing || !view.RefreshFull {
+		t.Fatalf("in-flight full verify flags: %+v", view)
+	}
+	z.UnlockRefresh()
 }
 
 func TestUIConfigSnakeCase(t *testing.T) {

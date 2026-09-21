@@ -119,7 +119,12 @@
         <h2 x-text="selected && selected.name" style="margin:0"></h2>
         <span class="badge" :class="selected && selected.state" x-text="selected && selected.state"></span>
         <button class="btn" @click="refreshZone(selected.name)">Refresh</button>
-        <button class="btn secondary" @click="refreshZone(selected.name, true)">Full re-verify</button>
+        <button
+          class="btn secondary"
+          :disabled="isFullVerifyInProgress(selected)"
+          @click="refreshZone(selected.name, true)"
+          x-text="fullVerifyButtonLabel(selected)"
+        ></button>
         <button class="btn secondary" @click="downloadZone(selected.name)">Dump zone</button>
       </div>
       <div class="cards" x-show="selected">

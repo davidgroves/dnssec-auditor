@@ -19,7 +19,18 @@ export type ZoneContext = AppState & {
   formatLastValid: (value: string | null | undefined) => string;
   formatLastValidTitle: (value: string | null | undefined) => string;
   formatSigning: (value: string | null | undefined) => string;
+  isFullVerifyInProgress: (z: ZoneView | null | undefined) => boolean;
+  fullVerifyButtonLabel: (z: ZoneView | null | undefined) => string;
 };
+
+/** True while the backend is running a full re-verify for this zone. */
+export function isFullVerifyInProgress(z: ZoneView | null | undefined): boolean {
+  return Boolean(z?.refresh_full);
+}
+
+export function fullVerifyButtonLabel(z: ZoneView | null | undefined): string {
+  return isFullVerifyInProgress(z) ? 'full verify in progress' : 'Full re-verify';
+}
 
 /** Format a dashboard card as "13/32". */
 export function formatStateRatio(count: number, total: number): string {
@@ -176,6 +187,8 @@ export function createZoneMethods() {
     formatLastValid,
     formatLastValidTitle,
     formatSigning,
+    isFullVerifyInProgress,
+    fullVerifyButtonLabel,
     sortBy(this: ZoneContext, key: ZoneSortKey) {
       if (this.sortKey === key) {
         this.sortDir = this.sortDir === 'asc' ? 'desc' : 'asc';
@@ -231,11 +244,24 @@ export function createZoneMethods() {
       }
     },
     async refreshZone(this: ZoneContext, name: string, full = false) {
+      if (full && this.selected?.name === name && isFullVerifyInProgress(this.selected)) {
+        return;
+      }
       try {
         await api(`/v1/zones/${encodeURIComponent(name)}/refresh${full ? '?full=true' : ''}`, {
           method: 'POST',
         });
-        this.toast(`Refresh queued for ${name}`, 'success');
+        if (full) {
+          this.toast(`Asked for a full verify of ${name}`, 'success');
+          if (this.selected?.name === name) {
+            this.selected = { ...this.selected, refreshing: true, refresh_full: true };
+          }
+          this.zones = this.zones.map((z) =>
+            z.name === name ? { ...z, refreshing: true, refresh_full: true } : z,
+          );
+        } else {
+          this.toast(`Refresh queued for ${name}`, 'success');
+        }
         setTimeout(() => {
           void this.loadZones();
           if (this.selected?.name === name) {

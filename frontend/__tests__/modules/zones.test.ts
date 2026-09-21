@@ -9,6 +9,8 @@ import {
   formatRelativeTime,
   formatStateRatio,
   formatSigning,
+  fullVerifyButtonLabel,
+  isFullVerifyInProgress,
 } from '../../modules/zones';
 import type { ZoneView } from '../../types';
 
@@ -157,6 +159,96 @@ describe('formatSigning', () => {
     expect(formatSigning('nsec3')).toBe('NSEC3');
     expect(formatSigning('mixed')).toBe('Mixed');
     expect(formatSigning(undefined)).toBe('Unsigned');
+  });
+});
+
+describe('isFullVerifyInProgress', () => {
+  it('is true only while the backend reports an in-flight full verify', () => {
+    expect(isFullVerifyInProgress(undefined)).toBe(false);
+    expect(isFullVerifyInProgress(null)).toBe(false);
+    expect(isFullVerifyInProgress(zone({ name: 'a.example.' }))).toBe(false);
+    expect(isFullVerifyInProgress(zone({ name: 'a.example.', refreshing: true }))).toBe(false);
+    expect(isFullVerifyInProgress(zone({ name: 'a.example.', refresh_full: true }))).toBe(true);
+    expect(fullVerifyButtonLabel(zone({ name: 'a.example.' }))).toBe('Full re-verify');
+    expect(fullVerifyButtonLabel(zone({ name: 'a.example.', refresh_full: true }))).toBe(
+      'full verify in progress',
+    );
+  });
+});
+
+describe('refreshZone', () => {
+  it('toasts when a full verify is requested and marks the zone in progress', async () => {
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      status: 202,
+      json: async () => ({ status: 'refreshing', full: true }),
+    });
+    vi.stubGlobal('fetch', fetchMock);
+    const methods = createZoneMethods();
+    const toast = vi.fn();
+    const selected = zone({ name: 'dnskey-zskonly.example.' });
+    const ctx = {
+      selected,
+      zones: [selected],
+      toast,
+      loadZones: vi.fn(),
+      openZone: vi.fn(),
+    };
+    await methods.refreshZone.call(ctx as never, 'dnskey-zskonly.example.', true);
+    expect(fetchMock).toHaveBeenCalledWith(
+      '/v1/zones/dnskey-zskonly.example./refresh?full=true',
+      expect.objectContaining({ method: 'POST' }),
+    );
+    expect(toast).toHaveBeenCalledWith(
+      'Asked for a full verify of dnskey-zskonly.example.',
+      'success',
+    );
+    expect(ctx.selected.refresh_full).toBe(true);
+    expect(ctx.selected.refreshing).toBe(true);
+    expect(ctx.zones[0].refresh_full).toBe(true);
+    vi.unstubAllGlobals();
+  });
+
+  it('does not request a full verify when one is already in progress', async () => {
+    const fetchMock = vi.fn();
+    vi.stubGlobal('fetch', fetchMock);
+    const methods = createZoneMethods();
+    const toast = vi.fn();
+    const selected = zone({ name: 'dnskey-zskonly.example.', refresh_full: true });
+    const ctx = {
+      selected,
+      zones: [selected],
+      toast,
+      loadZones: vi.fn(),
+      openZone: vi.fn(),
+    };
+    await methods.refreshZone.call(ctx as never, 'dnskey-zskonly.example.', true);
+    expect(fetchMock).not.toHaveBeenCalled();
+    expect(toast).not.toHaveBeenCalled();
+    vi.unstubAllGlobals();
+  });
+
+  it('keeps the queued refresh toast for incremental refresh', async () => {
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      status: 202,
+      json: async () => ({ status: 'refreshing', full: false }),
+    });
+    vi.stubGlobal('fetch', fetchMock);
+    const methods = createZoneMethods();
+    const toast = vi.fn();
+    const selected = zone({ name: 'example.com.' });
+    const ctx = {
+      selected,
+      zones: [selected],
+      toast,
+      loadZones: vi.fn(),
+      openZone: vi.fn(),
+    };
+    await methods.refreshZone.call(ctx as never, 'example.com.');
+    expect(toast).toHaveBeenCalledWith('Refresh queued for example.com.', 'success');
+    expect(ctx.selected.refresh_full).toBeUndefined();
+    vi.unstubAllGlobals();
   });
 });
 

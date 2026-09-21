@@ -49,25 +49,26 @@ type ZoneRuntime struct {
 	Servers []config.Server
 	TSIGKey string
 
-	State           State
-	Store           *zone.Store
-	Findings        *dnssec.Set
-	LastValidAt     time.Time
-	LastVerified    time.Time
+	State            State
+	Store            *zone.Store
+	Findings         *dnssec.Set
+	LastValidAt      time.Time
+	LastVerified     time.Time
 	LastFullVerified time.Time
-	LastTransfer    time.Time
-	NextRefresh     time.Time
-	ExpireAt        time.Time
-	VerifyMode      string
-	LastMethod      string
-	ServersStat     []ServerStatus
-	History         []HistoryEntry
-	Refreshing      bool
-	ChainOK         *bool
-	ZONEMDOK        *bool
-	ZONEMDCheckedAt time.Time
-	ZONEMDStale     bool
-	SkewSince       time.Time
+	LastTransfer     time.Time
+	NextRefresh      time.Time
+	ExpireAt         time.Time
+	VerifyMode       string
+	LastMethod       string
+	ServersStat      []ServerStatus
+	History          []HistoryEntry
+	Refreshing       bool
+	RefreshFull      bool
+	ChainOK          *bool
+	ZONEMDOK         *bool
+	ZONEMDCheckedAt  time.Time
+	ZONEMDStale      bool
+	SkewSince        time.Time
 }
 
 func NewZone(name, source string, servers []config.Server, tsig string) *ZoneRuntime {
@@ -96,6 +97,8 @@ func (z *ZoneRuntime) Snapshot() ZoneView {
 		NextRefresh:  z.NextRefresh,
 		VerifyMode:   z.VerifyMode,
 		LastMethod:   z.LastMethod,
+		Refreshing:   z.Refreshing,
+		RefreshFull:  z.RefreshFull,
 		Servers:      append([]ServerStatus(nil), z.ServersStat...),
 		Findings:     z.Findings.List(),
 		ErrorCount:   z.Findings.CountBySeverity(dnssec.Error),
@@ -145,16 +148,16 @@ func (z *ZoneRuntime) Snapshot() ZoneView {
 }
 
 type ZoneView struct {
-	Name            string           `json:"name"`
-	Source          string           `json:"source"`
-	State           string           `json:"state"`
-	Valid           bool             `json:"valid"`
-	Unsigned        bool             `json:"unsigned"`
-	Serial          uint32           `json:"serial"`
-	Records         int              `json:"records"`
-	RRSIGs          int              `json:"rrsigs"`
-	NSEC3           int              `json:"nsec3"`
-	Signing         string           `json:"signing"`
+	Name             string           `json:"name"`
+	Source           string           `json:"source"`
+	State            string           `json:"state"`
+	Valid            bool             `json:"valid"`
+	Unsigned         bool             `json:"unsigned"`
+	Serial           uint32           `json:"serial"`
+	Records          int              `json:"records"`
+	RRSIGs           int              `json:"rrsigs"`
+	NSEC3            int              `json:"nsec3"`
+	Signing          string           `json:"signing"`
 	LastValidAt      time.Time        `json:"last_valid_at"`
 	LastVerified     time.Time        `json:"last_verified"`
 	LastFullVerified *time.Time       `json:"last_full_verified_at,omitempty"`
@@ -162,16 +165,18 @@ type ZoneView struct {
 	NextRefresh      time.Time        `json:"next_refresh"`
 	VerifyMode       string           `json:"verify_mode"`
 	LastMethod       string           `json:"last_method"`
-	ErrorCount      int              `json:"error_count"`
-	WarningCount    int              `json:"warning_count"`
-	Findings        []dnssec.Finding `json:"findings,omitempty"`
-	Servers         []ServerStatus   `json:"servers,omitempty"`
-	History         []HistoryEntry   `json:"history,omitempty"`
-	SOA             *SOAInfo         `json:"soa,omitempty"`
-	ChainOK         *bool            `json:"chain_of_trust_ok,omitempty"`
-	ZONEMDOK        *bool      `json:"zonemd_ok,omitempty"`
-	ZONEMDCheckedAt *time.Time `json:"zonemd_checked_at,omitempty"`
-	ZONEMDStale     bool       `json:"zonemd_stale"`
+	Refreshing       bool             `json:"refreshing"`
+	RefreshFull      bool             `json:"refresh_full"`
+	ErrorCount       int              `json:"error_count"`
+	WarningCount     int              `json:"warning_count"`
+	Findings         []dnssec.Finding `json:"findings,omitempty"`
+	Servers          []ServerStatus   `json:"servers,omitempty"`
+	History          []HistoryEntry   `json:"history,omitempty"`
+	SOA              *SOAInfo         `json:"soa,omitempty"`
+	ChainOK          *bool            `json:"chain_of_trust_ok,omitempty"`
+	ZONEMDOK         *bool            `json:"zonemd_ok,omitempty"`
+	ZONEMDCheckedAt  *time.Time       `json:"zonemd_checked_at,omitempty"`
+	ZONEMDStale      bool             `json:"zonemd_stale"`
 }
 
 type SOAInfo struct {
@@ -234,19 +239,21 @@ func (z *ZoneRuntime) schedule(cfg config.RefreshConfig, soaRefresh, soaRetry ui
 	z.NextRefresh = time.Now().Add(time.Duration(float64(base) * mult))
 }
 
-func (z *ZoneRuntime) TryLockRefresh() bool {
+func (z *ZoneRuntime) TryLockRefresh(full bool) bool {
 	z.mu.Lock()
 	defer z.mu.Unlock()
 	if z.Refreshing {
 		return false
 	}
 	z.Refreshing = true
+	z.RefreshFull = full
 	return true
 }
 
 func (z *ZoneRuntime) UnlockRefresh() {
 	z.mu.Lock()
 	z.Refreshing = false
+	z.RefreshFull = false
 	z.mu.Unlock()
 }
 

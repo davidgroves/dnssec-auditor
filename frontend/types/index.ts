@@ -54,6 +54,8 @@ export type ZoneView = {
   next_refresh: string;
   verify_mode: string;
   last_method: string;
+  refreshing?: boolean;
+  refresh_full?: boolean;
   error_count: number;
   warning_count: number;
   findings?: Finding[];

@@ -169,12 +169,17 @@ func (m *Manager) RequestRefresh(name string, forceFull bool) error {
 	if z == nil {
 		return fmt.Errorf("unknown zone %s", name)
 	}
+	if forceFull {
+		z.mu.Lock()
+		z.RefreshFull = true
+		z.mu.Unlock()
+	}
 	go m.Refresh(context.Background(), z, forceFull)
 	return nil
 }
 
 func (m *Manager) Refresh(ctx context.Context, z *ZoneRuntime, forceFull bool) {
-	if !z.TryLockRefresh() {
+	if !z.TryLockRefresh(forceFull) {
 		return
 	}
 	defer z.UnlockRefresh()
