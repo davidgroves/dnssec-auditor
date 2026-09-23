@@ -257,6 +257,29 @@ func (z *ZoneRuntime) UnlockRefresh() {
 	z.mu.Unlock()
 }
 
+func isTerminalState(s State) bool {
+	switch s {
+	case StateValid, StateInvalid, StateUnsigned, StateTransferFailed, StateStale:
+		return true
+	default:
+		return false
+	}
+}
+
+// lastTerminalState is the last valid/invalid/unsigned (etc) state.
+// Caller must hold z.mu.
+func (z *ZoneRuntime) lastTerminalState() State {
+	if isTerminalState(z.State) {
+		return z.State
+	}
+	for i := len(z.History) - 1; i >= 0; i-- {
+		if isTerminalState(z.History[i].State) {
+			return z.History[i].State
+		}
+	}
+	return StateUnknown
+}
+
 // Restore persists last_valid_at and findings from a previous process.
 func (z *ZoneRuntime) Restore(lastValid time.Time, findings []dnssec.Finding) {
 	z.mu.Lock()

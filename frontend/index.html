@@ -41,9 +41,27 @@
       </div>
       <h2>Needs attention</h2>
       <table>
-        <thead><tr><th>Zone</th><th>State</th><th>Serial</th><th>Errors</th><th>Warnings</th></tr></thead>
+        <thead>
+          <tr>
+            <th class="sortable" :class="{ sorted: attentionSortKey === 'name' }" @click="attentionSortBy('name')">
+              Zone<span x-text="attentionSortIndicator('name')"></span>
+            </th>
+            <th class="sortable" :class="{ sorted: attentionSortKey === 'state' }" @click="attentionSortBy('state')">
+              State<span x-text="attentionSortIndicator('state')"></span>
+            </th>
+            <th class="sortable" :class="{ sorted: attentionSortKey === 'serial' }" @click="attentionSortBy('serial')">
+              Serial<span x-text="attentionSortIndicator('serial')"></span>
+            </th>
+            <th class="sortable" :class="{ sorted: attentionSortKey === 'errors' }" @click="attentionSortBy('errors')">
+              Errors<span x-text="attentionSortIndicator('errors')"></span>
+            </th>
+            <th class="sortable" :class="{ sorted: attentionSortKey === 'warnings' }" @click="attentionSortBy('warnings')">
+              Warnings<span x-text="attentionSortIndicator('warnings')"></span>
+            </th>
+          </tr>
+        </thead>
         <tbody>
-          <template x-for="z in zones.filter(z => !z.valid)" :key="z.name">
+          <template x-for="z in attentionZones()" :key="z.name">
             <tr>
               <td><a :href="zoneHref(z.name)" @click.prevent="openZone(z.name)" x-text="z.name"></a></td>
               <td><span class="badge" :class="z.state" x-text="z.state"></span></td>

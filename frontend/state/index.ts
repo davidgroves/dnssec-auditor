@@ -13,6 +13,8 @@ export type ZoneSortKey =
   | 'last_full_verified_at'
   | 'next_refresh'
   | 'errors';
+export type AttentionSortKey = 'name' | 'state' | 'serial' | 'errors' | 'warnings';
+export type SortKey = ZoneSortKey | AttentionSortKey;
 export type SortDir = 'asc' | 'desc';
 
 export type AppState = {
@@ -28,6 +30,8 @@ export type AppState = {
   filter: string;
   sortKey: ZoneSortKey;
   sortDir: SortDir;
+  attentionSortKey: AttentionSortKey;
+  attentionSortDir: SortDir;
   counts: Record<string, number>;
   memory: MemoryView;
 };
@@ -46,6 +50,8 @@ export function createInitialState(config: AppConfig): AppState {
     filter: '',
     sortKey: 'name',
     sortDir: 'asc',
+    attentionSortKey: 'name',
+    attentionSortDir: 'asc',
     counts: {},
     memory: emptyMemory(),
   };

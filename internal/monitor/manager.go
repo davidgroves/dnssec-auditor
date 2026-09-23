@@ -142,14 +142,19 @@ func (m *Manager) Run(ctx context.Context) {
 		case <-tick.C:
 			now := time.Now()
 			for _, z := range m.List() {
-				z.mu.RLock()
+				z.mu.Lock()
+				if !z.Refreshing && (z.State == StateTransferring || z.State == StateVerifying) {
+					if term := z.lastTerminalState(); term != z.State {
+						z.State = term
+					}
+				}
 				due := !z.NextRefresh.IsZero() && !now.Before(z.NextRefresh)
 				expired := !z.ExpireAt.IsZero() && now.After(z.ExpireAt) && z.State != StateStale
-				z.mu.RUnlock()
 				if expired {
-					z.mu.Lock()
 					z.setState(StateStale, 0, "", "", "SOA EXPIRE elapsed")
-					z.mu.Unlock()
+				}
+				z.mu.Unlock()
+				if expired {
 					m.bus.Publish(event.Event{Type: event.ZoneStale, Zone: z.Name, State: string(StateStale)})
 				}
 				if due {
@@ -191,7 +196,6 @@ func (m *Manager) Refresh(ctx context.Context, z *ZoneRuntime, forceFull bool) {
 	wide.Source = z.Source
 
 	z.mu.Lock()
-	z.State = StateTransferring
 	servers := append([]config.Server(nil), z.Servers...)
 	tsig := z.TSIGKey
 	oldSerial := uint32(0)
@@ -294,6 +298,9 @@ func (m *Manager) Refresh(ctx context.Context, z *ZoneRuntime, forceFull bool) {
 		}
 		z.mu.Lock()
 		z.LastTransfer = time.Now()
+		if term := z.lastTerminalState(); term != z.State {
+			z.State = term
+		}
 		z.schedule(m.cfg.Refresh, best.Refresh, best.Retry, false)
 		z.mu.Unlock()
 		wide.Result = "unchanged"
@@ -313,6 +320,10 @@ func (m *Manager) Refresh(ctx context.Context, z *ZoneRuntime, forceFull bool) {
 	if axfrTO <= 0 {
 		axfrTO = 10 * time.Minute
 	}
+
+	z.mu.Lock()
+	z.State = StateTransferring
+	z.mu.Unlock()
 
 	var tres *xfr.Result
 	var err error

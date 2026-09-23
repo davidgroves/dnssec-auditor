@@ -9,7 +9,7 @@
     }
   },
   "shutdownAction": "stopCompose",
-  "postCreateCommand": "go version && npm install",
+  "postCreateCommand": "go version && npm install && npx playwright install --with-deps",
   "forwardPorts": [5173, 8080, 5354],
   "portsAttributes": {
     "5173": { "label": "Vite Frontend", "onAutoForward": "silent" },

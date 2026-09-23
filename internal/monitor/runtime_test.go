@@ -58,3 +58,12 @@ func TestTryLockRefreshIncrementalDoesNotMarkFull(t *testing.T) {
 	}
 	z.UnlockRefresh()
 }
+
+func TestLastTerminalStateWalksHistory(t *testing.T) {
+	z := NewZone("h.test.", "config", nil, "")
+	z.setState(StateInvalid, 1, "full", "axfr", "")
+	z.State = StateTransferring
+	if got := z.lastTerminalState(); got != StateInvalid {
+		t.Fatalf("got %s want %s", got, StateInvalid)
+	}
+}

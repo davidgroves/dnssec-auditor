@@ -136,6 +136,13 @@ describe('compareZones', () => {
     expect(compareZones(a, b, 'errors', 'desc')).toBeGreaterThan(0);
   });
 
+  it('sorts warnings independently of errors', () => {
+    const a = zone({ name: 'a.example.', error_count: 9, warning_count: 1 });
+    const b = zone({ name: 'b.example.', error_count: 0, warning_count: 4 });
+    expect(compareZones(a, b, 'warnings', 'asc')).toBeLessThan(0);
+    expect(compareZones(a, b, 'warnings', 'desc')).toBeGreaterThan(0);
+  });
+
   it('treats missing last_valid as oldest', () => {
     const never = zone({ name: 'n.example.', last_valid_at: '1970-01-01T00:00:00Z' });
     const recent = zone({ name: 'r.example.', last_valid_at: '2026-09-18T12:00:00Z' });
@@ -149,6 +156,70 @@ describe('defaultSortDir', () => {
     expect(defaultSortDir('state')).toBe('asc');
     expect(defaultSortDir('serial')).toBe('desc');
     expect(defaultSortDir('errors')).toBe('desc');
+    expect(defaultSortDir('warnings')).toBe('desc');
+  });
+});
+
+describe('attentionZones', () => {
+  it('omits valid zones and sorts alphabetically by default', () => {
+    const methods = createZoneMethods();
+    const ctx = {
+      zones: [
+        zone({ name: 'z.example.', valid: false, state: 'invalid' }),
+        zone({ name: 'ok.example.', valid: true, state: 'valid' }),
+        zone({ name: 'a.example.', valid: false, state: 'stale' }),
+      ],
+      attentionSortKey: 'name' as const,
+      attentionSortDir: 'asc' as const,
+    };
+    expect(methods.attentionZones.call(ctx as never).map((z) => z.name)).toEqual([
+      'a.example.',
+      'z.example.',
+    ]);
+  });
+
+  it('keeps a stable order when the source array is shuffled', () => {
+    const methods = createZoneMethods();
+    const a = zone({ name: 'a.example.', valid: false });
+    const b = zone({ name: 'b.example.', valid: false });
+    const ctx = {
+      zones: [b, a],
+      attentionSortKey: 'name' as const,
+      attentionSortDir: 'asc' as const,
+    };
+    expect(methods.attentionZones.call(ctx as never).map((z) => z.name)).toEqual([
+      'a.example.',
+      'b.example.',
+    ]);
+    ctx.zones = [a, b];
+    expect(methods.attentionZones.call(ctx as never).map((z) => z.name)).toEqual([
+      'a.example.',
+      'b.example.',
+    ]);
+  });
+
+  it('sorts independently of the zones table', () => {
+    const methods = createZoneMethods();
+    const ctx = {
+      zones: [
+        zone({ name: 'a.example.', valid: false, error_count: 1 }),
+        zone({ name: 'b.example.', valid: false, error_count: 5 }),
+      ],
+      sortKey: 'name' as const,
+      sortDir: 'asc' as const,
+      attentionSortKey: 'name' as const,
+      attentionSortDir: 'asc' as const,
+    };
+    methods.attentionSortBy.call(ctx as never, 'errors');
+    expect(ctx.attentionSortKey).toBe('errors');
+    expect(ctx.attentionSortDir).toBe('desc');
+    expect(ctx.sortKey).toBe('name');
+    expect(methods.attentionZones.call(ctx as never).map((z) => z.name)).toEqual([
+      'b.example.',
+      'a.example.',
+    ]);
+    expect(methods.attentionSortIndicator.call(ctx as never, 'errors')).toBe(' ▼');
+    expect(methods.attentionSortIndicator.call(ctx as never, 'name')).toBe('');
   });
 });
 

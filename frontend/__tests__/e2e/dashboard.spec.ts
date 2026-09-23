@@ -17,6 +17,70 @@ test('nav updates the URL', async ({ page }) => {
   await expect(page).toHaveURL(/\/$/);
 });
 
+function attentionZone(name: string, overrides: Record<string, unknown> = {}) {
+  return {
+    name,
+    source: 'config',
+    state: 'invalid',
+    valid: false,
+    unsigned: false,
+    serial: 1,
+    records: 0,
+    rrsigs: 0,
+    nsec3: 0,
+    last_valid_at: '',
+    last_verified: '',
+    last_transfer: '',
+    next_refresh: '',
+    verify_mode: '',
+    last_method: '',
+    error_count: 1,
+    warning_count: 0,
+    zonemd_stale: false,
+    signing: 'nsec3',
+    ...overrides,
+  };
+}
+
+test('needs attention sorts alphabetically and by column', async ({ page }) => {
+  await page.route('**/v1/zones', async (route) => {
+    if (route.request().method() !== 'GET' || route.request().url().includes('/v1/zones/')) {
+      await route.continue();
+      return;
+    }
+    await route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify({
+        zones: [
+          attentionZone('z-late.example.', { serial: 9, error_count: 1, warning_count: 8 }),
+          attentionZone('ok.example.', { state: 'valid', valid: true, error_count: 0 }),
+          attentionZone('a-early.example.', { state: 'stale', serial: 3, error_count: 4, warning_count: 0 }),
+        ],
+      }),
+    });
+  });
+  await page.route('**/v1/catalogs', async (route) => {
+    await route.fulfill({ status: 200, contentType: 'application/json', body: '{"catalogs":[]}' });
+  });
+
+  await page.goto('/');
+  const table = page.locator('section').filter({ has: page.getByRole('heading', { name: 'Needs attention' }) }).locator('table');
+  await expect(table.locator('tbody tr')).toHaveCount(2);
+  await expect(table.locator('tbody tr').nth(0)).toContainText('a-early.example.');
+  await expect(table.locator('tbody tr').nth(1)).toContainText('z-late.example.');
+  await expect(table.getByRole('columnheader', { name: /Zone/ })).toContainText('▲');
+
+  await table.getByRole('columnheader', { name: /Errors/ }).click();
+  await expect(table.locator('tbody tr').nth(0)).toContainText('a-early.example.');
+  await expect(table.locator('tbody tr').nth(1)).toContainText('z-late.example.');
+  await expect(table.getByRole('columnheader', { name: /Errors/ })).toContainText('▼');
+
+  await table.getByRole('columnheader', { name: /Warnings/ }).click();
+  await expect(table.locator('tbody tr').nth(0)).toContainText('z-late.example.');
+  await expect(table.locator('tbody tr').nth(1)).toContainText('a-early.example.');
+});
+
 test('dotted zone paths serve the SPA', async ({ page }) => {
   const res = await page.goto('/zones/dnskey-zskonly.example.');
   expect(res?.status()).toBe(200);

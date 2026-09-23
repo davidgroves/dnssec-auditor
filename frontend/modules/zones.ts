@@ -1,5 +1,5 @@
 import { api } from '../api/client';
-import type { AppState, CatalogView, SortDir, ZoneSortKey } from '../state';
+import type { AppState, AttentionSortKey, CatalogView, SortDir, SortKey, ZoneSortKey } from '../state';
 import type { ZoneView } from '../types';
 
 export type ZoneContext = AppState & {
@@ -11,8 +11,11 @@ export type ZoneContext = AppState & {
   syncUrl?: (replace?: boolean) => void;
   show?: (view: AppState['view'], opts?: { replace?: boolean }) => void;
   filteredZones: () => ZoneView[];
+  attentionZones: () => ZoneView[];
   sortBy: (key: ZoneSortKey) => void;
   sortIndicator: (key: ZoneSortKey) => string;
+  attentionSortBy: (key: AttentionSortKey) => void;
+  attentionSortIndicator: (key: AttentionSortKey) => string;
   stateRatio: (state: string) => string;
   formatLocalTime: (value: string | null | undefined) => string;
   formatRelativeTime: (value: string | null | undefined) => string;
@@ -141,7 +144,7 @@ function timeSortValue(value: string | null | undefined): number {
 }
 
 /** Compare two zones for a column. Returns negative if a < b. */
-export function compareZones(a: ZoneView, b: ZoneView, key: ZoneSortKey, dir: SortDir): number {
+export function compareZones(a: ZoneView, b: ZoneView, key: SortKey, dir: SortDir): number {
   let cmp = 0;
   switch (key) {
     case 'name':
@@ -168,6 +171,9 @@ export function compareZones(a: ZoneView, b: ZoneView, key: ZoneSortKey, dir: So
         cmp = a.warning_count - b.warning_count;
       }
       break;
+    case 'warnings':
+      cmp = a.warning_count - b.warning_count;
+      break;
   }
   if (cmp === 0 && key !== 'name') {
     cmp = a.name.localeCompare(b.name);
@@ -176,8 +182,22 @@ export function compareZones(a: ZoneView, b: ZoneView, key: ZoneSortKey, dir: So
 }
 
 /** First-click direction for a newly selected column. */
-export function defaultSortDir(key: ZoneSortKey): SortDir {
+export function defaultSortDir(key: SortKey): SortDir {
   return key === 'name' || key === 'state' ? 'asc' : 'desc';
+}
+
+function toggleSort<K extends SortKey>(currentKey: K, currentDir: SortDir, key: K): { key: K; dir: SortDir } {
+  if (currentKey === key) {
+    return { key: currentKey, dir: currentDir === 'asc' ? 'desc' : 'asc' };
+  }
+  return { key, dir: defaultSortDir(key) };
+}
+
+function formatSortIndicator(currentKey: SortKey, currentDir: SortDir, key: SortKey): string {
+  if (currentKey !== key) {
+    return '';
+  }
+  return currentDir === 'asc' ? ' ▲' : ' ▼';
 }
 
 export function createZoneMethods() {
@@ -190,18 +210,20 @@ export function createZoneMethods() {
     isFullVerifyInProgress,
     fullVerifyButtonLabel,
     sortBy(this: ZoneContext, key: ZoneSortKey) {
-      if (this.sortKey === key) {
-        this.sortDir = this.sortDir === 'asc' ? 'desc' : 'asc';
-        return;
-      }
-      this.sortKey = key;
-      this.sortDir = defaultSortDir(key);
+      const next = toggleSort(this.sortKey, this.sortDir, key);
+      this.sortKey = next.key;
+      this.sortDir = next.dir;
     },
     sortIndicator(this: ZoneContext, key: ZoneSortKey) {
-      if (this.sortKey !== key) {
-        return '';
-      }
-      return this.sortDir === 'asc' ? ' ▲' : ' ▼';
+      return formatSortIndicator(this.sortKey, this.sortDir, key);
+    },
+    attentionSortBy(this: ZoneContext, key: AttentionSortKey) {
+      const next = toggleSort(this.attentionSortKey, this.attentionSortDir, key);
+      this.attentionSortKey = next.key;
+      this.attentionSortDir = next.dir;
+    },
+    attentionSortIndicator(this: ZoneContext, key: AttentionSortKey) {
+      return formatSortIndicator(this.attentionSortKey, this.attentionSortDir, key);
     },
     async loadZones(this: ZoneContext, retries = 0) {
       this.loading = true;
@@ -304,6 +326,12 @@ export function createZoneMethods() {
         .filter((z) => !q || z.name.includes(q) || z.state.includes(q))
         .slice()
         .sort((a, b) => compareZones(a, b, this.sortKey, this.sortDir));
+    },
+    attentionZones(this: ZoneContext) {
+      return this.zones
+        .filter((z) => !z.valid)
+        .slice()
+        .sort((a, b) => compareZones(a, b, this.attentionSortKey, this.attentionSortDir));
     },
   };
 }
