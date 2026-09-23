@@ -1,6 +1,6 @@
 services:
   dev:
-    image: mcr.microsoft.com/devcontainers/go:1.25-bookworm
+    image: mcr.microsoft.com/devcontainers/go:2.3-bookworm
     volumes:
       - ..:/workspace:cached
     command: sleep infinity
