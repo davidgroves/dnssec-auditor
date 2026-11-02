@@ -1,12 +1,13 @@
 module github.com/davidgroves/dnssec-auditor
 
-go 1.25.0
+go 1.26
 
 require (
 	github.com/danielgtaylor/huma/v2 v2.39.1
 	github.com/miekg/dns v1.1.73
 	github.com/prometheus/client_golang v1.24.1
-	github.com/tidwall/btree v1.8.1
+	github.com/tidwall/btree v1.8.2
+	github.com/tidwall/btree/v2 v2.0.0
 	gopkg.in/yaml.v3 v3.0.1
 )
 
